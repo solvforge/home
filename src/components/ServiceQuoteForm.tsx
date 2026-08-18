@@ -14,10 +14,10 @@ export default function ServiceQuoteForm() {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold tracking-tight text-text">
+      <h2 className="text-center text-2xl font-semibold tracking-tight text-text">
         Get a Free Quotation. No Advance Needed.
       </h2>
-      <p className="mt-3 text-text-muted">
+      <p className="mt-3 text-center text-text-muted">
         Tell us what you need — we&apos;ll send you a detailed plan, timeline, and cost breakdown
       </p>
 
