@@ -774,6 +774,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Website Development",
         summary: "Custom WordPress website builds, from marketing sites to full e-commerce.",
         billing: "project",
+        bodyParagraphs: [
+          "Our Website Development Services are designed to help you build a compelling and effective online presence. Leveraging the power of the WordPress platform, we create custom websites tailored to meet your specific needs, whether it's for a personal blog, an eCommerce store, or a corporate site. Our team of experienced developers ensures that every website is not only visually appealing but also functional and user-friendly.",
+          "Our WordPress Development Services encompass a wide range of solutions, including theme customization, plugin development, and website optimization. We focus on delivering high-quality, responsive designs that work seamlessly across all devices and browsers. Our expertise extends to integrating advanced features and functionalities, ensuring that your site stands out and performs exceptionally.",
+          "In addition to development, we provide ongoing support and maintenance to keep your WordPress site running smoothly. From regular updates and security patches to troubleshooting and performance enhancements, we are committed to delivering reliable and comprehensive WordPress Development Services.",
+        ],
         details: [
           "Custom design tailored to your brand, not a generic template",
           "Responsive across desktop, tablet, and mobile",
@@ -1151,6 +1156,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Magento Site Management",
         summary: "Specialized ongoing management for Magento stores.",
         billing: "recurring",
+        featuresHeading: "The Magento Advantage",
+        features: [
+          { title: "Third Party", description: "Magento API supports countless third-party services, including CRM, ERP, payment modules, etc. It also allows users to connect with other eCommerce platforms, customized payment solutions and add analytical tools to boost site efficiency." },
+          { title: "Load Pages Faster", description: "Magento has speed and allows pages to load faster than its counterparts. Fast loading pages are one reason visitors buy from a page. Get your eCommerce store to load faster with Magento." },
+          { title: "Secure Your Site", description: "Magento provides patches and security updates that allow you to manage and monitor your sites for malware, security risks, and third-party vulnerabilities via free security tools." },
+          { title: "Hosting", description: "No sleepless nights! 99.9% uptime hosting, with top-of-the-line equipment and system admins and developers ready to help you — best customer service, best bang for the buck." },
+          { title: "CMS", description: "Give your customers a unique online experience and boost sales, retention, and conversion on a single platform — with unlimited support and excellent hosting behind your Magento store." },
+          { title: "SEO-Ready", description: "Understanding how SEO works isn't simple for online store owners, and if you intend to succeed online, you need a platform that's SEO-ready and friendly to boost your products and services on major search engines." },
+        ],
         details: [
           "Magento-specific patching and security updates",
           "Performance tuning for catalog-heavy stores — Magento scales to 500,000+ products",
