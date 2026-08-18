@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: REPLACE-ME/solvforge
+  repo: solvforge/home
   branch: main
   # Fill in after deploying the sveltia-cms-auth OAuth worker to Cloudflare Workers.
-  # Same pattern as sherdore.com's home repo — see that repo's docs/cms-setup.md.
+  # See docs/cms-setup.md in this repo for the step-by-step.
   base_url: https://REPLACE-ME.workers.dev
 
 media_folder: "public/images/uploads"
