@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllCategories, getService } from "@/lib/services";
 import FaqAccordion from "@/components/FaqAccordion";
-import ContactForm from "@/app/contact/ContactForm";
+import ServiceQuoteForm from "@/components/ServiceQuoteForm";
 
 export function generateStaticParams() {
   return getAllCategories().flatMap((category) =>
@@ -280,12 +280,7 @@ export default async function ServicePage({
             )}
 
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight text-text">Let&apos;s Work Together</h2>
-              <p className="mt-3 text-text-muted">
-                Tell us about your project and we&apos;ll get back to you within a couple of
-                business days.
-              </p>
-              <ContactForm />
+              <ServiceQuoteForm />
             </div>
           </div>
         </div>
