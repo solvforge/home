@@ -29,7 +29,18 @@ export async function sendQuoteRequest(
   const hearAbout = String(formData.get("hearAbout") ?? "").trim();
   const message = String(formData.get("message") ?? "").trim();
 
-  if (!firstName || !lastName || !email || !phone || !message) {
+  if (
+    !firstName ||
+    !lastName ||
+    !email ||
+    !phone ||
+    !platform ||
+    !businessType ||
+    !serviceInterest ||
+    !budget ||
+    !timeframe ||
+    !message
+  ) {
     return { status: "error", message: "Please fill in all the required fields." };
   }
 

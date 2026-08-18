@@ -42,97 +42,101 @@ export default function ServiceQuoteForm() {
           </div>
         </div>
 
-        <div>
-          <label htmlFor="email" className={labelClass}>
-            Email
-          </label>
-          <input id="email" name="email" type="email" required className={inputClass} />
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="email" className={labelClass}>
+              Email
+            </label>
+            <input id="email" name="email" type="email" required className={inputClass} />
+          </div>
+          <div>
+            <label htmlFor="phone" className={labelClass}>
+              Phone
+            </label>
+            <input id="phone" name="phone" type="tel" required className={inputClass} />
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="phone" className={labelClass}>
-            Phone
-          </label>
-          <input id="phone" name="phone" type="tel" required className={inputClass} />
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="platform" className={labelClass}>
+              Preferred Platform
+            </label>
+            <select id="platform" name="platform" required className={inputClass}>
+              <option value="">Select "Others" if you are not sure</option>
+              <option>Shopify</option>
+              <option>WooCommerce</option>
+              <option>Magento</option>
+              <option>Others</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="businessType" className={labelClass}>
+              Business Type
+            </label>
+            <select id="businessType" name="businessType" required className={inputClass}>
+              <option value="">Select "Others" if you are not sure</option>
+              <option>Fashion</option>
+              <option>Electronics</option>
+              <option>Services</option>
+              <option>Others</option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="platform" className={labelClass}>
-            Preferred Platform
-          </label>
-          <select id="platform" name="platform" className={inputClass}>
-            <option value="">Select "Others" if you are not sure</option>
-            <option>Shopify</option>
-            <option>WooCommerce</option>
-            <option>Magento</option>
-            <option>Others</option>
-          </select>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="serviceInterest" className={labelClass}>
+              Service Interests
+            </label>
+            <select id="serviceInterest" name="serviceInterest" required className={inputClass}>
+              <option value="">Select "Others" if you are not sure</option>
+              <option>Marketing / SEO / Social Media</option>
+              <option>Development / Mobile App / Website Development</option>
+              <option>Tune Up &amp; Speed Optimization</option>
+              <option>Website/Server Management</option>
+              <option>Call Center Solution</option>
+              <option>Others</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="budget" className={labelClass}>
+              Budget Range
+            </label>
+            <input id="budget" name="budget" type="text" required className={inputClass} />
+            <p className="mt-1 text-xs text-text-muted">
+              Give us an idea so we will have better understanding of the work involved
+            </p>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="businessType" className={labelClass}>
-            Business Type
-          </label>
-          <select id="businessType" name="businessType" className={inputClass}>
-            <option value="">Select "Others" if you are not sure</option>
-            <option>Fashion</option>
-            <option>Electronics</option>
-            <option>Services</option>
-            <option>Others</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="serviceInterest" className={labelClass}>
-            Service Interests
-          </label>
-          <select id="serviceInterest" name="serviceInterest" className={inputClass}>
-            <option value="">Select "Others" if you are not sure</option>
-            <option>Marketing / SEO / Social Media</option>
-            <option>Development / Mobile App / Website Development</option>
-            <option>Tune Up &amp; Speed Optimization</option>
-            <option>Website/Server Management</option>
-            <option>Call Center Solution</option>
-            <option>Others</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="budget" className={labelClass}>
-            Budget Range
-          </label>
-          <input id="budget" name="budget" type="text" className={inputClass} />
-          <p className="mt-1 text-xs text-text-muted">
-            Give us an idea so we will have better understanding of the work involved
-          </p>
-        </div>
-
-        <div>
-          <label htmlFor="timeframe" className={labelClass}>
-            Timeframe to Start
-          </label>
-          <select id="timeframe" name="timeframe" className={inputClass}>
-            <option value="">Select an option</option>
-            <option>ASAP</option>
-            <option>1-2 Weeks</option>
-            <option>1 Month</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="region" className={labelClass}>
-            Target Market or Region
-          </label>
-          <select id="region" name="region" className={inputClass}>
-            <option value="">Select "Others" if you are not sure</option>
-            <option>North America</option>
-            <option>Europe</option>
-            <option>Middle East</option>
-            <option>South East Asia</option>
-            <option>Africa</option>
-            <option>South America</option>
-            <option>Others</option>
-          </select>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="timeframe" className={labelClass}>
+              Timeframe to Start
+            </label>
+            <select id="timeframe" name="timeframe" required className={inputClass}>
+              <option value="">Select an option</option>
+              <option>ASAP</option>
+              <option>1-2 Weeks</option>
+              <option>1 Month</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="region" className={labelClass}>
+              Target Market or Region
+            </label>
+            <select id="region" name="region" className={inputClass}>
+              <option value="">Select "Others" if you are not sure</option>
+              <option>North America</option>
+              <option>Europe</option>
+              <option>Middle East</option>
+              <option>South East Asia</option>
+              <option>Africa</option>
+              <option>South America</option>
+              <option>Others</option>
+            </select>
+          </div>
         </div>
 
         <div>
