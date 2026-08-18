@@ -41,21 +41,30 @@ export type Feature = {
   description: string;
 };
 
+export type CustomHero = {
+  headline: string;
+  body: string;
+  ctaLabel: string;
+  image?: { src: string; alt: string };
+};
+
 export type ServiceItem = {
   slug: string;
   name: string;
   summary: string;
   billing: "recurring" | "project";
   intro?: string;
+  bodyParagraphs?: string[];
   details: string[];
   features?: Feature[];
+  featuresHeading?: string;
   pricing?: PricingTier[];
   testimonial?: Testimonial;
   faq?: FaqItem[];
   howItWorks?: HowItWorksStep[];
   stats?: StatCallout[];
   comparison?: Comparison;
-  heroImage?: { src: string; alt: string };
+  customHero?: CustomHero;
   platformLogos?: string;
 };
 
@@ -314,6 +323,18 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Server Hardening",
         summary: "Lock down server configuration against common attack vectors.",
         billing: "project",
+        customHero: {
+          headline: "Keep your entire infrastructure secure",
+          body: "Webserver is an internet facing device; therefore, it is important to manage its security before it becomes an entry point for attackers if not configured properly. I understand that attack on the Webserver can cause a huge damage to your business by allowing modification of user information available in the host machine of the web server, data theft and loss of other important information's.\n\nWith the help of server hardening, I keep your entire IT infrastructure up-to-date and secure for Linux based servers. You'll save time and reduce complexity by having a single solution for all your security needs.",
+          ctaLabel: "Contact Me",
+          image: { src: "/hero-server-hardening.jpg", alt: "A sticker reading 'Your ports were open... so I invited myself in'" },
+        },
+        platformLogos: "/platform-supported.webp",
+        bodyParagraphs: [
+          "Our server hardening service is designed to minimize vulnerabilities by securing system configurations, disabling unnecessary services, and implementing strict SSH and TLS policies. We reduce the attack surface by eliminating default ports, enforcing PoLP, and enabling IDS where applicable.",
+          "By integrating essential hardening protocols and applying CIS benchmark standards, we ensure your server environment is resilient against unauthorized access, malware injection, and privilege escalation threats.",
+          "Whether you're running Linux, Windows, or cloud-based infrastructure, our tailored hardening process brings your servers to a secure, compliant, production-ready state.",
+        ],
         details: [
           "Secures system configurations and disables unnecessary services",
           "Strict SSH and TLS policies, default ports eliminated",
@@ -321,13 +342,17 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "CIS benchmark standards applied across Linux, Windows, and cloud infrastructure",
           "Ongoing hardening available as a ongoing security plan, not just a one-time pass",
         ],
-        heroImage: { src: "/hero-server-hardening.jpg", alt: "A sticker reading 'Your ports were open... so I invited myself in'" },
-        platformLogos: "/platform-supported.webp",
+        featuresHeading: "Why Choose SolvForge for Malware Removal?",
         features: [
-          { title: "Best Linux Server Hardening", description: "We minimize vulnerabilities by securing system configurations, disabling unnecessary services, and implementing strict SSH and TLS policies." },
-          { title: "Reduced Attack Surface", description: "We eliminate default ports, enforce the Principle of Least Privilege, and enable intrusion detection where applicable." },
-          { title: "CIS Benchmark Standards", description: "We apply essential hardening protocols and CIS benchmark standards so your environment resists unauthorized access, malware injection, and privilege escalation." },
-          { title: "Cross-Platform Coverage", description: "Whether you're running Linux, Windows, or cloud-based infrastructure, our tailored hardening process brings your servers to a secure, compliant, production-ready state." },
+          { title: "Emergency Response & Fast Cleanup", description: "We act quickly to remove malware, restore access, and secure your website — often within hours." },
+          { title: "Comprehensive Malware Scanning", description: "Deep scans detect hidden backdoors, injected scripts, and suspicious files missed by basic tools." },
+          { title: "Manual & Automated Removal", description: "We combine automated tools with expert manual inspection to eliminate threats without breaking your site." },
+          { title: "Blacklist & SEO Fix Assistance", description: "Help with Google blacklist removal, search engine reindexing, and restoring SEO trust." },
+          { title: "Server-Side Security Audit", description: "We don't just clean — we investigate how the infection happened and secure your hosting environment." },
+          { title: "Protection Against Reinfection", description: "Includes firewall setup, plugin/theme hardening, and admin/user security upgrades." },
+          { title: "Zero Downtime Approach", description: "We work on staging environments when needed, keeping your live site online and stable." },
+          { title: "Post-Cleanup Report & Recommendations", description: "Receive a full summary of the threat, what was done, and what to avoid going forward." },
+          { title: "One-Time Fix or Ongoing Security Plans", description: "Choose a single cleanup or opt into a maintenance plan for long-term peace of mind." },
         ],
         faq: [
           {

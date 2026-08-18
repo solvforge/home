@@ -38,34 +38,60 @@ export default async function ServicePage({
 
   return (
     <>
-      <section className="bg-ink text-white">
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          <Link
-            href={`/services/${category.slug}`}
-            className="text-sm font-medium text-accent hover:underline"
-          >
-            ← {category.name}
-          </Link>
-          <span className="mt-4 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
-            {service.billing === "recurring" ? "Recurring" : "Project-based"}
-          </span>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight">{service.name}</h1>
-          <p className="mt-4 max-w-xl text-white/70">{service.summary}</p>
-        </div>
-      </section>
-
-      {service.heroImage && (
-        <div className="mx-auto max-w-3xl px-6 pt-10">
-          <div className="overflow-hidden rounded-2xl">
-            <Image
-              src={service.heroImage.src}
-              alt={service.heroImage.alt}
-              width={1024}
-              height={683}
-              className="h-auto w-full object-cover"
-            />
+      {service.customHero ? (
+        <section className="bg-paper">
+          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-2 lg:items-center">
+            {service.customHero.image && (
+              <div className="overflow-hidden rounded-2xl">
+                <Image
+                  src={service.customHero.image.src}
+                  alt={service.customHero.image.alt}
+                  width={1024}
+                  height={683}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            )}
+            <div>
+              <Link
+                href={`/services/${category.slug}`}
+                className="text-sm font-medium text-accent hover:underline"
+              >
+                ← {category.name}
+              </Link>
+              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-text">
+                {service.customHero.headline}
+              </h1>
+              {service.customHero.body.split("\n\n").map((para) => (
+                <p key={para} className="mt-4 text-text-muted">
+                  {para}
+                </p>
+              ))}
+              <Link
+                href="/contact"
+                className="mt-6 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+              >
+                {service.customHero.ctaLabel}
+              </Link>
+            </div>
           </div>
-        </div>
+        </section>
+      ) : (
+        <section className="bg-ink text-white">
+          <div className="mx-auto max-w-3xl px-6 py-20">
+            <Link
+              href={`/services/${category.slug}`}
+              className="text-sm font-medium text-accent hover:underline"
+            >
+              ← {category.name}
+            </Link>
+            <span className="mt-4 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
+              {service.billing === "recurring" ? "Recurring" : "Project-based"}
+            </span>
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight">{service.name}</h1>
+            <p className="mt-4 max-w-xl text-white/70">{service.summary}</p>
+          </div>
+        </section>
       )}
 
       {service.platformLogos && (
@@ -81,6 +107,16 @@ export default async function ServicePage({
       )}
 
       <section className="mx-auto max-w-3xl px-6 py-20">
+        {service.bodyParagraphs && (
+          <div className="text-center">
+            {service.bodyParagraphs.map((para) => (
+              <p key={para} className="mt-4 text-text-muted first:mt-0">
+                {para}
+              </p>
+            ))}
+          </div>
+        )}
+
         {service.intro && (
           <p className="rounded-xl bg-paper-2 p-5 text-text-muted">{service.intro}</p>
         )}
@@ -200,7 +236,7 @@ export default async function ServicePage({
             {service.features && (
               <div>
                 <h2 className="text-2xl font-semibold tracking-tight text-text">
-                  Why Choose solvforge for {service.name}?
+                  {service.featuresHeading ?? `Why Choose solvforge for ${service.name}?`}
                 </h2>
                 <div className="mt-8 grid gap-6 sm:grid-cols-2">
                   {service.features.map((feature) => (
