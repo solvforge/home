@@ -106,6 +106,26 @@ export default async function ServicePage({
         </div>
       )}
 
+      {service.logoRow && (
+        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-8 px-6 pt-10">
+          {service.logoRow.map((src) => (
+            <Image key={src} src={src} alt="" width={110} height={110} className="h-16 w-16 object-contain" />
+          ))}
+        </div>
+      )}
+
+      {service.supplementaryImage && (
+        <div className="mx-auto max-w-md px-6 pt-10">
+          <Image
+            src={service.supplementaryImage.src}
+            alt={service.supplementaryImage.alt}
+            width={800}
+            height={800}
+            className="mx-auto h-auto w-full rounded-2xl"
+          />
+        </div>
+      )}
+
       <section className="mx-auto max-w-3xl px-6 py-20">
         {service.bodyParagraphs && (
           <div className="text-center">
@@ -132,11 +152,30 @@ export default async function ServicePage({
           </div>
         )}
 
-        {!service.features && (
+        {!service.features && service.details.length > 0 && (
           <>
             <h2 className="mt-10 text-lg font-semibold text-text">What's included</h2>
             <ul className="mt-4 space-y-3">
               {service.details.map((detail) => (
+                <li key={detail} className="flex gap-3 text-text-muted">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {service.secondaryDetails && (
+          <>
+            {service.secondaryHeading && (
+              <h2 className="mt-14 text-lg font-semibold text-text">{service.secondaryHeading}</h2>
+            )}
+            {service.secondaryIntro && (
+              <p className="mt-4 text-text-muted">{service.secondaryIntro}</p>
+            )}
+            <ul className="mt-4 space-y-3">
+              {service.secondaryDetails.map((detail) => (
                 <li key={detail} className="flex gap-3 text-text-muted">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                   {detail}
@@ -230,8 +269,8 @@ export default async function ServicePage({
                   {service.featuresHeading ?? `Why Choose solvforge for ${service.name}?`}
                 </h2>
                 <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                  {service.features.map((feature) => (
-                    <div key={feature.title}>
+                  {service.features.map((feature, i) => (
+                    <div key={`${feature.title}-${i}`}>
                       <p className="font-semibold text-text">{feature.title}</p>
                       <p className="mt-2 text-sm text-text-muted">{feature.description}</p>
                     </div>

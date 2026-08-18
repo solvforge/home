@@ -58,6 +58,9 @@ export type ServiceItem = {
   details: string[];
   features?: Feature[];
   featuresHeading?: string;
+  secondaryHeading?: string;
+  secondaryIntro?: string;
+  secondaryDetails?: string[];
   pricing?: PricingTier[];
   testimonial?: Testimonial;
   faq?: FaqItem[];
@@ -66,6 +69,8 @@ export type ServiceItem = {
   comparison?: Comparison;
   customHero?: CustomHero;
   platformLogos?: string;
+  logoRow?: string[];
+  supplementaryImage?: { src: string; alt: string };
 };
 
 export type ServiceCategory = {
@@ -190,6 +195,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Link Building",
         summary: "Earn the backlinks that move search rankings.",
         billing: "recurring",
+        supplementaryImage: { src: "/hero-link-building.jpg", alt: "A typewriter with the word 'Backlinks' typed on paper" },
         intro: "Over 400 orders delivered, trusted by 250+ customers.",
         details: [
           "Backlinks from Web 2.0 properties, bookmarking sites, wikis, and social signals",
@@ -382,6 +388,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Malware Removal",
         summary: "Clean an infected site or server and close the hole that let it in.",
         billing: "project",
+        supplementaryImage: { src: "/hero-malware-removal.png", alt: "A word cloud of cybersecurity terms" },
         intro: "$149 flat rate, complete removal within 24 hours, one-year warranty.",
         details: [
           "Deep scans for hidden backdoors, injected scripts, and suspicious files",
@@ -572,35 +579,68 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Call Center Setup",
         summary: "Stand up a call center from scratch.",
         billing: "project",
-        details: [
-          "Click-to-call, call recording, voicemail, queue management (6 queuing methods)",
-          "Progressive and advanced auto-dialers with configurable dialing ratios",
-          "Multi-level IVR (up to 3 levels), automatic call distribution, custom SMS API",
-          "Lead management dashboard with automatic distribution and contact history",
-          "Live call monitoring, activity dashboards, account-based analytics",
-          "Can be combined with a hosted cloud contact center for remote-agent flexibility",
-          "Need a server too? We can point you to our partner site, managedservers.us",
+        bodyParagraphs: [
+          "If you are looking for a reasonably priced and Stable Call Center Setup and an experienced professionals to work for you, than Me is the right place for you.",
+        ],
+        featuresHeading: "Advanced Inbound & Outbound Contact Center features that makes every communication better",
+        features: [
+          { title: "Calling Module Includes", description: "Click-to-Call, Call Recording, Voicemail, Queue Manager, 6 Call Queuing Methods." },
+          { title: "AutoDialers comes with", description: "Progressive Dialers, Advance Dialer (with configured dialing ratio)." },
+          { title: "Intelligent IVR Solution comes with", description: "Automatic Call Distributor, Multi-Lingual Support, Multi-level (Up to 3), Custom SMS API." },
+          { title: "Easy Lead Management Dashboard", description: "Automatic Lead Distribution, Contact History, Call Disposition, Preview Dialer (via Tentacle)." },
+          { title: "Retrieve Insight Analytics", description: "Activity Dashboards, Customer Insights, Live Call Monitoring, Account Based Analytics." },
+          { title: "Calling Module Includes", description: "In-Call Transfer, Warm/Cold Call Transfer, Barge, Whisper, Snooping, Call Transfer for Feedback." },
+        ],
+        details: [],
+        secondaryHeading: "What's NEW in Cloud Contact Center Setup",
+        secondaryIntro:
+          "Our solutions can be merged with our Cloud Contact Center for better functioning and call connectivity ratio — automate business communication by merging a Softphone Solution with the Cloud Contact Center to turn your laptop into a phone and place calls via the internet, even in low network coverage areas.",
+        secondaryDetails: [
+          "No dependency on traditional telephones or mobile handsets",
+          "No network dependence — ensures fail-safe connectivity at all times",
+          "Remote Working and Collaboration are facilitated since there's no dependence on traditional telephone systems/infrastructure",
+          "Maintain HD voice quality over the Internet & incur lower cost than conventional call operations on Mobiles/Landlines",
         ],
         faq: [
           {
-            question: "What is a Call Center Setup service?",
-            answer: "A professional service that helps businesses establish and optimize their call center operations — infrastructure design, technology selection, software/hardware implementation, agent recruiting/training, and process setup.",
+            question: "What is a Call Center Setup Service?",
+            answer: "A call center setup service refers to a professional service that assists businesses in establishing and optimizing their call center operations. It includes designing the infrastructure, selecting the right technology, implementing necessary software and hardware, recruiting and training agents, and establishing effective processes and workflows.",
           },
           {
-            question: "How many campaigns can I run on the server?",
-            answer: "No limitations — you can run as many campaigns as you want.",
+            question: "Why Should I Consider Using a Call Center Setup Service?",
+            answer: "It ensures your call center is properly designed and equipped to handle customer inquiries efficiently, resulting in enhanced customer satisfaction. It also saves you time and effort by outsourcing the complex setup process to experts, letting you focus on your core business.",
           },
           {
-            question: "What kinds of campaigns are supported?",
-            answer: "Inbound, outbound, and blended campaigns via Vicidial.",
+            question: "Is it Easy to Use for Manager and Agents?",
+            answer: "Agents will need a training and then they will be good to go.",
           },
           {
-            question: "Can I create new users, campaigns, and DIDs myself?",
-            answer: "Yes — we typically build templates for everything you'll need regularly, so you can copy one in about 10 seconds.",
+            question: "How Many Campaigns I Can Have on the Server?",
+            answer: "No limitations on Campaigns, You can have as many as you want.",
           },
           {
-            question: "Do you provide ongoing support after setup?",
-            answer: "Yes — many setups include ongoing support and maintenance, technical troubleshooting, and regular upkeep to keep operations running smoothly.",
+            question: "What Kinds of Campaigns are Supported?",
+            answer: "Vicidial supports inbound, outbound and blended campaigns.",
+          },
+          {
+            question: "Can I make New Users, Campaigns, DIDs myself?",
+            answer: "Yes! I usually create templates for everything that you will need on a regular basis, that way you can simply copy it within 10 seconds.",
+          },
+          {
+            question: "Can I Download Call Recordings?",
+            answer: "Absolutely, you can access call recordings from the reports area and you can download it as well.",
+          },
+          {
+            question: "How much does a call center setup service typically cost?",
+            answer: "It varies depending on the size of your call center, the complexity of your requirements, the technology and infrastructure involved, and the level of support needed. It's best to request a quote to get an accurate estimate tailored to your requirements.",
+          },
+          {
+            question: "Do call center setup service providers offer ongoing support and maintenance?",
+            answer: "Yes, many providers (including us) offer ongoing technical support, troubleshooting assistance, and regular maintenance so your operations keep running smoothly.",
+          },
+          {
+            question: "Can you provide server also?",
+            answer: "I can recommend some server providers, or you can buy one from your preferred provider, or get one from my partner site, managedservers.us. (Disclaimer: I get a commission from Managed Servers for any sales I refer to them.)",
           },
         ],
       },
@@ -637,6 +677,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Custom Asterisk Development",
         summary: "Custom dialplan, IVR, and integration work on the Asterisk platform.",
         billing: "project",
+        supplementaryImage: { src: "/asterisk-features.webp", alt: "Asterisk Development Features diagram" },
         details: [
           "Installation and configuration tailored to your setup",
           "Custom IVR systems, call routing, and telephony applications",
@@ -779,6 +820,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Our WordPress Development Services encompass a wide range of solutions, including theme customization, plugin development, and website optimization. We focus on delivering high-quality, responsive designs that work seamlessly across all devices and browsers. Our expertise extends to integrating advanced features and functionalities, ensuring that your site stands out and performs exceptionally.",
           "In addition to development, we provide ongoing support and maintenance to keep your WordPress site running smoothly. From regular updates and security patches to troubleshooting and performance enhancements, we are committed to delivering reliable and comprehensive WordPress Development Services.",
         ],
+        features: [
+          { title: "Custom Design & Development", description: "Tailor-made WordPress websites designed to align perfectly with your brand and business goals." },
+          { title: "Responsive & Mobile-Friendly", description: "Your website looks great and functions seamlessly across all devices, from desktops to smartphones." },
+          { title: "SEO Optimization", description: "Enhance your site's visibility on search engines with built-in SEO features and best practices." },
+          { title: "Secure & Reliable", description: "Get peace of mind with top-notch security measures and regular updates to keep your site safe." },
+          { title: "E-Commerce Integration", description: "Easily set up and manage an online store with powerful e-commerce tools like WooCommerce." },
+          { title: "Ongoing Support & Maintenance", description: "Benefit from continuous support, regular updates, and prompt troubleshooting to keep your site running smoothly." },
+        ],
         details: [
           "Custom design tailored to your brand, not a generic template",
           "Responsive across desktop, tablet, and mobile",
@@ -914,6 +963,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Landing Page Design",
         summary: "A single-purpose page built to convert visitors into leads or customers.",
         billing: "project",
+        features: [
+          { title: "Customized Design", description: "We create bespoke landing pages that resonate with your target audience, incorporating your brand's unique elements and aesthetics." },
+          { title: "Optimized for Conversion", description: "Our designs are meticulously crafted to enhance user experience, guiding visitors seamlessly towards your desired action." },
+          { title: "Mobile-Responsive", description: "Our landing pages are fully responsive, providing an optimal viewing experience across all devices." },
+          { title: "SEO-Friendly", description: "Our Landing Page Design Services integrate SEO best practices, ensuring your page ranks well on search engines." },
+          { title: "Fast Loading Speed", description: "Our designs are optimized for speed, providing a smooth and efficient user experience." },
+          { title: "A/B Testing", description: "We offer A/B testing options to refine and perfect your landing page, ensuring it delivers the best possible results." },
+        ],
         details: [
           "Custom design built around your brand and one clear call to action",
           "Mobile-responsive and SEO-friendly from the start",
@@ -976,6 +1033,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Website Maintenance",
         summary: "Keep an existing site updated, backed up, and running.",
         billing: "recurring",
+        supplementaryImage: { src: "/badge-moneyback-guarantee.webp", alt: "30 days money back guarantee badge" },
         intro: "Plans scale with your site's size and update frequency — get in touch for a quote. 30-day money-back guarantee on every plan. Prefer a single fix instead? One-time support starts at $49.",
         details: [
           "WordPress core, plugin, and theme updates",
@@ -1069,6 +1127,44 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             ],
           },
         ],
+        logoRow: [
+          "/panel-cpanel.png",
+          "/panel-plesk.png",
+          "/panel-directadmin.png",
+          "/panel-solusvm.png",
+          "/panel-virtualizor.png",
+          "/panel-hyperv.png",
+        ],
+        faq: [
+          {
+            question: "What do you need to get started?",
+            answer: "I will need admin access to your website, ideally with my own login — though I'm happy to use any admin login you provide. I may also need access to your hosting provider and domain name provider.",
+          },
+          {
+            question: "What do the edits include?",
+            answer: "Edits to content on any page, changing banners/headers/footers, plugin settings, CSS adjustments, blog content, adding new landing pages, changing images or text, and adding coupon codes.",
+          },
+          {
+            question: "What is NOT included in the edits?",
+            answer: "Custom development (PHP, plugins, themes, etc.), updating custom code, graphic design, PSD to WordPress, creation of new content, or building out a new website or subdomain.",
+          },
+          {
+            question: "Do you provide ad-hoc support?",
+            answer: "Absolutely — reach out and we can discuss your requirements.",
+          },
+          {
+            question: "What platforms do you support?",
+            answer: "Primarily WordPress websites. If your site is built with Wix, Squarespace, or another non-WordPress platform, we're able to assist as well.",
+          },
+          {
+            question: "What is your refund policy?",
+            answer: "If you're not happy with the service, you can ask for a refund within 30 days from the date of purchase.",
+          },
+          {
+            question: "Can you develop new websites also?",
+            answer: "We don't build new sites ourselves, but we have a referral partner who does website and mobile application development work — contact us and we'll connect you.",
+          },
+        ],
       },
       {
         slug: "ecommerce-store-management",
@@ -1156,6 +1252,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Magento Site Management",
         summary: "Specialized ongoing management for Magento stores.",
         billing: "recurring",
+        supplementaryImage: { src: "/hero-magento.jpg", alt: "Magento logo icon" },
         featuresHeading: "The Magento Advantage",
         features: [
           { title: "Third Party", description: "Magento API supports countless third-party services, including CRM, ERP, payment modules, etc. It also allows users to connect with other eCommerce platforms, customized payment solutions and add analytical tools to boost site efficiency." },
