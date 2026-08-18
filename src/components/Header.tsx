@@ -5,6 +5,7 @@ const NAV_LINKS = [
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
+  { href: "https://blog.solvforge.com", label: "Blog" },
 ];
 
 export default function Header() {

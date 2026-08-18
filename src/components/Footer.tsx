@@ -13,6 +13,7 @@ export default function Footer() {
           <Link href="/services" className="hover:text-white">Services</Link>
           <Link href="/work" className="hover:text-white">Work</Link>
           <Link href="/about" className="hover:text-white">About</Link>
+          <Link href="https://blog.solvforge.com" className="hover:text-white">Blog</Link>
           <Link href="/contact" className="hover:text-white">Contact</Link>
         </nav>
       </div>
