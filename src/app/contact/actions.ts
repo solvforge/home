@@ -27,9 +27,9 @@ export async function sendContactMessage(
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_FROM_EMAIL, CONTACT_TO_EMAIL } =
     process.env;
 
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !CONTACT_TO_EMAIL) {
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !CONTACT_FROM_EMAIL || !CONTACT_TO_EMAIL) {
     console.error(
-      "Contact form submitted but SMTP_HOST/SMTP_USER/SMTP_PASS/CONTACT_TO_EMAIL are not configured."
+      "Contact form submitted but SMTP_HOST/SMTP_USER/SMTP_PASS/CONTACT_FROM_EMAIL/CONTACT_TO_EMAIL are not configured."
     );
     return {
       status: "error",
@@ -46,7 +46,7 @@ export async function sendContactMessage(
 
   try {
     await transport.sendMail({
-      from: CONTACT_FROM_EMAIL ?? SMTP_USER,
+      from: CONTACT_FROM_EMAIL,
       to: CONTACT_TO_EMAIL,
       replyTo: email,
       subject: `New project inquiry from ${name}`,
