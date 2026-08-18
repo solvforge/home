@@ -9,6 +9,33 @@ export type Testimonial = {
   author: string;
 };
 
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type HowItWorksStep = {
+  title: string;
+  description: string;
+};
+
+export type StatCallout = {
+  value: string;
+  label: string;
+};
+
+export type ComparisonRow = {
+  label: string;
+  a: string;
+  b: string;
+};
+
+export type Comparison = {
+  columnA: string;
+  columnB: string;
+  rows: ComparisonRow[];
+};
+
 export type ServiceItem = {
   slug: string;
   name: string;
@@ -18,6 +45,10 @@ export type ServiceItem = {
   details: string[];
   pricing?: PricingTier[];
   testimonial?: Testimonial;
+  faq?: FaqItem[];
+  howItWorks?: HowItWorksStep[];
+  stats?: StatCallout[];
+  comparison?: Comparison;
 };
 
 export type ServiceCategory = {
@@ -50,6 +81,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Technical SEO audits and fixes — crawl issues, schema markup, and more",
           "No lock-in contracts — scale up or down anytime",
         ],
+        faq: [
+          {
+            question: "What is included in your SEO services?",
+            answer: "Keyword research and analysis, on-page and off-page optimization, technical SEO audits, content creation and optimization, and link-building strategies.",
+          },
+          {
+            question: "How long does it take to see results from SEO?",
+            answer: "SEO is a long-term strategy. Depending on the competition and your website's current state, you can expect noticeable improvements in 3 to 6 months.",
+          },
+          {
+            question: "What's the difference between on-page and off-page SEO?",
+            answer: "On-page SEO focuses on optimizing website content, meta tags, and structure. Off-page SEO involves building backlinks and improving the site's authority outside its domain.",
+          },
+          {
+            question: "Is SEO better than paid ads?",
+            answer: "SEO provides sustainable, long-term results by improving organic traffic, while paid ads offer immediate visibility but require ongoing investment. Ideally, a combination of both works best.",
+          },
+          {
+            question: "Do you provide SEO reports?",
+            answer: "Yes — detailed monthly reports covering keyword rankings, traffic analytics, and performance metrics.",
+          },
+        ],
       },
       {
         slug: "local-seo",
@@ -63,6 +116,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Localized content creation tailored to your community and services",
           "Review and reputation management to build trust and improve rankings",
           "Monthly local SEO performance reporting",
+        ],
+        faq: [
+          {
+            question: "What is Local SEO, and how does it benefit my business?",
+            answer: "Local SEO focuses on optimizing your online presence to attract more business from relevant local searches. It improves visibility on search engines, enhances customer trust, and drives more foot traffic to your physical location.",
+          },
+          {
+            question: "What are the key components of Local SEO?",
+            answer: "Google Business Profile optimization, local keyword research, citation building, review management, local link building, and location-specific content.",
+          },
+          {
+            question: "Can Local SEO help a business without a physical storefront?",
+            answer: "Yes — local SEO also benefits service-based businesses targeting specific regions or cities, helping them appear in local searches even without a physical location.",
+          },
+          {
+            question: "How long does it take to see results from Local SEO?",
+            answer: "It's an ongoing process, but you can typically start seeing improvements in rankings and traffic within 3-6 months, depending on competition.",
+          },
+          {
+            question: "Do reviews impact local search rankings?",
+            answer: "Yes — reviews are a significant factor in local SEO. Positive reviews increase trust, improve click-through rates, and influence local search rankings.",
+          },
         ],
       },
       {
@@ -88,6 +163,33 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "High PA/DA and .edu/.gov domain placements where relevant",
           "Full refund if a purchased link isn't placed within 30 business days",
           "Customers have typically seen higher rankings within 4 weeks",
+        ],
+        stats: [
+          { value: "400+", label: "Orders delivered" },
+          { value: "250+", label: "Customers trusted us" },
+          { value: "4 wks", label: "Typical time to higher rankings" },
+        ],
+        faq: [
+          {
+            question: "What is your refund policy?",
+            answer: "You'll get a full refund for the link if the purchased link was not successfully placed within 30 business days.",
+          },
+          {
+            question: "How long does it take to see effects on rankings?",
+            answer: "It depends on competition in your niche — anywhere from 1 week to 6 months. Moz's own research pegs the average around 10 weeks.",
+          },
+          {
+            question: "What type of backlinks do you build?",
+            answer: "Web 2.0 properties, bookmarking sites, wikis, comments, social signals, and high PA/DA sites — always safe, white-hat placements.",
+          },
+          {
+            question: "Is link building a one-time process?",
+            answer: "No — it's an ongoing process that requires consistent effort to maintain and improve your site's authority and rankings.",
+          },
+          {
+            question: "How do you measure the success of a campaign?",
+            answer: "By tracking domain authority, the number of acquired backlinks, referral traffic, and improvements in keyword rankings.",
+          },
         ],
       },
       {
@@ -135,6 +237,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             ],
           },
         ],
+        faq: [
+          {
+            question: "What platforms do you support?",
+            answer: "All major platforms: Facebook, Twitter, Pinterest, Instagram, LinkedIn — and YouTube for video content.",
+          },
+          {
+            question: "Can I review and approve posts before they go live?",
+            answer: "Yes — every piece of content is previewed via a content calendar and requires your approval before publishing.",
+          },
+          {
+            question: "How do you measure performance?",
+            answer: "We track reach, engagement, clicks, and conversions, with weekly or monthly analytics reports depending on your plan.",
+          },
+          {
+            question: "Do you engage with followers, or just post?",
+            answer: "We actively reply to messages and comments — the goal is real community and brand loyalty, not just a posting schedule.",
+          },
+          {
+            question: "Is there a dedicated person managing my account?",
+            answer: "Yes, on the Business plan you get a designated agent overseeing your campaign for consistency and a single point of contact.",
+          },
+        ],
       },
       {
         slug: "internet-radio-setup",
@@ -165,6 +289,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "CIS benchmark standards applied across Linux, Windows, and cloud infrastructure",
           "Ongoing hardening available as a ongoing security plan, not just a one-time pass",
         ],
+        faq: [
+          {
+            question: "What does your server hardening service include?",
+            answer: "A comprehensive security assessment, software updates, configuration adjustments, removal of unnecessary services, security patches, and best-practice hardening.",
+          },
+          {
+            question: "How often should server hardening be performed?",
+            answer: "It should be an ongoing process — we recommend a thorough pass at least once a year, with periodic reviews and updates in between.",
+          },
+          {
+            question: "Will server hardening affect my server's performance?",
+            answer: "It's designed to enhance security without compromising performance — in some cases optimized configurations even improve it.",
+          },
+          {
+            question: "What types of servers can you harden?",
+            answer: "Web servers, database servers, application servers, and file servers, across Linux, Windows, and UNIX.",
+          },
+          {
+            question: "Can server hardening prevent all cyberattacks?",
+            answer: "It significantly reduces risk, but no system is entirely immune — it's one part of a comprehensive security strategy including monitoring and incident response.",
+          },
+        ],
       },
       {
         slug: "malware-removal",
@@ -180,6 +326,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Firewall setup and hardening afterward to prevent reinfection",
           "Work done without disrupting your live site",
         ],
+        howItWorks: [
+          {
+            title: "Send us the details",
+            description: "Tell us about the malware, your hosting provider, whether your site's been blacklisted, and any other details.",
+          },
+          {
+            title: "We remove it",
+            description: "Our experts remove the malware without disrupting your live website.",
+          },
+          {
+            title: "Pay for the results",
+            description: "We won't ask you to pay until your website is 100% malware-free and you're completely satisfied.",
+          },
+        ],
       },
       {
         slug: "one-time-fix",
@@ -192,6 +352,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Full backup taken before anything is touched",
           "We fix the root cause, not just patch the symptom",
           "Pay only once you're happy with the result",
+        ],
+        howItWorks: [
+          {
+            title: "Describe the issue",
+            description: "Tell us about the issue you're having in as much detail as you can.",
+          },
+          {
+            title: "We do the fix",
+            description: "Our team backs up your website and fixes the issue.",
+          },
+          {
+            title: "Pay once you're happy",
+            description: "You pay us after we've solved your issue and you're 100% happy with the fix.",
+          },
         ],
       },
     ],
@@ -248,6 +422,32 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             ],
           },
         ],
+        stats: [
+          { value: "<2-3s", label: "Typical page load target after optimization" },
+          { value: "24-48h", label: "Typical turnaround" },
+        ],
+        faq: [
+          {
+            question: "What factors can slow down my WordPress website?",
+            answer: "Large unoptimized images, excessive or poorly-coded plugins, unoptimized code, lack of caching, a low-performance host, and unoptimized databases.",
+          },
+          {
+            question: "How much can you improve the speed of my site?",
+            answer: "It depends on the current state of your site, but we aim to bring load times down to under 2-3 seconds. We provide an initial assessment with a realistic estimate.",
+          },
+          {
+            question: "How long does optimization take?",
+            answer: "Typically 24-48 hours. Larger, more complex sites may take longer.",
+          },
+          {
+            question: "Will speed optimization affect my site's design or functionality?",
+            answer: "No — we take care to ensure all changes are non-intrusive, and we back up your site before making any modifications.",
+          },
+          {
+            question: "Can you optimize speed without hurting my SEO rankings?",
+            answer: "Yes — our techniques are SEO-friendly, and faster load times typically help rankings rather than hurt them.",
+          },
+        ],
       },
       {
         slug: "wix-performance",
@@ -284,6 +484,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Can be combined with a hosted cloud contact center for remote-agent flexibility",
           "Need a server too? We can point you to our partner site, managedservers.us",
         ],
+        faq: [
+          {
+            question: "What is a Call Center Setup service?",
+            answer: "A professional service that helps businesses establish and optimize their call center operations — infrastructure design, technology selection, software/hardware implementation, agent recruiting/training, and process setup.",
+          },
+          {
+            question: "How many campaigns can I run on the server?",
+            answer: "No limitations — you can run as many campaigns as you want.",
+          },
+          {
+            question: "What kinds of campaigns are supported?",
+            answer: "Inbound, outbound, and blended campaigns via Vicidial.",
+          },
+          {
+            question: "Can I create new users, campaigns, and DIDs myself?",
+            answer: "Yes — we typically build templates for everything you'll need regularly, so you can copy one in about 10 seconds.",
+          },
+          {
+            question: "Do you provide ongoing support after setup?",
+            answer: "Yes — many setups include ongoing support and maintenance, technical troubleshooting, and regular upkeep to keep operations running smoothly.",
+          },
+        ],
       },
       {
         slug: "call-center-management",
@@ -297,6 +519,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Live monitoring, activity dashboards, and account-based analytics",
           "In-call transfer, warm/cold transfer, barge/whisper/snooping for supervisors",
           "No limit on the number of campaigns you run",
+        ],
+        faq: [
+          {
+            question: "Is it easy to use for managers and agents?",
+            answer: "Agents just need a short training session and then they're good to go.",
+          },
+          {
+            question: "How many campaigns can I have on the server?",
+            answer: "No limitations on campaigns — you can have as many as you want.",
+          },
+          {
+            question: "Can I download call recordings?",
+            answer: "Absolutely — you can access and download call recordings from the reports area.",
+          },
         ],
       },
       {
@@ -330,6 +566,39 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Transparent monthly billing, no surprise fees",
           "Custom hold tunes, call announcements, whitelisting/blacklisting, toll-free numbers",
         ],
+        comparison: {
+          columnA: "Cloud Contact Center",
+          columnB: "On-Premise Call Center",
+          rows: [
+            { label: "Cost to scale", a: "Software upgrade only, no CapEx", b: "Heavy infrastructure upgrades + CapEx" },
+            { label: "Where agents work", a: "Anywhere, anytime", b: "Office only" },
+            { label: "Customization", a: "Quick, based on your needs", b: "Not available" },
+            { label: "Maintenance", a: "Handled by us", b: "On you" },
+            { label: "Data access", a: "One platform, easy access", b: "Not centralized" },
+          ],
+        },
+        faq: [
+          {
+            question: "What is Hosted PBX?",
+            answer: "A virtual Private Branch Exchange — a phone system that works through the internet rather than a traditional phone line.",
+          },
+          {
+            question: "What's the difference between virtual and traditional PBX?",
+            answer: "Traditional PBX needs physical hardware installed on-site and regular maintenance. Virtual PBX is cloud-hosted — no hardware, near-instant setup, and you can forward calls anywhere you have an internet connection.",
+          },
+          {
+            question: "How secure is a PBX solution?",
+            answer: "We implement industry-standard encryption, firewall traversal, secure remote access, and authentication — and keep systems updated against emerging threats.",
+          },
+          {
+            question: "What is an IVR system?",
+            answer: "An automated system that answers calls, asks questions based on the caller's needs, and routes them based on keypad (DTMF) input — single-level (direct to an agent) or multi-level (routed by language, branch, department).",
+          },
+          {
+            question: "Can I monitor agent performance?",
+            answer: "Yes — detailed agent monitoring dashboards are available with full access.",
+          },
+        ],
       },
       {
         slug: "sip-trunk-service",
@@ -341,6 +610,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Competitive call rates to any country",
           "Works on a recharge basis — pay for what you use",
           "Can be merged with a hosted cloud contact center for remote-agent flexibility",
+        ],
+        faq: [
+          {
+            question: "How many campaigns can I run on the server?",
+            answer: "No limitations — as many as you want.",
+          },
+          {
+            question: "Can I create new users, campaigns, and DIDs myself?",
+            answer: "Yes — we build reusable templates so you can set these up in seconds.",
+          },
+          {
+            question: "Can I download call recordings?",
+            answer: "Yes, directly from the reports area, any time.",
+          },
         ],
       },
     ],
@@ -418,6 +701,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             ],
           },
         ],
+        faq: [
+          {
+            question: "How much does it cost to build a website?",
+            answer: "It varies with scope, but domain registration ($10-15/year) and hosting ($3-30/month) are the baseline costs beyond the build itself.",
+          },
+          {
+            question: "Is WordPress SEO-friendly?",
+            answer: "Yes, out of the box, and it can be further optimized with SEO plugins like Yoast or All in One SEO.",
+          },
+          {
+            question: "Can I customize the design myself later?",
+            answer: "Yes — you get access to customize themes and layouts, and we can also hand off a fully custom theme if you have specific design requirements.",
+          },
+          {
+            question: "Can you migrate my existing site to WordPress?",
+            answer: "Yes — the complexity depends on your current platform and content structure, but we handle the migration end to end.",
+          },
+          {
+            question: "What support is available after launch?",
+            answer: "Ongoing maintenance and support plans are available separately once the site ships — see Website Maintenance.",
+          },
+        ],
       },
       {
         slug: "mobile-app-development",
@@ -432,6 +737,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Agile workflow with sprint-based milestones and full visibility",
           "Post-launch support, bug fixes, and new features",
           "App Store / Google Play submission and optimization support",
+        ],
+        faq: [
+          {
+            question: "What kind of apps can you develop?",
+            answer: "From eCommerce and social apps to enterprise and utility apps — custom solutions tailored to your business needs.",
+          },
+          {
+            question: "What do you need from me to get started?",
+            answer: "A requirements document, or any designs/rough sketches of what you have in mind — enough to scope the work accurately.",
+          },
+          {
+            question: "What technologies do you use?",
+            answer: "Swift/Objective-C for iOS, Kotlin/Java for Android, and Flutter or React Native for cross-platform builds.",
+          },
+          {
+            question: "How long does it take to build a mobile app?",
+            answer: "Simple apps: 1-3 months. More complex apps: 3-6 months or more, depending on scope.",
+          },
+          {
+            question: "Do you support app store submission?",
+            answer: "Yes — full support getting your app approved and optimized for App Store and Google Play discoverability.",
+          },
         ],
       },
       {
@@ -474,6 +801,34 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             features: ["Up to 20 sections", "Advanced A/B testing", "Full SEO optimization", "5 revisions"],
           },
         ],
+        howItWorks: [
+          { title: "Consultation", description: "We start with a detailed consultation to understand your objectives, audience, and design preferences." },
+          { title: "Design & Development", description: "Our team designs and builds a visually strong, conversion-focused landing page." },
+          { title: "Review & Revisions", description: "We collaborate with you throughout, incorporating feedback to hit your expectations." },
+          { title: "Launch & Optimization", description: "Once approved, we launch and keep monitoring performance, adjusting to maximize results." },
+        ],
+        faq: [
+          {
+            question: "Why do I need a dedicated landing page?",
+            answer: "A landing page is built for one specific campaign and one call to action — it converts visitors into leads or customers far better than sending traffic to a general site.",
+          },
+          {
+            question: "How long does it take to launch?",
+            answer: "A basic page: 1-2 weeks. More complex designs with advanced features: 3-4 weeks.",
+          },
+          {
+            question: "Will it be mobile-responsive?",
+            answer: "Yes — every landing page we build is fully responsive across phones, tablets, and desktop.",
+          },
+          {
+            question: "Do you handle the copywriting too?",
+            answer: "Yes, as an add-on — our team can write SEO-friendly, conversion-focused copy tailored to your audience.",
+          },
+          {
+            question: "Is A/B testing included?",
+            answer: "Yes, on the Standard and Business plans — we test different versions to see which converts better.",
+          },
+        ],
       },
     ],
   },
@@ -495,6 +850,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "On-page SEO monitoring, broken-link checks",
           "Content and design updates — new sections, blog posts, image swaps",
           "No long-term contracts, cancel anytime",
+        ],
+        faq: [
+          {
+            question: "What do you need to get started?",
+            answer: "Admin access to your website — ideally a dedicated login, though we're happy to use one you provide. We may also need access to your hosting and domain provider.",
+          },
+          {
+            question: "What's included in a typical edit?",
+            answer: "Content edits on any page, banner/header/footer changes, plugin settings, CSS adjustments, blog updates, new landing pages, image/text changes, and coupon codes.",
+          },
+          {
+            question: "What's NOT included?",
+            answer: "Custom development (PHP, plugins, themes), updating custom code, graphic design, PSD-to-WordPress, new content creation, or building an entirely new site/subdomain.",
+          },
+          {
+            question: "Can I cancel at any time?",
+            answer: "Yes — no long-term contracts, cancel whenever you want.",
+          },
+          {
+            question: "What if I go over my monthly support time?",
+            answer: "We'll always try to keep work within your monthly plan, but if something won't fit, you can buy extra hours.",
+          },
         ],
       },
       {
@@ -593,6 +970,28 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           quote: "They took our store from chaos to calm. Everything runs smoothly now — orders, stock, and even customer queries.",
           author: "Anna M., Shopify Store Owner",
         },
+        faq: [
+          {
+            question: "What's included in your eCommerce management service?",
+            answer: "Product uploads, inventory management, order processing, platform updates, speed optimization, and customer support integration — tailored to your store's needs.",
+          },
+          {
+            question: "Do you manage all eCommerce platforms?",
+            answer: "Yes — Shopify, WooCommerce, Magento, BigCommerce, Wix, and others, whether hosted or self-managed.",
+          },
+          {
+            question: "Do you support multichannel selling (Amazon, eBay, Walmart)?",
+            answer: "Yes — we sync and manage inventory, orders, and listings across multiple marketplaces so you can scale without the manual overhead.",
+          },
+          {
+            question: "Can I pick specific tasks instead of a full plan?",
+            answer: "Yes — full-service management or à la carte (product management, SEO updates, technical maintenance) are both available.",
+          },
+          {
+            question: "Do you offer emergency support?",
+            answer: "Yes — prompt troubleshooting and emergency support to minimize store downtime.",
+          },
+        ],
       },
       {
         slug: "magento-site-management",
@@ -605,6 +1004,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Third-party service integration (CRM, ERP, payment modules)",
           "Extension conflict troubleshooting",
           "SEO-ready configuration and ongoing optimization",
+        ],
+        faq: [
+          {
+            question: "What is Magento?",
+            answer: "An open-source PHP eCommerce platform built for businesses that need real product, category, inventory, and order management, with Google Analytics integration built in.",
+          },
+          {
+            question: "How well does Magento scale?",
+            answer: "It's built on flexible, open-source technology — businesses can scale functionality, content, and store design as they grow, without switching platforms.",
+          },
+          {
+            question: "Can you install and customize Magento themes?",
+            answer: "Yes — theme installation and customization to give your store a professional, on-brand look.",
+          },
         ],
       },
     ],

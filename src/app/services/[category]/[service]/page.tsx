@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getAllCategories, getService } from "@/lib/services";
+import FaqAccordion from "@/components/FaqAccordion";
 
 export function generateStaticParams() {
   return getAllCategories().flatMap((category) =>
@@ -56,6 +57,17 @@ export default async function ServicePage({
           <p className="rounded-xl bg-paper-2 p-5 text-text-muted">{service.intro}</p>
         )}
 
+        {service.stats && (
+          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3">
+            {service.stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-3xl font-semibold text-accent">{stat.value}</p>
+                <p className="mt-1 text-sm text-text-muted">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
         <h2 className="mt-10 text-lg font-semibold text-text">What's included</h2>
         <ul className="mt-4 space-y-3">
           {service.details.map((detail) => (
@@ -89,11 +101,63 @@ export default async function ServicePage({
           </>
         )}
 
+        {service.howItWorks && (
+          <>
+            <h2 className="mt-14 text-lg font-semibold text-text">How it works</h2>
+            <div className="mt-4 grid gap-6 sm:grid-cols-3">
+              {service.howItWorks.map((step, i) => (
+                <div key={step.title}>
+                  <p className="text-sm font-semibold text-accent">Step {i + 1}</p>
+                  <p className="mt-1 font-medium text-text">{step.title}</p>
+                  <p className="mt-2 text-sm text-text-muted">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {service.comparison && (
+          <>
+            <h2 className="mt-14 text-lg font-semibold text-text">
+              {service.comparison.columnA} vs. {service.comparison.columnB}
+            </h2>
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-border">
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="p-4 font-medium text-text-muted"></th>
+                    <th className="p-4 font-semibold text-accent">{service.comparison.columnA}</th>
+                    <th className="p-4 font-semibold text-text-muted">{service.comparison.columnB}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {service.comparison.rows.map((row) => (
+                    <tr key={row.label} className="border-b border-border last:border-0">
+                      <td className="p-4 font-medium text-text">{row.label}</td>
+                      <td className="p-4 text-text-muted">{row.a}</td>
+                      <td className="p-4 text-text-muted">{row.b}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
         {service.testimonial && (
           <blockquote className="mt-14 border-l-2 border-accent pl-6">
             <p className="text-lg text-text">&ldquo;{service.testimonial.quote}&rdquo;</p>
             <footer className="mt-3 text-sm text-text-muted">— {service.testimonial.author}</footer>
           </blockquote>
+        )}
+
+        {service.faq && (
+          <>
+            <h2 className="mt-14 text-lg font-semibold text-text">Frequently asked questions</h2>
+            <div className="mt-4">
+              <FaqAccordion items={service.faq} />
+            </div>
+          </>
         )}
 
         <div className="mt-14 rounded-2xl bg-paper-2 p-8 text-center">
