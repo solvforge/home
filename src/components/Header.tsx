@@ -1,14 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getAllCategories } from "@/lib/services";
+import ServicesNavMenu from "@/components/ServicesNavMenu";
 
-const NAV_LINKS = [
-  { href: "/services", label: "Services" },
+const NAV_LINKS_AFTER_SERVICES = [
   { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "https://blog.solvforge.com", label: "Blog" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 export default function Header() {
+  const categories = getAllCategories();
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-paper/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
@@ -17,7 +21,16 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 sm:flex">
-          {NAV_LINKS.map((link) => (
+          <Link
+            href="/"
+            className="text-sm font-medium text-text-muted transition-colors hover:text-text"
+          >
+            Home
+          </Link>
+
+          <ServicesNavMenu categories={categories} />
+
+          {NAV_LINKS_AFTER_SERVICES.map((link) => (
             <Link
               key={link.href}
               href={link.href}

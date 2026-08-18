@@ -10,11 +10,12 @@ export default function Footer() {
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <Link href="/" className="hover:text-white">Home</Link>
           <Link href="/services" className="hover:text-white">Services</Link>
           <Link href="/work" className="hover:text-white">Work</Link>
-          <Link href="/about" className="hover:text-white">About</Link>
+          <Link href="/about" className="hover:text-white">About Us</Link>
           <Link href="https://blog.solvforge.com" className="hover:text-white">Blog</Link>
-          <Link href="/contact" className="hover:text-white">Contact</Link>
+          <Link href="/contact" className="hover:text-white">Contact Us</Link>
         </nav>
       </div>
 

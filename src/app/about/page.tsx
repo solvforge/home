@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getAboutContent } from "@/lib/pages";
 
 export const metadata: Metadata = {
-  title: "About — solvforge",
+  title: "About Us — solvforge",
   description: "Who's behind solvforge and how we work.",
 };
 
@@ -14,11 +14,7 @@ export default function AboutPage() {
     <>
       <section className="bg-ink text-white">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <h1 className="text-4xl font-semibold tracking-tight">About</h1>
-          <p className="mt-4 max-w-xl text-white/70">
-            Placeholder copy — replace with a real founder bio and story via
-            the CMS.
-          </p>
+          <h1 className="text-4xl font-semibold tracking-tight">About Us</h1>
         </div>
       </section>
 
