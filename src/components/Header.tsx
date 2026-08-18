@@ -5,7 +5,6 @@ import ServicesNavMenu from "@/components/ServicesNavMenu";
 
 const NAV_LINKS_AFTER_SERVICES = [
   { href: "/work", label: "Work" },
-  { href: "/about", label: "About Us" },
   { href: "https://blog.solvforge.com", label: "Blog" },
   { href: "/contact", label: "Contact Us" },
 ];
@@ -26,6 +25,13 @@ export default function Header() {
             className="text-sm font-medium text-text-muted transition-colors hover:text-text"
           >
             Home
+          </Link>
+
+          <Link
+            href="/about"
+            className="text-sm font-medium text-text-muted transition-colors hover:text-text"
+          >
+            About Us
           </Link>
 
           <ServicesNavMenu categories={categories} />
