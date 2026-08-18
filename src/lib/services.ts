@@ -91,6 +91,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "SEO Services",
         summary: "Custom SEO packages covering on-page, off-page, and technical work.",
         billing: "recurring",
+        customHero: {
+          headline: "SEO Packages That Boost Your Organic Rankings, Traffic & Sales!",
+          body: "Are you looking for affordable SEO Services? We offer cheap SEO packages for small to large size businesses. Instead of providing fixed-price monthly SEO packages, we give custom and affordable SEO packages that help the business requirements of every client. Our average monthly SEO cost for a project is $150 to $500 per month.",
+          ctaLabel: "Get a Free Quotation, No Commitment Needed",
+        },
         intro:
           "Instead of a fixed-price package, we scope SEO around what your business actually needs. Most projects run $150–$500/month depending on scope and competition.",
         details: [
@@ -139,6 +144,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Local SEO",
         summary: "Show up when nearby customers search for what you do.",
         billing: "recurring",
+        customHero: {
+          headline: "Get Your Brand Seen by the Right People with Local SEO",
+          body: "Are you searching for a local SEO service and SEO consultants that can give you a full bundle of SEO services? Local SEO is part of the online marketing omnichannel — improving search engine rankings through on-page and off-page techniques to get targeted traffic to your website from organic search results.",
+          ctaLabel: "Get a Free Quotation",
+        },
         details: [
           "Hyperlocal keyword targeting for location-specific search terms",
           "Google Business Profile setup, optimization, and ongoing management",
@@ -183,6 +193,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "On-Page SEO",
         summary: "Structure and content changes made directly on your site.",
         billing: "recurring",
+        customHero: {
+          headline: "Get Your Brand Seen by the Right People with On-Page SEO",
+          body: "On-Page SEO is part of the online marketing omnichannel — the on-page techniques of getting targeted traffic to a website from a search engine's organic rankings. Common tasks include technical SEO, indexation management, creating high-quality content, optimizing content, and content marketing.",
+          ctaLabel: "Get a Free Quotation",
+        },
         details: [
           "Technical SEO cleanup — metadata, headings, internal linking, indexation",
           "Keyword-targeted page structure and copy",
@@ -195,7 +210,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Link Building",
         summary: "Earn the backlinks that move search rankings.",
         billing: "recurring",
-        supplementaryImage: { src: "/hero-link-building.jpg", alt: "A typewriter with the word 'Backlinks' typed on paper" },
+        customHero: {
+          headline: "It's Time for You to Be on the 1st Page",
+          body: "Your supply of one-way links pointing back to your website is at your fingertips. Link building is the #1 factor that contributes to high search engine rankings, and you can get in on it right now — in any language.",
+          ctaLabel: "Get a Free Review of Your Website",
+          image: { src: "/hero-link-building.jpg", alt: "A typewriter with the word 'Backlinks' typed on paper" },
+        },
         intro: "Over 400 orders delivered, trusted by 250+ customers.",
         details: [
           "Backlinks from Web 2.0 properties, bookmarking sites, wikis, and social signals",
@@ -236,6 +256,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Social Media Management",
         summary: "Consistent posting and real engagement across your social accounts.",
         billing: "recurring",
+        customHero: {
+          headline: "Strategic Social Media Marketing & Management for Meaningful Engagement",
+          body: "The best way for businesses to stay on top of their game is through the assistance of a social media manager. Promoting and managing social media is difficult and time-consuming — many business owners simply don't have time to manage it themselves. We fully manage your accounts and engage with your audience across Facebook, Twitter, Pinterest, Instagram, and LinkedIn.",
+          ctaLabel: "Get a Free Review of Your Social Media Accounts",
+        },
         details: [
           "Platform-specific strategy — content and tactics tailored per channel",
           "Original branded graphics, captions, and CTAs, not generic templates",
@@ -388,7 +413,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Malware Removal",
         summary: "Clean an infected site or server and close the hole that let it in.",
         billing: "project",
-        supplementaryImage: { src: "/hero-malware-removal.png", alt: "A word cloud of cybersecurity terms" },
+        customHero: {
+          headline: "WordPress Malware Removal — $149 Flat Rate with One-Year Warranty",
+          body: "We will do complete malware removal on your site within 24 hours or less for a flat rate of $149. If your website has been flagged by Google, there will be a $29 extra charge for removing the warning.",
+          ctaLabel: "Contact Me Now",
+          image: { src: "/hero-malware-removal.png", alt: "A word cloud of cybersecurity terms" },
+        },
         intro: "$149 flat rate, complete removal within 24 hours, one-year warranty.",
         details: [
           "Deep scans for hidden backdoors, injected scripts, and suspicious files",
@@ -426,6 +456,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "One-Time Fix",
         summary: "A single specific issue, fixed fast, no ongoing commitment.",
         billing: "project",
+        customHero: {
+          headline: "Get 2 Hours of Unlimited Fixes for $49 Only",
+          body: "Get expert help for any issue or request you have. Lightning-quick turnaround time from our 24/7 technical support team — pay only once you are 100% happy with our service.",
+          ctaLabel: "Contact Me Now",
+        },
         intro: "$49 for 2 hours of unlimited fixes.",
         details: [
           "Covers broken layouts, plugin conflicts, CSS glitches, PHP errors, login issues",
@@ -468,6 +503,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "WordPress Speed Optimization",
         summary: "Speed up a WordPress site without a rebuild.",
         billing: "project",
+        customHero: {
+          headline: "Fast WordPress Speed Optimization Service",
+          body: "Unlike competitors who install a few plugins and call it a day, we don't sell you artificial 'load time' scores that have nothing to do with what your site's real users are actually experiencing. Instead, through a painstaking process of testing numerous performance configurations, we make your WordPress-powered website as fast as it can possibly be for your real, human users.",
+          ctaLabel: "Get a Free Review of Your Website",
+        },
         details: [
           "Real-world load times, not just a better score on a testing tool",
           "Core Web Vitals optimization — LCP, FID, CLS",
@@ -550,6 +590,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Wix Website Speed Optimization",
         summary: "Speed up a Wix site within the platform's constraints.",
         billing: "project",
+        customHero: {
+          headline: "Increase Your Website Loading Speed for Slow Sites",
+          body: "Wix Website Speed Optimization focuses on fine-tuning your site to ensure quick loading times, smooth navigation, and a better overall user experience. Speeding up your Wix website doesn't just enhance visitor experience — it improves your SEO and increases the likelihood of higher search engine rankings.",
+          ctaLabel: "Get a Free Review of Your Website",
+        },
         details: [
           "Wix-specific optimization — built around the platform's real structure and limits",
           "Image and asset optimization, unused sections stripped, animations streamlined",
@@ -579,9 +624,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Call Center Setup",
         summary: "Stand up a call center from scratch.",
         billing: "project",
-        bodyParagraphs: [
-          "If you are looking for a reasonably priced and Stable Call Center Setup and an experienced professionals to work for you, than Me is the right place for you.",
-        ],
+        customHero: {
+          headline: "Ultimate Call Center Setup For Your Business",
+          body: "If you are looking for a reasonably priced and stable call center setup and experienced professionals to work for you, this is the right place for you. Empower your business with faster, easier, smarter communication.",
+          ctaLabel: "Get Started Now",
+        },
         featuresHeading: "Advanced Inbound & Outbound Contact Center features that makes every communication better",
         features: [
           { title: "Calling Module Includes", description: "Click-to-Call, Call Recording, Voicemail, Queue Manager, 6 Call Queuing Methods." },
@@ -649,6 +696,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Call Center Management",
         summary: "Ongoing management of an existing call center operation.",
         billing: "recurring",
+        customHero: {
+          headline: "Ultimate Call Center Management For Your Business",
+          body: "Empower your business with faster, easier, smarter communication. We manage the day-to-day operations of your existing call center so you can focus on running your business.",
+          ctaLabel: "Request a Free Consultation",
+        },
         details: [
           "Click-to-call, call recording, voicemail, 6-method queue manager",
           "Progressive and advanced dialers, multi-level IVR, custom SMS API",
@@ -677,6 +729,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Custom Asterisk Development",
         summary: "Custom dialplan, IVR, and integration work on the Asterisk platform.",
         billing: "project",
+        customHero: {
+          headline: "Asterisk Development for Your Business",
+          body: "We provide tailored Asterisk development services to elevate your business communications. Our skilled team specializes in creating customized Asterisk solutions that optimize call center performance, enhance customer engagement, and streamline telephony systems — helping your business unlock the full potential of this robust open-source platform.",
+          ctaLabel: "Contact Us",
+        },
         supplementaryImage: { src: "/asterisk-features.webp", alt: "Asterisk Development Features diagram" },
         details: [
           "Installation and configuration tailored to your setup",
@@ -694,6 +751,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Hosted Call Center Solution",
         summary: "A fully hosted call center — no on-prem hardware to manage.",
         billing: "recurring",
+        customHero: {
+          headline: "How Cloud Call Center Solution Can Help Your Business",
+          body: "Get a complete one-stop solution for all your call center needs. A virtual call center system comes with a range of advanced features to help you tailor your communications. Everything is handled and managed by us, so you can access and change settings at any time via your intuitive online dashboard — and since you're not tied to a specific phone line, you can receive calls anywhere you have an internet connection.",
+          ctaLabel: "Contact Us",
+        },
         details: [
           "Quick cloud-based deployment — no hardware, just an internet connection",
           "Scales from a 3-agent startup to a 300-agent operation",
@@ -751,6 +813,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "SIP Trunk Service",
         summary: "Reliable SIP trunking for your existing phone system.",
         billing: "recurring",
+        customHero: {
+          headline: "Giving Voice to Your Business at a Cost You Can Afford",
+          body: "We satisfy all your voice calling needs with industry-leading SIP trunking. Empower your business with faster, easier, smarter communication.",
+          ctaLabel: "Order Now",
+        },
         details: [
           "No account activation charges",
           "Competitive call rates to any country",
@@ -784,6 +851,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "White Label Support for Agencies",
         summary: "We do the work, you keep the client relationship — under your brand.",
         billing: "recurring",
+        customHero: {
+          headline: "White Label Website Support for Agencies",
+          body: "We recognize the challenges agencies face when managing multiple client websites. Our White Label Website Support for Agencies is designed to seamlessly integrate with your business, allowing you to provide top-tier website support and maintenance under your own brand — so you can focus on scaling your agency while we manage the technical intricacies.",
+          ctaLabel: "Contact Us Now",
+        },
         details: [
           "We operate as an invisible extension of your agency — clients never see us",
           "24/7 monitoring, maintenance, and technical support",
@@ -815,6 +887,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Website Development",
         summary: "Custom WordPress website builds, from marketing sites to full e-commerce.",
         billing: "project",
+        customHero: {
+          headline: "Website Development",
+          body: "We are a Website Development Partner, backed by a team of strong WordPress developers.",
+          ctaLabel: "Get a Free Consultation",
+        },
         bodyParagraphs: [
           "Our Website Development Services are designed to help you build a compelling and effective online presence. Leveraging the power of the WordPress platform, we create custom websites tailored to meet your specific needs, whether it's for a personal blog, an eCommerce store, or a corporate site. Our team of experienced developers ensures that every website is not only visually appealing but also functional and user-friendly.",
           "Our WordPress Development Services encompass a wide range of solutions, including theme customization, plugin development, and website optimization. We focus on delivering high-quality, responsive designs that work seamlessly across all devices and browsers. Our expertise extends to integrating advanced features and functionalities, ensuring that your site stands out and performs exceptionally.",
@@ -896,6 +973,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Mobile App Development",
         summary: "Native or cross-platform mobile apps.",
         billing: "project",
+        customHero: {
+          headline: "Unmatched App Development Services From an Experienced Team",
+          body: "An extensive range of app development services developed by an experienced and highly talented app developer — iOS, Android, and cross-platform.",
+          ctaLabel: "Get a Free Consultation",
+        },
         details: [
           "iOS, Android, or hybrid (React Native/Flutter)",
           "Custom-built for your goals, not a templated app",
@@ -941,6 +1023,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Custom Software Development",
         summary: "Bespoke software for a process that doesn't fit an off-the-shelf tool.",
         billing: "project",
+        customHero: {
+          headline: "Unmatched App Development Services From an Experienced Team",
+          body: "An extensive range of app development services developed by an experienced and highly talented team.",
+          ctaLabel: "Get a Free Consultation",
+        },
         details: [
           "Requirements scoping through to delivery",
           "Cross-platform expertise where the project needs it",
@@ -963,6 +1050,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Landing Page Design",
         summary: "A single-purpose page built to convert visitors into leads or customers.",
         billing: "project",
+        customHero: {
+          headline: "I Craft Enticing Landing Pages That Captivate the Audience",
+          body: "Looks like you need an awesome landing page. Sell a unique product? Run a useful service? Teaching people something? We're here to help.",
+          ctaLabel: "Get a Free Consultation",
+        },
         features: [
           { title: "Customized Design", description: "We create bespoke landing pages that resonate with your target audience, incorporating your brand's unique elements and aesthetics." },
           { title: "Optimized for Conversion", description: "Our designs are meticulously crafted to enhance user experience, guiding visitors seamlessly towards your desired action." },
@@ -1033,6 +1125,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Website Maintenance",
         summary: "Keep an existing site updated, backed up, and running.",
         billing: "recurring",
+        customHero: {
+          headline: "What Do Website Maintenance Services Include?",
+          body: "Just like your car, your house, and even your body, your website needs maintenance on a periodic basis. Website maintenance isn't just about fixing bugs after launch — it's upgrading your visual branding, integrating new systems, and uploading fresh content. Your website is the first impression of your business, and it needs to stay in line with a constantly evolving environment.",
+          ctaLabel: "Get a Free Consultation",
+        },
         supplementaryImage: { src: "/badge-moneyback-guarantee.webp", alt: "30 days money back guarantee badge" },
         intro: "Plans scale with your site's size and update frequency — get in touch for a quote. 30-day money-back guarantee on every plan. Prefer a single fix instead? One-time support starts at $49.",
         details: [
@@ -1079,6 +1176,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Server Management",
         summary: "Ongoing management of the server your site or app runs on.",
         billing: "recurring",
+        customHero: {
+          headline: "One Stop Solution for All Your Managed Hosting & Server Management Needs",
+          body: "We are a premium server management company. Equipped with a great cloud-based infrastructure and technical expertise, we render experienced server management services and technical support for Linux and Windows servers based on control panels such as cPanel, Plesk, DirectAdmin, SolusVM, and Virtualizor, and virtualization technologies based on Xen, KVM, VMware, and Hyper-V hypervisors.",
+          ctaLabel: "Request a Free Quotation",
+        },
         details: [
           "Linux and Windows server support — cPanel, Plesk, DirectAdmin, SolusVM, Virtualizor",
           "Xen, KVM, VMware, and Hyper-V virtualization support",
@@ -1171,6 +1273,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Ecommerce Store Management",
         summary: "Ongoing management for a live online store.",
         billing: "recurring",
+        customHero: {
+          headline: "eCommerce Website Management",
+          body: "Businesses today all have unique needs. We've moved on from when web designers were left to handle all aspects of eCommerce management — now you need an excellent eCommerce website management partner that will run your entire campaign successfully.",
+          ctaLabel: "Get a Free Review of Your Website",
+        },
         details: [
           "Product uploads, inventory management, and order processing",
           "Platform and plugin/app updates across Shopify, WooCommerce, Magento, BigCommerce, Wix, and more",
@@ -1252,6 +1359,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Magento Site Management",
         summary: "Specialized ongoing management for Magento stores.",
         billing: "recurring",
+        customHero: {
+          headline: "Magento Website Development",
+          body: "We are a Magento Website Development Partner, backed by a team of strong Magento developers.",
+          ctaLabel: "Get a Free Quotation",
+        },
         supplementaryImage: { src: "/hero-magento.jpg", alt: "Magento logo icon" },
         featuresHeading: "The Magento Advantage",
         features: [
