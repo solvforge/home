@@ -36,6 +36,11 @@ export type Comparison = {
   rows: ComparisonRow[];
 };
 
+export type Feature = {
+  title: string;
+  description: string;
+};
+
 export type ServiceItem = {
   slug: string;
   name: string;
@@ -43,12 +48,15 @@ export type ServiceItem = {
   billing: "recurring" | "project";
   intro?: string;
   details: string[];
+  features?: Feature[];
   pricing?: PricingTier[];
   testimonial?: Testimonial;
   faq?: FaqItem[];
   howItWorks?: HowItWorksStep[];
   stats?: StatCallout[];
   comparison?: Comparison;
+  heroImage?: { src: string; alt: string };
+  platformLogos?: string;
 };
 
 export type ServiceCategory = {
@@ -80,6 +88,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Monthly reporting: keyword rankings, traffic analytics, link progress, competitor analysis",
           "Technical SEO audits and fixes — crawl issues, schema markup, and more",
           "No lock-in contracts — scale up or down anytime",
+        ],
+        features: [
+          { title: "Full-Spectrum SEO", description: "We handle on-page, off-page, and technical SEO — ensuring your site ranks higher, loads faster, and performs better across all devices." },
+          { title: "Custom Strategy for Each Business", description: "No one-size-fits-all. We craft SEO strategies based on your industry, competition, and audience." },
+          { title: "Keyword Research That Drives Revenue", description: "We target search terms your ideal customers are actively using — not just traffic-chasing terms." },
+          { title: "High-Authority Backlink Building", description: "We acquire backlinks through outreach, directories, guest posts, and niche-specific platforms — all white-hat." },
+          { title: "SEO-Optimized Content", description: "Our in-house content team writes compelling, keyword-rich articles, landing pages, and metadata that convert." },
+          { title: "Transparent Reporting & Progress Tracking", description: "Monthly reports with keyword rankings, traffic analytics, link building progress, and competitor analysis." },
         ],
         faq: [
           {
@@ -116,6 +132,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Localized content creation tailored to your community and services",
           "Review and reputation management to build trust and improve rankings",
           "Monthly local SEO performance reporting",
+        ],
+        features: [
+          { title: "Hyperlocal Keyword Targeting", description: "We focus on location-specific search terms to help your business show up where it matters most." },
+          { title: "Google Business Profile Optimization", description: "We optimize and manage your GBP to boost visibility in Google Maps and local pack results." },
+          { title: "Consistent NAP Citations", description: "We ensure your Name, Address, and Phone number are consistent across top directories for stronger local ranking signals." },
+          { title: "Localized Content Creation", description: "Our team creates SEO-rich content tailored to your community, services, and customer base." },
+          { title: "Review & Reputation Management", description: "We help you gain and manage customer reviews to build trust and improve search rankings." },
+          { title: "Detailed Reporting & Insights", description: "Track your growth with easy-to-read local SEO performance reports and actionable insights." },
         ],
         faq: [
           {
@@ -237,6 +261,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             ],
           },
         ],
+        features: [
+          { title: "Platform-Specific Expertise", description: "From Instagram reels to LinkedIn strategy — we tailor content and tactics for each platform you use." },
+          { title: "Content That Converts", description: "Professionally designed posts, captions, and CTAs that align with your brand voice and drive results." },
+          { title: "Hashtag & Trend Research", description: "We monitor trending topics and use optimized hashtags to maximize organic reach and engagement." },
+          { title: "Real Engagement, Not Just Posting", description: "Our team interacts with your audience, replies to messages, and builds a loyal follower base." },
+          { title: "Performance-Driven Strategy", description: "We track KPIs like reach, engagement, clicks, and conversions — and refine the strategy monthly." },
+          { title: "Content Calendars & Approval Workflow", description: "Stay in control of your brand with preview-based content planning and scheduled approvals." },
+        ],
         faq: [
           {
             question: "What platforms do you support?",
@@ -289,6 +321,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "CIS benchmark standards applied across Linux, Windows, and cloud infrastructure",
           "Ongoing hardening available as a ongoing security plan, not just a one-time pass",
         ],
+        heroImage: { src: "/hero-server-hardening.jpg", alt: "A sticker reading 'Your ports were open... so I invited myself in'" },
+        platformLogos: "/platform-supported.webp",
+        features: [
+          { title: "Best Linux Server Hardening", description: "We minimize vulnerabilities by securing system configurations, disabling unnecessary services, and implementing strict SSH and TLS policies." },
+          { title: "Reduced Attack Surface", description: "We eliminate default ports, enforce the Principle of Least Privilege, and enable intrusion detection where applicable." },
+          { title: "CIS Benchmark Standards", description: "We apply essential hardening protocols and CIS benchmark standards so your environment resists unauthorized access, malware injection, and privilege escalation." },
+          { title: "Cross-Platform Coverage", description: "Whether you're running Linux, Windows, or cloud-based infrastructure, our tailored hardening process brings your servers to a secure, compliant, production-ready state." },
+        ],
         faq: [
           {
             question: "What does your server hardening service include?",
@@ -326,6 +366,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Firewall setup and hardening afterward to prevent reinfection",
           "Work done without disrupting your live site",
         ],
+        features: [
+          { title: "Emergency Response & Fast Cleanup", description: "We act quickly to remove malware, restore access, and secure your website — often within hours." },
+          { title: "Comprehensive Malware Scanning", description: "Deep scans detect hidden backdoors, injected scripts, and suspicious files missed by basic tools." },
+          { title: "Manual & Automated Removal", description: "We combine automated tools with expert manual inspection to eliminate threats without breaking your site." },
+          { title: "Blacklist & SEO Fix Assistance", description: "Help with Google blacklist removal, search engine reindexing, and restoring SEO trust." },
+          { title: "Server-Side Security Audit", description: "We don't just clean — we investigate how the infection happened and secure your hosting environment." },
+          { title: "Protection Against Reinfection", description: "Includes firewall setup, plugin/theme hardening, and admin/user security upgrades." },
+        ],
         howItWorks: [
           {
             title: "Send us the details",
@@ -352,6 +400,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Full backup taken before anything is touched",
           "We fix the root cause, not just patch the symptom",
           "Pay only once you're happy with the result",
+        ],
+        features: [
+          { title: "Instant Response & Resolution", description: "Get quick help for broken layouts, plugin conflicts, or critical errors — no ongoing commitment required." },
+          { title: "One-Time, Flat-Rate Transparency", description: "Clear, upfront pricing with no hidden charges or recurring costs." },
+          { title: "Fixes That Last", description: "We don't patch — we resolve the root cause to prevent recurring issues." },
+          { title: "Security-Focused Repairs", description: "Every fix includes a check for malware, vulnerabilities, and outdated software." },
+          { title: "Wide Issue Coverage", description: "From CSS glitches to PHP errors and login problems, we handle it all in one go." },
+          { title: "Backup Before We Touch Anything", description: "Full site backups ensure you're always protected — even if something goes wrong." },
         ],
         howItWorks: [
           {
@@ -387,6 +443,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Database optimization and image compression (WebP conversion included)",
           "Works with whatever you're already running — Elementor, Divi, WPBakery, or custom code",
           "Full backups and staging environments used for anything major",
+        ],
+        features: [
+          { title: "Performance-First Approach", description: "We don't just chase scores — we improve real-world load times that boost conversions and SEO." },
+          { title: "Core Web Vitals Optimization", description: "We fine-tune your site to pass Google's key metrics like LCP, FID, and CLS — without breaking functionality." },
+          { title: "Plugin & Theme Bloat Cleanup", description: "We identify and remove resource-heavy plugins/themes, replacing them with lightweight, efficient alternatives." },
+          { title: "Server & CDN Integration", description: "From caching layers to premium CDN setup, we optimize both front-end and server-side delivery." },
+          { title: "Database Optimization & Image Compression", description: "We reduce database overhead and compress images (WebP conversion included) to enhance speed without sacrificing quality." },
+          { title: "No Downtime Guarantee", description: "All optimization is done safely with full backups and staging environments where required." },
         ],
         pricing: [
           {
@@ -461,6 +525,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Mobile-first speed adjustments",
           "Before/after speed reports via GTmetrix and Google PageSpeed Insights",
           "Full backup taken before any change",
+        ],
+        features: [
+          { title: "Wix-Specific Optimization Experts", description: "We understand the platform's structure and limitations — and know how to push performance within its framework." },
+          { title: "Visual & Structural Optimization", description: "We fine-tune image sizes, strip unused sections, and streamline animations for faster interaction." },
+          { title: "App & Element Cleanup", description: "We analyze all installed apps and third-party integrations, removing unnecessary bloat that slows your site." },
+          { title: "Mobile Speed Enhancements", description: "Mobile-first adjustments for improved speed and usability across devices." },
+          { title: "Before/After Speed Reports", description: "Transparent speed test reports using tools like GTmetrix and Google PageSpeed Insights." },
+          { title: "No Downtime, Full Backup Approach", description: "All changes are handled safely with full backups and in close coordination with your team." },
         ],
       },
     ],
@@ -566,6 +638,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Transparent monthly billing, no surprise fees",
           "Custom hold tunes, call announcements, whitelisting/blacklisting, toll-free numbers",
         ],
+        features: [
+          { title: "Quick, Cloud-Based Deployment", description: "No hardware hassles — launch a professional call center from anywhere with just internet access." },
+          { title: "Scalable for Any Team Size", description: "Whether you're a 3-agent startup or a 300-agent enterprise, our solutions grow with your needs." },
+          { title: "Smart Call Routing & IVR", description: "Route calls intelligently with customizable IVR flows, skill-based routing, and call queue management." },
+          { title: "Live Agent Monitoring & Analytics", description: "Track agent performance, call quality, and customer satisfaction with detailed live dashboards and reports." },
+          { title: "CRM & Ticketing Integration", description: "Connect with tools like Zoho, HubSpot, Salesforce, and Freshdesk for seamless agent workflow." },
+          { title: "Omnichannel Capabilities", description: "Integrate voice, email, SMS, and WhatsApp into one platform for complete customer coverage." },
+        ],
         comparison: {
           columnA: "Cloud Contact Center",
           columnB: "On-Premise Call Center",
@@ -647,6 +727,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Strict confidentiality — signed NDAs, your clients stay yours",
           "Agency-centric pricing designed to leave room for your own markup",
           "Scales with you — a handful of sites or hundreds",
+        ],
+        features: [
+          { title: "Invisible Extension of Your Agency", description: "We operate under your brand, communicating professionally without ever revealing our identity to your clients." },
+          { title: "Scalable Support Team", description: "Scale up resources for high-volume months or specific projects — no hiring headaches or delays." },
+          { title: "All-in-One Technical Coverage", description: "From content edits and plugin updates to performance tuning and malware cleanup, we handle it all seamlessly." },
+          { title: "Fast Turnaround Time", description: "Quick edits, issue resolution, and support responses — keeping your agency's reputation intact." },
+          { title: "Consistent Reporting You Can Rebrand", description: "Get white-labeled monthly reports, logs, and activity summaries to present to your clients." },
+          { title: "Strict Confidentiality & NDAs", description: "Your clients remain yours. We operate under signed agreements to guarantee total discretion." },
         ],
       },
     ],
@@ -738,6 +826,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Post-launch support, bug fixes, and new features",
           "App Store / Google Play submission and optimization support",
         ],
+        features: [
+          { title: "Custom-Built Apps for Your Vision", description: "We don't use cookie-cutter templates — each app is developed to align with your unique goals and business needs." },
+          { title: "Cross-Platform Expertise", description: "Whether you need Android, iOS, or hybrid apps (React Native/Flutter), we build fast, modern, and scalable solutions." },
+          { title: "UI/UX That Engages Users", description: "Beautiful, intuitive designs that keep users engaged and boost retention." },
+          { title: "End-to-End Development", description: "From wireframing and prototyping to development and store deployment — we handle the entire process." },
+          { title: "Post-Launch Support & Maintenance", description: "We stay with you beyond launch to squash bugs, optimize performance, and release new features." },
+          { title: "Secure Code Standards", description: "We follow industry best practices to ensure your app and user data remain safe." },
+        ],
         faq: [
           {
             question: "What kind of apps can you develop?",
@@ -773,6 +869,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Agile, transparent workflow with regular updates",
           "Post-launch support and maintenance",
           "Secure coding standards throughout",
+        ],
+        features: [
+          { title: "Custom-Built for Your Vision", description: "We don't use cookie-cutter templates — each build aligns with your unique goals and business needs." },
+          { title: "Cross-Platform Expertise", description: "Fast, modern, scalable solutions across whatever platforms your project needs." },
+          { title: "End-to-End Development", description: "From requirements and prototyping to development and delivery — we handle the entire process." },
+          { title: "API & Third-Party Integrations", description: "Seamless integration with CRMs, payment gateways, databases, and more." },
+          { title: "Agile & Transparent Workflow", description: "Regular updates, sprint-based milestones, and full visibility into progress." },
+          { title: "Post-Launch Support & Maintenance", description: "We stay with you beyond launch to squash bugs, optimize performance, and release new features." },
         ],
       },
       {
@@ -851,6 +955,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Content and design updates — new sections, blog posts, image swaps",
           "No long-term contracts, cancel anytime",
         ],
+        features: [
+          { title: "Tailored for Non-eCommerce Sites", description: "We understand business, portfolio, and content-driven websites have different needs than online stores — we optimize accordingly." },
+          { title: "Speed, Security & Uptime Priority", description: "We continuously monitor and optimize your website's performance, apply security patches, and ensure stable uptime." },
+          { title: "Custom Maintenance Plans", description: "Choose a plan based on your update frequency, size, and platform. No one-size-fits-all." },
+          { title: "Content & Design Updates", description: "Need new sections, blog posts, image swaps, or layout tweaks? We handle it for you — no tech skills needed on your end." },
+          { title: "Core & Plugin Updates", description: "We safely update WordPress core, themes, and plugins with backup protocols in place." },
+          { title: "No Long-Term Contracts", description: "Cancel anytime, no advance payment required — flexible and transparent." },
+        ],
         faq: [
           {
             question: "What do you need to get started?",
@@ -888,6 +1000,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Scheduled backups with secure storage and restore protocols",
           "Custom stack support — Redis, Elasticsearch, Node.js, Docker, and more",
           "Real server admins for support, not a ticketing bot",
+        ],
+        features: [
+          { title: "Linux & Windows Server Expertise", description: "We manage both Linux (Ubuntu, CentOS, openSUSE) and Windows-based servers with precision and security-first protocols." },
+          { title: "24/7 Server Monitoring & Incident Response", description: "We proactively monitor uptime, performance, and threats — with alerts and instant fixes as needed." },
+          { title: "Security Hardening & Firewall Configuration", description: "From SSH optimization to DDoS mitigation and malware scans, we lock down your server infrastructure." },
+          { title: "Application-Specific Optimization", description: "We fine-tune servers for cPanel, WHM, Apache, NGINX, MySQL, and more — ensuring maximum speed and reliability." },
+          { title: "Custom Stack & Software Management", description: "Need Redis, Elasticsearch, Node.js, or Docker? We install, configure, and maintain the stack for optimal performance." },
+          { title: "Client-Centric, Human Support", description: "Speak to real server admins — not a ticketing bot — for every issue, update, or emergency." },
         ],
         pricing: [
           {
@@ -933,6 +1053,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Multichannel sync — Amazon, eBay, Walmart, Facebook Shops",
           "Security scanning and regular backups",
           "Custom performance reporting: traffic, sales, cart abandonment",
+        ],
+        features: [
+          { title: "eCommerce-First Expertise", description: "We specialize in managing and scaling online stores, not just generic websites — every strategy is tailored for conversions, cart value growth, and UX." },
+          { title: "Transparent & Scalable Pricing", description: "Tiered plans that grow with your business — no hidden costs, just clear deliverables." },
+          { title: "SEO, Speed, and Sales Focus", description: "From on-page and technical SEO to product speed optimization, our work directly impacts your visibility and sales pipeline." },
+          { title: "All-in-One Service Coverage", description: "We handle product management, social media, blog content, and performance optimization — eliminating the need for multiple vendors." },
+          { title: "Tailored Reporting & KPIs", description: "Monthly or bi-weekly reports built to track what matters: product indexing, traffic, conversions, load times, link growth." },
+          { title: "Integration Ready", description: "From Shopify and WooCommerce to Amazon, Walmart, and Facebook Shops — we help you sync and scale across platforms." },
         ],
         pricing: [
           {

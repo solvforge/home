@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { getAllCategories, getService } from "@/lib/services";
 import FaqAccordion from "@/components/FaqAccordion";
+import ContactForm from "@/app/contact/ContactForm";
 
 export function generateStaticParams() {
   return getAllCategories().flatMap((category) =>
@@ -52,6 +54,32 @@ export default async function ServicePage({
         </div>
       </section>
 
+      {service.heroImage && (
+        <div className="mx-auto max-w-3xl px-6 pt-10">
+          <div className="overflow-hidden rounded-2xl">
+            <Image
+              src={service.heroImage.src}
+              alt={service.heroImage.alt}
+              width={1024}
+              height={683}
+              className="h-auto w-full object-cover"
+            />
+          </div>
+        </div>
+      )}
+
+      {service.platformLogos && (
+        <div className="mx-auto max-w-3xl px-6 pt-10">
+          <Image
+            src={service.platformLogos}
+            alt="Platforms supported"
+            width={1040}
+            height={230}
+            className="mx-auto h-auto w-full max-w-md"
+          />
+        </div>
+      )}
+
       <section className="mx-auto max-w-3xl px-6 py-20">
         {service.intro && (
           <p className="rounded-xl bg-paper-2 p-5 text-text-muted">{service.intro}</p>
@@ -68,15 +96,19 @@ export default async function ServicePage({
           </div>
         )}
 
-        <h2 className="mt-10 text-lg font-semibold text-text">What's included</h2>
-        <ul className="mt-4 space-y-3">
-          {service.details.map((detail) => (
-            <li key={detail} className="flex gap-3 text-text-muted">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-              {detail}
-            </li>
-          ))}
-        </ul>
+        {!service.features && (
+          <>
+            <h2 className="mt-10 text-lg font-semibold text-text">What's included</h2>
+            <ul className="mt-4 space-y-3">
+              {service.details.map((detail) => (
+                <li key={detail} className="flex gap-3 text-text-muted">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         {service.pricing && (
           <>
@@ -160,14 +192,36 @@ export default async function ServicePage({
           </>
         )}
 
-        <div className="mt-14 rounded-2xl bg-paper-2 p-8 text-center">
-          <p className="text-text-muted">Interested in {service.name.toLowerCase()}?</p>
-          <Link
-            href="/contact"
-            className="mt-4 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
-          >
-            Get in touch
-          </Link>
+      </section>
+
+      <section className="bg-paper-2">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className={`grid gap-16 ${service.features ? "lg:grid-cols-2" : "mx-auto max-w-xl"}`}>
+            {service.features && (
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight text-text">
+                  Why Choose solvforge for {service.name}?
+                </h2>
+                <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                  {service.features.map((feature) => (
+                    <div key={feature.title}>
+                      <p className="font-semibold text-text">{feature.title}</p>
+                      <p className="mt-2 text-sm text-text-muted">{feature.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight text-text">Let&apos;s Work Together</h2>
+              <p className="mt-3 text-text-muted">
+                Tell us about your project and we&apos;ll get back to you within a couple of
+                business days.
+              </p>
+              <ContactForm />
+            </div>
+          </div>
         </div>
       </section>
     </>
