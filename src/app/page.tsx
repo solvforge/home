@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { SERVICES } from "@/lib/services";
+import { getAllCategories } from "@/lib/services";
 import { getAllCaseStudies } from "@/lib/case-studies";
 import { getHomeContent } from "@/lib/pages";
 
 export default function Home() {
+  const categories = getAllCategories();
   const caseStudies = getAllCaseStudies().slice(0, 3);
   const home = getHomeContent();
 
@@ -43,12 +44,16 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {SERVICES.map((service) => (
-            <div key={service.slug} className="rounded-2xl border border-border p-6">
-              <h3 className="text-lg font-semibold text-text">{service.name}</h3>
-              <p className="mt-2 text-sm text-text-muted">{service.summary}</p>
-            </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map((category) => (
+            <Link
+              key={category.slug}
+              href={`/services/${category.slug}`}
+              className="rounded-2xl border border-border p-6 transition-shadow hover:shadow-md"
+            >
+              <h3 className="text-lg font-semibold text-text">{category.name}</h3>
+              <p className="mt-2 text-sm text-text-muted">{category.summary}</p>
+            </Link>
           ))}
         </div>
       </section>

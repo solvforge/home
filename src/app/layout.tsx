@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "solvforge — Software & product engineering services",
+  title: "solvforge — Managed websites, servers, and marketing",
   description:
-    "solvforge builds and ships software for clients: web apps, SaaS products, automation, and ongoing support.",
+    "solvforge manages hosting, servers, and websites on a monthly retainer, plus SEO, security, call center infrastructure, and custom development.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
