@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: REPLACE-ME/solvforge
+  branch: main
+  # Fill in after deploying the sveltia-cms-auth OAuth worker to Cloudflare Workers.
+  # Same pattern as sherdore.com's home repo — see that repo's docs/cms-setup.md.
+  base_url: https://REPLACE-ME.workers.dev
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/home.yaml"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Subheadline", name: "subheadline", widget: "text" }
+          - { label: "CTA Text", name: "ctaText", widget: "string" }
+          - { label: "CTA Link", name: "ctaHref", widget: "string" }
+      - file: "content/pages/about.yaml"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Intro", name: "intro", widget: "text" }
+          - label: "Principles"
+            name: "principles"
+            widget: "list"
+            field: { label: "Principle", name: "principle", widget: "string" }
+
+  - name: "case-studies"
+    label: "Case Studies"
+    folder: "content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Body", name: "body", widget: "markdown" }
