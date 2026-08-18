@@ -219,15 +219,6 @@ export default async function ServicePage({
           </blockquote>
         )}
 
-        {service.faq && (
-          <>
-            <h2 className="mt-14 text-lg font-semibold text-text">Frequently asked questions</h2>
-            <div className="mt-4">
-              <FaqAccordion items={service.faq} />
-            </div>
-          </>
-        )}
-
       </section>
 
       <section className="bg-paper-2">
@@ -260,6 +251,15 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
+
+      {service.faq && (
+        <section className="mx-auto max-w-3xl px-6 py-20">
+          <h2 className="text-lg font-semibold text-text">Frequently asked questions</h2>
+          <div className="mt-4">
+            <FaqAccordion items={service.faq} />
+          </div>
+        </section>
+      )}
     </>
   );
 }
