@@ -22,35 +22,37 @@ export default function ContactForm() {
         />
       </div>
 
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-text">
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          className="mt-2 w-full rounded-lg border border-border px-4 py-3 text-sm outline-none focus:border-accent"
-        />
-      </div>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-text">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            className="mt-2 w-full rounded-lg border border-border px-4 py-3 text-sm outline-none focus:border-accent"
+          />
+        </div>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-text">
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          className="mt-2 w-full rounded-lg border border-border px-4 py-3 text-sm outline-none focus:border-accent"
-        />
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-text">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className="mt-2 w-full rounded-lg border border-border px-4 py-3 text-sm outline-none focus:border-accent"
+          />
+        </div>
       </div>
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-text">
-          Tell us about your project
+          Project Details
         </label>
         <textarea
           id="message"
@@ -59,6 +61,7 @@ export default function ContactForm() {
           required
           className="mt-2 w-full rounded-lg border border-border px-4 py-3 text-sm outline-none focus:border-accent"
         />
+        <p className="mt-1 text-xs text-text-muted">Describe your project details...</p>
       </div>
 
       <button
@@ -66,7 +69,7 @@ export default function ContactForm() {
         disabled={pending}
         className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark disabled:opacity-60"
       >
-        {pending ? "Sending…" : "Send message"}
+        {pending ? "Sending..." : "Submit Now"}
       </button>
 
       {state.status !== "idle" && (

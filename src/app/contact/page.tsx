@@ -40,10 +40,10 @@ export default function ContactPage() {
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight text-text">
-              I&apos;m Ready to Help You
+              I&apos;m Ready to Help You Send Me Message
             </h2>
             <p className="mt-3 text-text-muted">
-              Feel free to reach out! I am excited to begin our collaboration.
+              Feel free to reach out! I am excited to begin our collaboration!
             </p>
 
             <ul className="mt-8 space-y-4">
@@ -84,7 +84,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-text">Send a Message</h2>
+            <h2 className="text-2xl font-semibold tracking-tight text-text">Send A Message</h2>
             <ContactForm />
           </div>
         </div>
