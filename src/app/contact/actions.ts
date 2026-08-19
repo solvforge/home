@@ -1,6 +1,7 @@
 "use server";
 
 import nodemailer from "nodemailer";
+import { verifyRecaptcha } from "@/lib/recaptcha";
 
 export type ContactState = {
   status: "idle" | "success" | "error";
@@ -22,6 +23,10 @@ export async function sendContactMessage(
 
   if (!name || !email || !message) {
     return { status: "error", message: "Please fill in every field." };
+  }
+
+  if (!(await verifyRecaptcha(formData.get("g-recaptcha-response")))) {
+    return { status: "error", message: "Please complete the reCAPTCHA verification." };
   }
 
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_FROM_EMAIL, CONTACT_TO_EMAIL } =

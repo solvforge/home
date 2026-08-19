@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { sendContactMessage, type ContactState } from "./actions";
+import Recaptcha from "@/components/Recaptcha";
 
 const initialState: ContactState = { status: "idle", message: "" };
 
@@ -63,6 +64,8 @@ export default function ContactForm() {
         />
         <p className="mt-1 text-xs text-text-muted">Describe your project details...</p>
       </div>
+
+      <Recaptcha resetOn={state.status === "error"} />
 
       <button
         type="submit"

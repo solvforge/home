@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { sendQuoteRequest, type QuoteState } from "@/app/services/quoteActions";
+import Recaptcha from "@/components/Recaptcha";
 
 const initialState: QuoteState = { status: "idle", message: "" };
 
@@ -152,6 +153,8 @@ export default function ServiceQuoteForm() {
           </label>
           <textarea id="message" name="message" rows={4} required className={inputClass} />
         </div>
+
+        <Recaptcha resetOn={state.status === "error"} />
 
         <button
           type="submit"
