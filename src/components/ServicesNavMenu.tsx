@@ -4,7 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import type { ServiceCategory } from "@/lib/services";
 
-export default function ServicesNavMenu({ categories }: { categories: ServiceCategory[] }) {
+export default function ServicesNavMenu({
+  categories,
+  active = false,
+}: {
+  categories: ServiceCategory[];
+  active?: boolean;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,11 +21,15 @@ export default function ServicesNavMenu({ categories }: { categories: ServiceCat
     >
       <Link
         href="/services"
-        className="inline-flex items-center gap-1 text-sm font-medium text-text-muted transition-colors hover:text-text"
+        className={
+          active
+            ? "inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1.5 text-sm font-medium text-white"
+            : "inline-flex items-center gap-1 text-sm font-medium text-text-muted transition-colors hover:text-text"
+        }
       >
         Services
         <svg
-          className={`h-3 w-3 text-text-muted transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-3 w-3 transition-transform ${active ? "text-white" : "text-text-muted"} ${open ? "rotate-180" : ""}`}
           viewBox="0 0 12 12"
           fill="none"
           aria-hidden="true"
