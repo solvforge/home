@@ -28,13 +28,19 @@ GitHub account) and create an app with:
 
 Save the generated **Client ID**, and generate + save a **Client Secret**.
 
-## 2. Add the two env vars to Vercel
+## 2. Add the env vars to Vercel
 
 In the Vercel dashboard → this project → **Settings → Environment
 Variables**, add:
 
 - `GITHUB_OAUTH_CLIENT_ID` — from step 1
 - `GITHUB_OAUTH_CLIENT_SECRET` — from step 1
+- `GITHUB_OAUTH_ALLOWED_USERS` — comma-separated GitHub usernames allowed to
+  log into `/admin` (e.g. `solvforge`). Without this, anyone with a GitHub
+  account can reach the editor UI, though only actual collaborators on
+  `solvforge/home` could save/publish anything (GitHub's own repo
+  permissions still apply regardless). Setting this closes that gap by
+  rejecting the login itself for anyone not on the list.
 
 Redeploy (or just push — every push to `main` auto-deploys).
 

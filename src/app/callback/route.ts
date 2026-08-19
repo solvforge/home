@@ -55,6 +55,29 @@ export async function GET(request: NextRequest) {
       return htmlResponse("error", { error, errorCode: error });
     }
 
+    const allowedUsers = (process.env.GITHUB_OAUTH_ALLOWED_USERS ?? "")
+      .split(",")
+      .map((u) => u.trim().toLowerCase())
+      .filter(Boolean);
+
+    if (allowedUsers.length > 0) {
+      const userRes = await fetch("https://api.github.com/user", {
+        headers: {
+          Authorization: `Bearer ${tokenJson.access_token}`,
+          Accept: "application/vnd.github+json",
+        },
+      });
+      const userJson = await userRes.json();
+      const login = String(userJson.login ?? "").toLowerCase();
+
+      if (!login || !allowedUsers.includes(login)) {
+        return htmlResponse("error", {
+          error: "This GitHub account isn't authorized to edit this site.",
+          errorCode: "not_authorized",
+        });
+      }
+    }
+
     return htmlResponse("success", { token: tokenJson.access_token });
   } catch {
     return htmlResponse("error", { error: "exchange_failed", errorCode: "exchange_failed" });
