@@ -36,6 +36,39 @@ export default async function ServicePage({
   if (!result) notFound();
   const { category, service } = result;
 
+  const secondaryDetailsBlock = service.secondaryDetails && (
+    <>
+      {service.secondaryHeading && (
+        <h2 className="mt-14 text-lg font-semibold text-text">{service.secondaryHeading}</h2>
+      )}
+      {service.secondaryIntro && (
+        <p className="mt-4 text-text-muted">{service.secondaryIntro}</p>
+      )}
+      {service.secondaryAsCards ? (
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {service.secondaryDetails.map((detail, i) => {
+            const [title, ...rest] = detail.split(" — ");
+            return (
+              <div key={`${title}-${i}`} className="rounded-2xl border border-border p-5">
+                <p className="font-semibold text-text">{title}</p>
+                <p className="mt-2 text-sm text-text-muted">{rest.join(" — ")}</p>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <ul className="mt-4 space-y-3">
+          {service.secondaryDetails.map((detail) => (
+            <li key={detail} className="flex gap-3 text-text-muted">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+              {detail}
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
+
   const featuresAndFormSection = (
     <section className="bg-paper-2">
       <div className="mx-auto max-w-6xl px-6 py-20">
@@ -148,11 +181,22 @@ export default async function ServicePage({
                 >
                   {hero.headline}
                 </h1>
-                {hero.body.split("\n\n").map((para) => (
-                  <p key={para} className={dark ? "mt-4 text-white/80" : "mt-4 text-text-muted"}>
-                    {para}
-                  </p>
-                ))}
+                {hero.body &&
+                  hero.body.split("\n\n").map((para) => (
+                    <p key={para} className={dark ? "mt-4 text-white/80" : "mt-4 text-text-muted"}>
+                      {para}
+                    </p>
+                  ))}
+                {hero.bullets && (
+                  <ul className="mt-4 inline-block text-left">
+                    {hero.bullets.map((bullet) => (
+                      <li key={bullet} className={dark ? "mt-2 flex gap-2 text-white/80" : "mt-2 flex gap-2 text-text-muted"}>
+                        <span className="text-accent">✓</span>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <Link
                   href="/contact"
                   className={
@@ -261,38 +305,7 @@ export default async function ServicePage({
           </>
         )}
 
-        {service.secondaryDetails && (
-          <>
-            {service.secondaryHeading && (
-              <h2 className="mt-14 text-lg font-semibold text-text">{service.secondaryHeading}</h2>
-            )}
-            {service.secondaryIntro && (
-              <p className="mt-4 text-text-muted">{service.secondaryIntro}</p>
-            )}
-            {service.secondaryAsCards ? (
-              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {service.secondaryDetails.map((detail, i) => {
-                  const [title, ...rest] = detail.split(" — ");
-                  return (
-                    <div key={`${title}-${i}`} className="rounded-2xl border border-border p-5">
-                      <p className="font-semibold text-text">{title}</p>
-                      <p className="mt-2 text-sm text-text-muted">{rest.join(" — ")}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <ul className="mt-4 space-y-3">
-                {service.secondaryDetails.map((detail) => (
-                  <li key={detail} className="flex gap-3 text-text-muted">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </>
-        )}
+        {service.secondaryDetails && service.secondaryPosition !== "late" && secondaryDetailsBlock}
 
         {service.pricing && (
           <>
@@ -390,6 +403,10 @@ export default async function ServicePage({
       </section>
 
       {service.formPosition !== "early" && featuresAndFormSection}
+
+      {service.secondaryDetails && service.secondaryPosition === "late" && (
+        <section className="mx-auto max-w-3xl px-6 py-20">{secondaryDetailsBlock}</section>
+      )}
 
       {service.faq && (
         <section className="mx-auto max-w-3xl px-6 py-20">

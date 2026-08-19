@@ -49,6 +49,7 @@ export type CustomHero = {
   image?: { src: string; alt: string };
   background?: "light" | "dark";
   ctaStyle?: "filled" | "outline";
+  bullets?: string[];
 };
 
 export type ServiceItem = {
@@ -66,6 +67,7 @@ export type ServiceItem = {
   secondaryIntro?: string;
   secondaryDetails?: string[];
   secondaryAsCards?: boolean;
+  secondaryPosition?: "early" | "late";
   pricing?: PricingTier[];
   testimonial?: Testimonial;
   faq?: FaqItem[];
@@ -654,16 +656,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "project",
         customHero: {
           headline: "Get 2 Hours of Unlimited Fixes for $49 Only",
-          body: "Get expert help for any issue or request you have. Lightning-quick turnaround time from our 24/7 technical support team — pay only once you are 100% happy with our service.",
+          body: "",
+          bullets: [
+            "Get expert help for any issue or request you have",
+            "Lightning-quick turnaround time from our 24/7 Technical Support Team",
+            "Pay only once you are 100% happy with our service",
+          ],
           ctaLabel: "Contact Me Now",
+          ctaStyle: "outline",
         },
+        howItWorksHeading: "How It Works",
+        secondaryPosition: "late",
         intro: "$49 for 2 hours of unlimited fixes.",
-        details: [
-          "Covers broken layouts, plugin conflicts, CSS glitches, PHP errors, login issues",
-          "Full backup taken before anything is touched",
-          "We fix the root cause, not just patch the symptom",
-          "Pay only once you're happy with the result",
-        ],
+        details: [],
+        featuresHeading: "Why Choose SolvForge for One-Time Fix Services?",
         features: [
           { title: "Instant Response & Resolution", description: "Get quick help for broken layouts, plugin conflicts, or critical errors — no ongoing commitment required." },
           { title: "One-Time, Flat-Rate Transparency", description: "Clear, upfront pricing with no hidden charges or recurring costs." },
