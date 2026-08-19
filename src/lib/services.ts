@@ -1128,9 +1128,10 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         summary: "We do the work, you keep the client relationship — under your brand.",
         billing: "recurring",
         customHero: {
-          headline: "White Label Website Support for Agencies",
-          body: "We recognize the challenges agencies face when managing multiple client websites. Our White Label Website Support for Agencies is designed to seamlessly integrate with your business, allowing you to provide top-tier website support and maintenance under your own brand — so you can focus on scaling your agency while we manage the technical intricacies.",
+          headline: "White Label Support for Agencies",
+          body: "I recognize the challenges agencies face when managing multiple client websites. My White Label Website Support for Agencies is designed to seamlessly integrate with your business, allowing you to provide top-tier website support and maintenance under your own brand. This enables you to focus on scaling your agency while we manage the technical intricacies.",
           ctaLabel: "Contact Us Now",
+          ctaStyle: "outline",
         },
         details: [
           "We operate as an invisible extension of your agency — clients never see us",
@@ -1175,8 +1176,10 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "project",
         customHero: {
           headline: "Website Development",
-          body: "We are a Website Development Partner, backed by a team of strong WordPress developers.",
+          body: "I am a Website Development Partner and i offer Magento development services, backed by a team of strong Magento developers.",
           ctaLabel: "Get a Free Consultation",
+          ctaStyle: "outline",
+          background: "dark",
         },
         bodyParagraphs: [
           "Our Website Development Services are designed to help you build a compelling and effective online presence. Leveraging the power of the WordPress platform, we create custom websites tailored to meet your specific needs, whether it's for a personal blog, an eCommerce store, or a corporate site. Our team of experienced developers ensures that every website is not only visually appealing but also functional and user-friendly.",
@@ -1261,9 +1264,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "project",
         customHero: {
           headline: "Unmatched App Development Services From an Experienced Team",
-          body: "An extensive range of app development services developed by an experienced and highly talented app developer — iOS, Android, and cross-platform.",
+          body: "An extensive range of app development services developed by an experienced and highly talented app developer.",
+          secondaryHeadline: "Top Rated Mobile App Developer's Team",
           ctaLabel: "Get a Free Consultation",
+          ctaStyle: "outline",
         },
+        featuresAsList: true,
         details: [
           "iOS, Android, or hybrid (React Native/Flutter)",
           "Custom-built for your goals, not a templated app",
@@ -1337,8 +1343,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         customHero: {
           headline: "Unmatched App Development Services From an Experienced Team",
           body: "An extensive range of app development services developed by an experienced and highly talented team.",
+          secondaryHeadline: "Top Rated Mobile App Developer's Team",
           ctaLabel: "Get a Free Consultation",
+          ctaStyle: "outline",
         },
+        featuresAsList: true,
         details: [],
         pricing: [
           { name: "Basic", price: "$120 / One Time Cost", features: ["Functional app", "1 operating system", "App submission", "App icon", "Splash screen", "Ad network integration", "Source code"] },
@@ -1402,10 +1411,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         summary: "A single-purpose page built to convert visitors into leads or customers.",
         billing: "project",
         customHero: {
-          headline: "I Craft Enticing Landing Pages That Captivate the Audience",
-          body: "Looks like you need an awesome landing page. Sell a unique product? Run a useful service? Teaching people something? We're here to help.",
+          headline: "I Craft Enticing Landing Pages that Captivate The Audience",
+          body: "Looks like someone needs awesome Landing Page? You sell unique product? Run useful service? Teaching people something? Im here to help you!",
+          secondaryHeadline: "Top Rated Landing Pages Designer Freelancer",
           ctaLabel: "Get a Free Consultation",
+          ctaStyle: "outline",
         },
+        featuresAsList: true,
         features: [
           { title: "Customized Design", description: "We create bespoke landing pages that resonate with your target audience, incorporating your brand's unique elements and aesthetics." },
           { title: "Optimized for Conversion", description: "Our designs are meticulously crafted to enhance user experience, guiding visitors seamlessly towards your desired action." },
