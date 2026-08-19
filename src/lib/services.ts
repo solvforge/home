@@ -51,6 +51,7 @@ export type CustomHero = {
   ctaStyle?: "filled" | "outline";
   bullets?: string[];
   secondaryHeadline?: string;
+  align?: "left" | "center";
 };
 
 export type ServiceItem = {
@@ -1490,8 +1491,10 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "recurring",
         customHero: {
           headline: "What Do Website Maintenance Services Include?",
-          body: "Just like your car, your house, and even your body, your website needs maintenance on a periodic basis. Website maintenance isn't just about fixing bugs after launch — it's upgrading your visual branding, integrating new systems, and uploading fresh content. Your website is the first impression of your business, and it needs to stay in line with a constantly evolving environment.",
+          body: "Mostly there is a big sigh of relief once the website is completed and uploaded but just like your car, your body, your house, and even your website need maintenance on a periodic basis. Many people think that website maintenance is majorly about fixing the bugs that pop up after launching it but actually, it encompasses a lot more. Upgrading the website's visual branding, integrating with new systems and updates, or uploading fresh content is all part of maintenance. A website is the first impression of your business and this needs to be in line with the constantly evolving environment around you in order to not fall behind in the competition.",
           ctaLabel: "Get a Free Consultation",
+          ctaStyle: "outline",
+          align: "left",
         },
         supplementaryImage: { src: "/badge-moneyback-guarantee.webp", alt: "30 days money back guarantee badge" },
         intro: "Plans scale with your site's size and update frequency — get in touch for a quote. 30-day money-back guarantee on every plan. Prefer a single fix instead? One-time support starts at $49.",
@@ -1638,9 +1641,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "recurring",
         customHero: {
           headline: "eCommerce Website Management",
-          body: "Businesses today all have unique needs. We've moved on from when web designers were left to handle all aspects of eCommerce management — now you need an excellent eCommerce website management partner that will run your entire campaign successfully.",
+          body: "Businesses today all have unique needs. We have moved on from when web designing professionals were left to handle all aspects of eCommerce management. Now, you need an excellent eCommerce website management company that will run your entire campaign successfully.",
           ctaLabel: "Get a Free Review of Your Website",
+          ctaStyle: "outline",
         },
+        formPosition: "early",
+        featuresAsList: true,
+        featuresHeading: "Why Choose SolvForge for eCommerce Management",
         details: [
           "Product uploads, inventory management, and order processing",
           "Platform and plugin/app updates across Shopify, WooCommerce, Magento, BigCommerce, Wix, and more",
@@ -1726,6 +1733,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           headline: "Magento Website Development",
           body: "We are a Magento Website Development Partner, backed by a team of strong Magento developers.",
           ctaLabel: "Get a Free Quotation",
+          ctaStyle: "outline",
         },
         supplementaryImage: { src: "/hero-magento.jpg", alt: "Magento logo icon" },
         featuresHeading: "The Magento Advantage",

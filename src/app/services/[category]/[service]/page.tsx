@@ -153,15 +153,24 @@ export default async function ServicePage({
         (() => {
           const hero = service.customHero!;
           const dark = hero.background === "dark";
+          const left = hero.align === "left";
           return (
             <section
               className={
                 dark
                   ? "bg-ink text-white [background-image:radial-gradient(rgba(255,255,255,0.12)_1.5px,transparent_1.5px)] [background-size:22px_22px]"
-                  : "bg-paper"
+                  : left
+                    ? "bg-paper [background-image:linear-gradient(30deg,rgba(0,0,0,0.05)_12%,transparent_12.5%,transparent_87%,rgba(0,0,0,0.05)_87.5%,rgba(0,0,0,0.05)_100%)] [background-size:44px_76px]"
+                    : "bg-paper"
               }
             >
-              <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+              <div
+                className={
+                  left
+                    ? "mx-auto max-w-3xl px-6 py-20 text-left"
+                    : "mx-auto max-w-3xl px-6 py-20 text-center"
+                }
+              >
                 <Link
                   href={`/services/${category.slug}`}
                   className={
