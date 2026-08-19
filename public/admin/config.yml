@@ -32,6 +32,14 @@ collections:
             name: "principles"
             widget: "list"
             field: { label: "Principle", name: "principle", widget: "string" }
+      - file: "content/pages/roadmap.yaml"
+        label: "Roadmap / Notes"
+        name: "roadmap"
+        fields:
+          - label: "Notes"
+            name: "notes"
+            widget: "list"
+            field: { label: "Note", name: "note", widget: "text" }
 
   - name: "case-studies"
     label: "Case Studies"
