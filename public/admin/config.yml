@@ -2,9 +2,10 @@ backend:
   name: github
   repo: solvforge/home
   branch: main
-  # Fill in after deploying the sveltia-cms-auth OAuth worker to Cloudflare Workers.
-  # See docs/cms-setup.md in this repo for the step-by-step.
-  base_url: https://REPLACE-ME.workers.dev
+  # Self-hosted OAuth (see /auth and /callback route handlers + docs/cms-setup.md)
+  # — must match whatever domain is currently serving this site. Update this
+  # when solvforge.com replaces the temporary Vercel preview domain.
+  base_url: https://home-one-gray.vercel.app
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"

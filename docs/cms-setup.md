@@ -1,47 +1,47 @@
 # Connecting the Sveltia CMS admin panel
 
 The site itself already builds/deploys without this — `/admin` just can't
-log in yet. This is the one-time, account-bound step needed to make it work.
-GitHub repo (`solvforge/home`) and Vercel are already connected; this is
-only about wiring up GitHub OAuth so `/admin` can authenticate. Needs your
-GitHub/Cloudflare accounts, so it has to be done by you — not me.
+log in yet. GitHub repo (`solvforge/home`) and Vercel are already
+connected; this is only about wiring up GitHub OAuth so `/admin` can
+authenticate.
+
+Unlike the sherdore.com home site (a fully static Astro build with no
+backend of its own, which needed a separate Cloudflare Worker), solvforge
+is Next.js on Vercel and already has working serverless functions — so the
+OAuth token exchange is just two API routes in this same repo
+(`src/app/auth/route.ts` and `src/app/callback/route.ts`). No separate
+service, account, or deployment. One account (GitHub) and two env vars in
+Vercel is all this needs.
 
 ## 1. Register a GitHub OAuth App
 
-Go to https://github.com/settings/applications/new (make sure you're on the
-`solvforge` GitHub account, not your personal one) and create an app with:
+Go to https://github.com/settings/applications/new (on the `solvforge`
+GitHub account) and create an app with:
 
-- **Homepage URL**: `https://solvforge.com` (anything reasonable works here)
-- **Authorization callback URL**: `https://<your-worker-subdomain>.workers.dev/callback`
-  (you'll get the exact worker URL in step 2 — you can come back and fill
-  this in after deploying it)
+- **Application name**: `SolvForge CMS`
+- **Homepage URL**: `https://solvforge.com`
+- **Authorization callback URL**: `https://home-one-gray.vercel.app/callback`
+  (this must match whatever domain is currently live — see the note in
+  `public/admin/config.yml`; update this callback URL, the config.yml
+  `base_url`, and the redeploy together whenever the live domain changes,
+  e.g. once solvforge.com replaces the temporary Vercel preview domain)
+- **Enable Device Flow**: leave unchecked
 
-Save the generated **Client ID** and **Client Secret** — you'll need both next.
+Save the generated **Client ID**, and generate + save a **Client Secret**.
 
-## 2. Deploy the Sveltia CMS auth worker to Cloudflare Workers
+## 2. Add the two env vars to Vercel
 
-This is a small, officially maintained OAuth proxy
-(https://github.com/sveltia/sveltia-cms-auth) that lets the `/admin` UI log
-in via GitHub. It only deploys to Cloudflare Workers.
+In the Vercel dashboard → this project → **Settings → Environment
+Variables**, add:
 
-1. Fork or clone https://github.com/sveltia/sveltia-cms-auth
-2. Deploy it (either the repo's "Deploy to Cloudflare" button, or locally via
-   `wrangler deploy` after `npm install`)
-3. In the Cloudflare Workers dashboard, under the deployed worker's
-   **Settings → Variables**, set:
-   - `GITHUB_CLIENT_ID` — from step 1
-   - `GITHUB_CLIENT_SECRET` — from step 1 (encrypt it)
-   - `ALLOWED_DOMAINS` — `*.solvforge.com,*.vercel.app` (the `vercel.app`
-     entry covers the current temporary preview domain; once solvforge.com
-     is the real live domain you can drop it)
-4. Note the worker's URL, e.g. `https://sveltia-cms-auth.<you>.workers.dev`
-5. Go back to the GitHub OAuth App from step 1 and set its callback URL to
-   `<that worker URL>/callback`
+- `GITHUB_OAUTH_CLIENT_ID` — from step 1
+- `GITHUB_OAUTH_CLIENT_SECRET` — from step 1
 
-## 3. Point the CMS at the worker
+Redeploy (or just push — every push to `main` auto-deploys).
 
-Send me the worker's URL from step 2 and I'll update
-`public/admin/config.yml`'s `base_url`, commit, and let you push. Once
-that's live, `/admin` on whichever domain is currently serving the site
-will be able to log in with GitHub and publish edits directly to
-`solvforge/home` (which triggers a Vercel redeploy).
+## 3. Log in
+
+Visit `<live domain>/admin`, click "Login with GitHub," authorize the app.
+You'll be able to edit the Home hero copy, About bio, and case studies
+directly, and publishing commits straight to `solvforge/home` (which
+triggers a Vercel redeploy).
