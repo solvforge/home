@@ -36,22 +36,62 @@ export default async function ServicePage({
   if (!result) notFound();
   const { category, service } = result;
 
+  const featuresAndFormSection = (
+    <section className="bg-paper-2">
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className={`grid gap-16 ${service.features ? "lg:grid-cols-2" : "mx-auto max-w-xl"}`}>
+          {service.features && (
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight text-text">
+                {service.featuresHeading ?? `Why Choose solvforge for ${service.name}?`}
+              </h2>
+              {service.featuresAsList ? (
+                <ul className="mt-8 space-y-3">
+                  {service.features.map((feature, i) => (
+                    <li key={`${feature.title}-${i}`} className="flex gap-3 text-text-muted">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      <span>
+                        <span className="font-medium text-text">{feature.title}</span>
+                        {feature.description && <> — {feature.description}</>}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                  {service.features.map((feature, i) => (
+                    <div key={`${feature.title}-${i}`}>
+                      <p className="font-semibold text-text">{feature.title}</p>
+                      <p className="mt-2 text-sm text-text-muted">{feature.description}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          <div>
+            <ServiceQuoteForm />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
   return (
     <>
-      {service.customHero ? (
+      {service.customHero?.image ? (
         <section className="bg-paper">
           <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-2 lg:items-center">
-            {service.customHero.image && (
-              <div className="overflow-hidden rounded-2xl">
-                <Image
-                  src={service.customHero.image.src}
-                  alt={service.customHero.image.alt}
-                  width={1024}
-                  height={683}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-            )}
+            <div className="overflow-hidden rounded-2xl">
+              <Image
+                src={service.customHero.image.src}
+                alt={service.customHero.image.alt}
+                width={1024}
+                height={683}
+                className="h-auto w-full object-cover"
+              />
+            </div>
             <div>
               <Link
                 href={`/services/${category.slug}`}
@@ -76,6 +116,59 @@ export default async function ServicePage({
             </div>
           </div>
         </section>
+      ) : service.customHero ? (
+        (() => {
+          const hero = service.customHero!;
+          const dark = hero.background === "dark";
+          return (
+            <section
+              className={
+                dark
+                  ? "bg-ink text-white [background-image:radial-gradient(rgba(255,255,255,0.12)_1.5px,transparent_1.5px)] [background-size:22px_22px]"
+                  : "bg-paper"
+              }
+            >
+              <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+                <Link
+                  href={`/services/${category.slug}`}
+                  className={
+                    dark
+                      ? "text-sm font-medium text-white/80 hover:underline"
+                      : "text-sm font-medium text-accent hover:underline"
+                  }
+                >
+                  ← {category.name}
+                </Link>
+                <h1
+                  className={
+                    dark
+                      ? "mt-3 text-3xl font-bold tracking-tight text-white"
+                      : "mt-3 text-2xl font-semibold tracking-tight text-text"
+                  }
+                >
+                  {hero.headline}
+                </h1>
+                {hero.body.split("\n\n").map((para) => (
+                  <p key={para} className={dark ? "mt-4 text-white/80" : "mt-4 text-text-muted"}>
+                    {para}
+                  </p>
+                ))}
+                <Link
+                  href="/contact"
+                  className={
+                    hero.ctaStyle === "outline"
+                      ? dark
+                        ? "mt-6 inline-block rounded-lg border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                        : "mt-6 inline-block rounded-lg border-2 border-accent px-6 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                      : "mt-6 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+                  }
+                >
+                  {hero.ctaLabel}
+                </Link>
+              </div>
+            </section>
+          );
+        })()
       ) : (
         <section className="bg-ink text-white">
           <div className="mx-auto max-w-3xl px-6 py-20">
@@ -126,6 +219,8 @@ export default async function ServicePage({
         </div>
       )}
 
+      {service.formPosition === "early" && featuresAndFormSection}
+
       <section className="mx-auto max-w-3xl px-6 py-20">
         {service.bodyParagraphs && (
           <div className="text-center">
@@ -174,14 +269,28 @@ export default async function ServicePage({
             {service.secondaryIntro && (
               <p className="mt-4 text-text-muted">{service.secondaryIntro}</p>
             )}
-            <ul className="mt-4 space-y-3">
-              {service.secondaryDetails.map((detail) => (
-                <li key={detail} className="flex gap-3 text-text-muted">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                  {detail}
-                </li>
-              ))}
-            </ul>
+            {service.secondaryAsCards ? (
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {service.secondaryDetails.map((detail, i) => {
+                  const [title, ...rest] = detail.split(" — ");
+                  return (
+                    <div key={`${title}-${i}`} className="rounded-2xl border border-border p-5">
+                      <p className="font-semibold text-text">{title}</p>
+                      <p className="mt-2 text-sm text-text-muted">{rest.join(" — ")}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <ul className="mt-4 space-y-3">
+                {service.secondaryDetails.map((detail) => (
+                  <li key={detail} className="flex gap-3 text-text-muted">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            )}
           </>
         )}
 
@@ -190,10 +299,30 @@ export default async function ServicePage({
             <h2 className="mt-14 text-lg font-semibold text-text">Plans</h2>
             <div className="mt-4 grid gap-6 sm:grid-cols-3">
               {service.pricing.map((tier) => (
-                <div key={tier.name} className="rounded-2xl border border-border p-6">
+                <div
+                  key={tier.name}
+                  className={
+                    tier.highlighted
+                      ? "rounded-2xl border-2 border-accent p-6 shadow-lg"
+                      : "rounded-2xl border border-border p-6"
+                  }
+                >
+                  {tier.highlighted && (
+                    <p className="-mt-6 -mx-6 mb-4 rounded-t-2xl bg-accent px-6 py-2 text-center text-xs font-semibold uppercase tracking-wide text-white">
+                      Most Popular
+                    </p>
+                  )}
                   <p className="font-semibold text-text">{tier.name}</p>
                   {tier.price && (
-                    <p className="mt-1 text-sm font-medium text-accent">{tier.price}</p>
+                    <p
+                      className={
+                        tier.highlighted
+                          ? "mt-1 text-2xl font-bold text-accent"
+                          : "mt-1 text-sm font-medium text-accent"
+                      }
+                    >
+                      {tier.price}
+                    </p>
                   )}
                   <ul className="mt-4 space-y-2">
                     {tier.features.map((feature) => (
@@ -210,7 +339,7 @@ export default async function ServicePage({
 
         {service.howItWorks && (
           <>
-            <h2 className="mt-14 text-lg font-semibold text-text">How it works</h2>
+            <h2 className="mt-14 text-lg font-semibold text-text">{service.howItWorksHeading ?? "How it works"}</h2>
             <div className="mt-4 grid gap-6 sm:grid-cols-3">
               {service.howItWorks.map((step, i) => (
                 <div key={step.title}>
@@ -260,31 +389,7 @@ export default async function ServicePage({
 
       </section>
 
-      <section className="bg-paper-2">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className={`grid gap-16 ${service.features ? "lg:grid-cols-2" : "mx-auto max-w-xl"}`}>
-            {service.features && (
-              <div>
-                <h2 className="text-2xl font-semibold tracking-tight text-text">
-                  {service.featuresHeading ?? `Why Choose solvforge for ${service.name}?`}
-                </h2>
-                <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                  {service.features.map((feature, i) => (
-                    <div key={`${feature.title}-${i}`}>
-                      <p className="font-semibold text-text">{feature.title}</p>
-                      <p className="mt-2 text-sm text-text-muted">{feature.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div>
-              <ServiceQuoteForm />
-            </div>
-          </div>
-        </div>
-      </section>
+      {service.formPosition !== "early" && featuresAndFormSection}
 
       {service.faq && (
         <section className="mx-auto max-w-3xl px-6 py-20">

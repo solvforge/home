@@ -2,6 +2,7 @@ export type PricingTier = {
   name: string;
   price?: string;
   features: string[];
+  highlighted?: boolean;
 };
 
 export type Testimonial = {
@@ -46,6 +47,8 @@ export type CustomHero = {
   body: string;
   ctaLabel: string;
   image?: { src: string; alt: string };
+  background?: "light" | "dark";
+  ctaStyle?: "filled" | "outline";
 };
 
 export type ServiceItem = {
@@ -58,13 +61,17 @@ export type ServiceItem = {
   details: string[];
   features?: Feature[];
   featuresHeading?: string;
+  featuresAsList?: boolean;
   secondaryHeading?: string;
   secondaryIntro?: string;
   secondaryDetails?: string[];
+  secondaryAsCards?: boolean;
   pricing?: PricingTier[];
   testimonial?: Testimonial;
   faq?: FaqItem[];
   howItWorks?: HowItWorksStep[];
+  howItWorksHeading?: string;
+  formPosition?: "early" | "late";
   stats?: StatCallout[];
   comparison?: Comparison;
   customHero?: CustomHero;
@@ -194,22 +201,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         summary: "Structure and content changes made directly on your site.",
         billing: "recurring",
         customHero: {
-          headline: "Get Your Brand Seen by the Right People with On-Page SEO",
-          body: "On-Page SEO is part of the online marketing omnichannel — the on-page techniques of getting targeted traffic to a website from a search engine's organic rankings. Common tasks include technical SEO, indexation management, creating high-quality content, optimizing content, and content marketing.",
+          headline: "Get Your Brand Seen by the Right People With the Help of On Page SEO Services",
+          body: "Are you Searching for On-Page SEO Services freelancer and SEO consultants that can give a 360 bundle of SEO Services? On-Page SEO Services service is part of the online marketing Omni channel, and improving search engine rankings in digital marketing is vital to fulfilling your marketing strategy can be defined as the on-page and off-page techniques of getting targeted traffic to a website from a search engine's organic rankings - the Google search engine results page is the most popular.\n\nCommon tasks associated with On-Page SEO Services include Technical SEO, indexation management, creating high-quality content, optimizing content, link building and content marketing.\n\nTo be on top of your customers' minds, your business goals are to stay on top of search results and rank higher - at all times. This will help you to achieve your business goals.\n\nAs a leading On-Page SEO Services freelancer, I have served clients and successfully conducted all On-Page SEO Services campaigns for an e-commerce, Travel, retail, B2C / B2B, health, News and real-estate websites. Furthermore, we have built Local SEO strategies and worked closely with pay-per-click, UX, CRO, PR, social, and data analyst teams in different niches, resulting in results-driven campaigns that have impacted business ROI, brand positioning, and store footfall. - Check our Case studies for more.\n\nOur organic search team crafts bespoke On-Page SEO Services marketing campaigns that will build and nurture your online presence, drive organic traffic to your website, and skyrocket sales by improving your website visibility and increasing its traffic organically.\n\nOur philosophy of On-Page SEO Services is built around this deep understanding of search engines and user intent. We build strategies that put your business objectives in the centre and turn your website into the most relevant answers to searches your target audiences are making, enabling you to take the lead over your competitors and stay there.\n\nThe end result of our work is a custom-made, real-world, results-oriented performance architecture that is robust, self-maintaining, self-evolving and as automatic as possible so you can move on with the business of publishing content.",
           ctaLabel: "Get a Free Quotation",
+          ctaStyle: "outline",
         },
-        details: [
-          "Technical SEO cleanup — metadata, headings, internal linking, indexation",
-          "Keyword-targeted page structure and copy",
-          "Content optimization built around real search intent, not just keyword stuffing",
-          "Custom-built, self-maintaining performance architecture, not a one-off audit",
+        details: [],
+        secondaryHeading: "Our Three SEO Pillars Keep You Ahead of the Digital Curve",
+        secondaryAsCards: true,
+        secondaryDetails: [
+          "Technical — Poor technical SEO health impacts all areas of your site, leading to lost organic visibility. We have a particular appetite for identifying and fixing technical errors (page speed, code optimization, website hierarchy, URL structure, indexation management such as robots.txt and XML sitemap, etc.) to ensure your site doesn't miss out on the visibility it deserves. Using our data & tech tools, we can identify opportunities to optimize the website more effectively for search engines and user experience.",
+          "Content — Original, rich, SEO-optimized content development is the undisputed king of digital marketing. The heart of our strategy is creating copy that converts while still being optimized for search engines. Our SEO-copywriting team will care for your website content. We start this exercise with extensive keyword research that looks after your relevant business and semantic keywords by assigning primary and secondary keyword targeting.",
+          "Authority — Authoritative websites in your industry are your best friends. We link to trustworthy sites to help set your brand as a source of authority that search engines will be happy to rank. We build a customized list (database) of websites relevant to your niche through professional research and outreach to publishers.",
         ],
-        featuresHeading: "Our Three SEO Pillars Keep You Ahead of the Digital Curve",
-        features: [
-          { title: "Technical", description: "Poor technical SEO health impacts all areas of your site, leading to lost organic visibility. We have a particular appetite for identifying and fixing technical errors (page speed, code optimization, website hierarchy, URL structure, indexation management such as robots.txt and XML sitemap, etc.) to ensure your site doesn't miss out on the visibility it deserves. Using our data & tech tools, we can identify opportunities to optimize the website more effectively for search engines and user experience." },
-          { title: "Content", description: "Original, rich, SEO-optimized content development is the undisputed king of digital marketing. The heart of our strategy is creating copy that converts while still being optimized for search engines. Our SEO-copywriting team will care for your website content. We start this exercise with extensive keyword research that looks after your relevant business and semantic keywords by assigning primary and secondary keyword targeting." },
-          { title: "Authority", description: "Authoritative websites in your industry are your best friends. We link to trustworthy sites to help set your brand as a source of authority that search engines will be happy to rank. We build a customized list (database) of websites relevant to your niche through professional research and outreach to publishers." },
-        ],
+        howItWorksHeading: "Our Process",
         howItWorks: [
           { title: "Discovery", description: "Our discovery phase stacks the odds in your favor by uncovering extensive search term data — full keyword research and mapping —, audience persona, searcher behaviour, and competition analysis (both organic and industry competitors), and unleashing Google Trends keywords capabilities. We call it the setup phase too, where we set up your website on Google Search Console and Bing/Yahoo Webmaster Tools, besides submitting it to our SEO premium tools (technical, content and backlinks tools)." },
           { title: "Execution Strategy", description: "Next, we craft a bespoke SEO strategy for on-page optimization, off-page optimization, and content marketing that is in line with your digital growth objectives. For technical SEO, after we analyze your website and list all technical issues and advanced implementations such as schema markups, we send these recommendations with an action list and guides to your IT team to implement live — or optionally we can do this from our end upon agreement." },
@@ -268,13 +273,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         summary: "Consistent posting and real engagement across your social accounts.",
         billing: "recurring",
         customHero: {
-          headline: "Strategic Social Media Marketing & Management for Meaningful Engagement",
+          headline: "Social Media Management",
           body: "Did you know that the best way for businesses to stay on top of their game is through the assistance of a social media manager? We know promoting and managing a social media is really difficult and time consuming, there are many business owners who do not have time to manage their media. I will fully manage your media and engage with your audience for 30 days. Increase your ranking in social media search result. (Facebook, Twitter, Pinterest, Instagram, Linkedin. Likes will be genuine and relevant to your business.",
           ctaLabel: "Get A Free Review of Your Social Media Accounts",
         },
         details: [],
         featuresHeading: "Why Choose SolvForge for Social Media Management?",
+        featuresAsList: true,
         secondaryHeading: "Why It's Important to Have Social Media Manager?",
+        secondaryAsCards: true,
         secondaryDetails: [
           "Post Creation (Stories/Static Posts) — Nobody likes a slow website. 43% of users lose their patience and leave a website if it takes more than 3 seconds to load. Having a fast website will ensure a good customer experience and increase the chances of users visiting other pages on your site.",
           "Content writing — Page load time is a very important search engine ranking factor. Faster website leads to higher rank in the search engine results, which will, in return, attract more potential customers. This means that having a optimized website is a must.",
@@ -307,6 +314,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           {
             name: "Standard Plan",
             price: "$150 / Month",
+            highlighted: true,
             features: [
               "5 Posts Every Week",
               "5 Platforms of your choice (Facebook, Twitter, Youtube, Instagram, LinkedIn, Pinterest)",
@@ -406,12 +414,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           headline: "Get Adwords Campaign Setup From an Experienced Team",
           body: "We are a Digital Marketing Agency who has helped 200+ businesses across the world to establish a great online presence and generate a sustainable revenue through it. We are Digital Marketers who exactly know what strategy would work best for which business. To help businesses amplifying their growth and achieve their goals, we craft customized Digital Marketing Solutions that deliver quick results.",
           ctaLabel: "Get a Free Review of Your Website",
+          ctaStyle: "outline",
         },
         details: [
           "Certified Google Ads campaign setup and management",
           "Keyword research, ad copy, and conversion tracking included",
         ],
+        formPosition: "early",
         featuresHeading: "Why Choose Me for Google Ads Campaign Setup?",
+        featuresAsList: true,
         features: [
           { title: "Certified Google Ads Experts", description: "Our campaigns are built by professionals with deep knowledge of Google's ad ecosystem and policies." },
           { title: "Keyword Research That Drives ROI", description: "We identify high-converting, cost-effective keywords to maximize your ad spend." },
