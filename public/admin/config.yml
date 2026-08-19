@@ -3,9 +3,8 @@ backend:
   repo: solvforge/home
   branch: main
   # Self-hosted OAuth (see /auth and /callback route handlers + docs/cms-setup.md)
-  # — must match whatever domain is currently serving this site. Update this
-  # when solvforge.com replaces the temporary Vercel preview domain.
-  base_url: https://home-one-gray.vercel.app
+  # — must match whatever domain is currently serving this site.
+  base_url: https://solvforge.com
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"

@@ -20,11 +20,10 @@ GitHub account) and create an app with:
 
 - **Application name**: `SolvForge CMS`
 - **Homepage URL**: `https://solvforge.com`
-- **Authorization callback URL**: `https://home-one-gray.vercel.app/callback`
+- **Authorization callback URL**: `https://solvforge.com/callback`
   (this must match whatever domain is currently live — see the note in
   `public/admin/config.yml`; update this callback URL, the config.yml
-  `base_url`, and the redeploy together whenever the live domain changes,
-  e.g. once solvforge.com replaces the temporary Vercel preview domain)
+  `base_url`, and redeploy together if the live domain ever changes again)
 - **Enable Device Flow**: leave unchecked
 
 Save the generated **Client ID**, and generate + save a **Client Secret**.
