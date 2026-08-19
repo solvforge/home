@@ -845,8 +845,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         summary: "Stand up a call center from scratch.",
         billing: "project",
         customHero: {
-          headline: "Ultimate Call Center Setup For Your Business",
-          body: "If you are looking for a reasonably priced and stable call center setup and experienced professionals to work for you, this is the right place for you. Empower your business with faster, easier, smarter communication.",
+          headline: "Call Center Setup",
+          body: "If you are looking for a reasonably priced and Stable Call Center Setup and an experienced professionals to work for you, than Me is the right place for you.",
+          secondaryHeadline: "Ultimate Call Center Setup For Your Business",
           ctaLabel: "Get Started Now",
         },
         featuresHeading: "Advanced Inbound & Outbound Contact Center features that makes every communication better",
@@ -918,10 +919,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "recurring",
         customHero: {
           headline: "Ultimate Call Center Management For Your Business",
-          body: "Empower your business with faster, easier, smarter communication. We manage the day-to-day operations of your existing call center so you can focus on running your business.",
+          body: "Empower Your Business with FASTER. EASIER. SMARTER Communication",
           ctaLabel: "Request a Free Consultation",
+          ctaStyle: "outline",
         },
         details: [],
+        formPosition: "early",
         featuresHeading: "Advanced Inbound & Outbound Contact Center features that makes every communication better",
         features: [
           { title: "Calling Module Includes", description: "Click-to-Call, Call Recording, Voicemail, Queue Manager, 6 Call Queuing Methods." },
@@ -963,6 +966,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           headline: "Asterisk Development for Your Business",
           body: "I provide tailored Asterisk development services to elevate your business communications. Our skilled team specializes in creating customized Asterisk solutions that optimize call center performance, enhance customer engagement, and streamline telephony systems. With 15 years of expertise in Asterisk development, we deliver scalable, innovative solutions designed to meet your specific needs and help your business unlock the full potential of this robust open-source platform.",
           ctaLabel: "Contact Us",
+          ctaStyle: "outline",
+          image: { src: "/asterisk-logo.png", alt: "Asterisk logo" },
         },
         supplementaryImage: { src: "/asterisk-features.webp", alt: "Asterisk Development Features diagram" },
         bodyParagraphs: [
