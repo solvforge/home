@@ -76,7 +76,7 @@ export default async function ServicePage({
           {service.features && (
             <div>
               <h2 className="text-2xl font-semibold tracking-tight text-text">
-                {service.featuresHeading ?? `Why Choose solvforge for ${service.name}?`}
+                {service.featuresHeading ?? `Why Choose SolvForge for ${service.name}?`}
               </h2>
               {service.featuresAsList ? (
                 <ul className="mt-8 space-y-3">
@@ -187,6 +187,11 @@ export default async function ServicePage({
                       {para}
                     </p>
                   ))}
+                {hero.secondaryHeadline && (
+                  <h2 className={dark ? "mt-8 text-xl font-bold text-white" : "mt-8 text-xl font-bold text-text"}>
+                    {hero.secondaryHeadline}
+                  </h2>
+                )}
                 {hero.bullets && (
                   <ul className="mt-4 inline-block text-left">
                     {hero.bullets.map((bullet) => (

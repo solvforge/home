@@ -50,6 +50,7 @@ export type CustomHero = {
   background?: "light" | "dark";
   ctaStyle?: "filled" | "outline";
   bullets?: string[];
+  secondaryHeadline?: string;
 };
 
 export type ServiceItem = {
@@ -715,8 +716,10 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "project",
         customHero: {
           headline: "Fast WordPress Speed Optimization Service",
-          body: "Unlike competitors who install a few plugins and call it a day, we don't sell you artificial 'load time' scores that have nothing to do with what your site's real users are actually experiencing. Instead, through a painstaking process of testing numerous performance configurations, we make your WordPress-powered website as fast as it can possibly be for your real, human users.",
+          body: "Unlike our competition who do wordpress speed optimization, we do not install a few plugins and call it a day. We also do not lie to you and sell you on artificial 'Load Times' that have absolutely nothing to do with what your site's real users are actually experiencing. Further, we do not sell you grades on general best practices suggestions tools that do not correlate with your site's real-world performance, rope you into services you do not need, or, manipulate you into a sales funnel designed to bamboozle you into ultimately paying ten times more than you thought you were going to.\n\nInstead, through a painstaking process of testing numerous different performance configurations, we make your WordPress-powered website as fast as it can possibly be for your site's real, human users.\n\nThe end result of our work is a custom-made, real-world, results-oriented performance architecture that is robust, self-maintaining, self-evolving and as automatic as possible so you can move on with the business of publishing content.\n\nAnd, once your Complete WordPress Speed Optimization project is complete, it will literally be impossible for your website to be any faster.",
+          secondaryHeadline: "Increase Your Website Loading Speed for Slow Sites",
           ctaLabel: "Get a Free Review of Your Website",
+          ctaStyle: "outline",
         },
         details: [
           "Real-world load times, not just a better score on a testing tool",
@@ -737,34 +740,34 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         pricing: [
           {
             name: "Basic",
+            price: "$49",
             features: [
-              "Initial speed audit",
-              "Image optimization",
-              "Caching configuration",
-              "CSS/JS/HTML minification",
-              "Database optimization",
-              "Basic CDN setup",
+              "Initial Speed Audit: Comprehensive analysis of your current website speed and performance.",
+              "Image Optimization: Compress and optimize images for faster loading times.",
+              "Caching Configuration: Implement and configure basic caching solutions to improve load times.",
+              "Minification: Minify CSS, JavaScript, and HTML files to reduce file sizes and improve speed.",
             ],
           },
           {
             name: "Standard",
+            price: "$99",
+            highlighted: true,
             features: [
-              "Everything in Basic",
-              "Advanced caching techniques",
-              "Lazy loading for images/video",
-              "Plugin audit and cleanup",
-              "30 days of monitoring and reporting",
+              "All Basic Plan Features: Includes all features from the Basic Plan.",
+              "Advanced Caching Techniques: Implement advanced caching strategies for maximum performance.",
+              "Lazy Loading: Implement lazy loading for images and videos to improve initial load times.",
+              "Plugin Audit: Review and optimize the use of plugins, removing any unnecessary or conflicting plugins.",
+              "Enhanced Security: Apply security hardening as part of the optimization pass.",
             ],
           },
           {
             name: "Premium",
+            price: "$120",
             features: [
-              "Everything in Standard",
-              "Custom CDN configuration",
-              "Code-level optimization",
-              "Mobile-specific optimization",
-              "Deep database optimization (indexing, query tuning)",
-              "60 days of priority support",
+              "All Standard Plan Features: Includes all features from the Standard Plan.",
+              "Custom CDN Configuration: Advanced configuration of CDN tailored to your website's needs.",
+              "Code Optimization: Optimize website code for maximum efficiency, speed and minimum load time.",
+              "Mobile Optimization: Ensure your website is fully optimized for fast loading on mobile devices.",
             ],
           },
         ],
@@ -801,18 +804,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         summary: "Speed up a Wix site within the platform's constraints.",
         billing: "project",
         customHero: {
-          headline: "Increase Your Website Loading Speed for Slow Sites",
-          body: "Wix Website Speed Optimization focuses on fine-tuning your site to ensure quick loading times, smooth navigation, and a better overall user experience. Speeding up your Wix website doesn't just enhance visitor experience — it improves your SEO and increases the likelihood of higher search engine rankings.",
+          headline: "Wix Website Speed Optimization",
+          body: "Wix Website Speed Optimization focuses on fine-tuning your site to ensure quick loading times, smooth navigation, and a better overall user experience. By speeding up your Wix website, you'll not only enhance your visitors' experience but also improve your SEO and increase the likelihood of higher search engine rankings.",
+          secondaryHeadline: "Increase Your Website Loading Speed for Slow Sites",
           ctaLabel: "Get a Free Review of Your Website",
+          ctaStyle: "outline",
         },
-        details: [
-          "Wix-specific optimization — built around the platform's real structure and limits",
-          "Image and asset optimization, unused sections stripped, animations streamlined",
-          "Audit of installed apps/integrations to remove bloat",
-          "Mobile-first speed adjustments",
-          "Before/after speed reports via GTmetrix and Google PageSpeed Insights",
-          "Full backup taken before any change",
-        ],
+        details: [],
+        formPosition: "early",
+        featuresAsList: true,
         features: [
           { title: "Wix-Specific Optimization Experts", description: "We understand the platform's structure and limitations — and know how to push performance within its framework." },
           { title: "Visual & Structural Optimization", description: "We fine-tune image sizes, strip unused sections, and streamline animations for faster interaction." },
@@ -825,6 +825,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           { title: "Affordable, Results-Driven Packages", description: "Whether you're running a portfolio or business site, we have plans that deliver measurable performance gains." },
         ],
         secondaryHeading: "Why It's Important to Have a Fast Website?",
+        secondaryPosition: "late",
         secondaryDetails: [
           "More Visitors — Nobody likes a slow website. 43% of users lose their patience and leave a website if it takes more than 3 seconds to load. Having a fast website ensures a good customer experience and increases the chances of users visiting other pages on your site.",
           "Better Ranking — Page load time is a very important search engine ranking factor. A faster website leads to higher rank in the search engine results, which will, in return, attract more potential customers.",
