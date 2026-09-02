@@ -23,29 +23,35 @@ export default function ServicesNavMenu({
         href="/services"
         className={
           active
-            ? "inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1.5 text-sm font-medium text-white"
-            : "inline-flex items-center gap-1 text-sm font-medium text-text-muted transition-colors hover:text-text"
+            ? "inline-flex items-center gap-1 rounded-full bg-teal px-4 py-2 text-sm font-bold text-white"
+            : "inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-bold text-text-muted transition-colors hover:text-teal"
         }
       >
         Services
         <svg
-          className={`h-3 w-3 transition-transform ${active ? "text-white" : "text-text-muted"} ${open ? "rotate-180" : ""}`}
+          className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`}
           viewBox="0 0 12 12"
           fill="none"
           aria-hidden="true"
         >
-          <path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M2.5 4.5 6 8l3.5-3.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </Link>
 
       {open && (
-        <div className="absolute left-1/2 top-full w-[720px] max-w-[85vw] -translate-x-1/2 pt-3">
+        <div className="absolute left-1/2 top-full z-50 w-[760px] max-w-[88vw] -translate-x-1/2 pt-3">
           <div className="grid grid-cols-4 gap-6 rounded-2xl border border-border bg-paper p-6 shadow-xl">
             {categories.map((category) => (
               <div key={category.slug}>
                 <Link
                   href={`/services/${category.slug}`}
-                  className="text-sm font-semibold text-text hover:text-accent"
+                  className="text-sm font-extrabold text-text hover:text-teal"
                 >
                   {category.name}
                 </Link>
@@ -54,7 +60,7 @@ export default function ServicesNavMenu({
                     <li key={service.slug}>
                       <Link
                         href={`/services/${category.slug}/${service.slug}`}
-                        className="text-sm text-text-muted hover:text-accent"
+                        className="text-sm text-text-muted hover:text-teal"
                       >
                         {service.name}
                       </Link>
