@@ -10,19 +10,23 @@ const inputClass =
   "mt-2 w-full rounded-lg border border-border px-4 py-3 text-sm outline-none focus:border-teal";
 const labelClass = "block text-sm font-medium text-heading";
 
-export default function ServiceQuoteForm() {
+export default function ServiceQuoteForm({ showHeader = true }: { showHeader?: boolean }) {
   const [state, formAction, pending] = useActionState(sendQuoteRequest, initialState);
 
   return (
     <div>
-      <h2 className="text-center text-2xl text-heading sm:text-3xl">
-        Get a Free Quotation. No Advance Needed.
-      </h2>
-      <p className="mt-3 text-center text-text-muted">
-        Tell us what you need — we&apos;ll send you a detailed plan, timeline, and cost breakdown
-      </p>
+      {showHeader && (
+        <>
+          <h2 className="text-center text-2xl text-heading sm:text-3xl">
+            Get a Free Quotation. No Advance Needed.
+          </h2>
+          <p className="mt-3 text-center text-text-muted">
+            Tell us what you need — we&apos;ll send you a detailed plan, timeline, and cost breakdown
+          </p>
+        </>
+      )}
 
-      <form action={formAction} className="mt-8 space-y-5">
+      <form action={formAction} className={showHeader ? "mt-8 space-y-5" : "space-y-5"}>
         <div className="hidden" aria-hidden="true">
           <label htmlFor="company_website">Company website</label>
           <input id="company_website" name="company_website" type="text" tabIndex={-1} autoComplete="off" />
