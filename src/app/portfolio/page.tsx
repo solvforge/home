@@ -1,17 +1,81 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getAllCaseStudies } from "@/lib/case-studies";
+import Image from "next/image";
 import ContactForm from "@/app/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "Portfolio — SolvForge",
   description:
-    "A selection of projects SolvForge has designed, built, and shipped for clients — web, mobile, e-commerce, and infrastructure.",
+    "A selection of projects SolvForge has designed, built, and shipped for clients — web, mobile, e-commerce, and infrastructure. Full portfolio on Behance.",
 };
 
-export default function PortfolioPage() {
-  const projects = getAllCaseStudies();
+const BEHANCE_URL = "https://www.behance.net/solvforge";
 
+type Project = { title: string; image: string; href: string };
+
+const PROJECTS: Project[] = [
+  {
+    title: "TaskFlow — App UI/UX Design & Development",
+    image: "/media/behance/taskflow.png",
+    href: "https://www.behance.net/gallery/252068977/TaskFlow-App-UIUX-Design-Development-Case-Study",
+  },
+  {
+    title: "Jobaara",
+    image: "/media/behance/jobaara.png",
+    href: "https://www.behance.net/gallery/237833007/Jobaara",
+  },
+  {
+    title: "Hawabaz",
+    image: "/media/behance/hawabaz.png",
+    href: "https://www.behance.net/gallery/237830723/Hawabaz",
+  },
+  {
+    title: "CureCork",
+    image: "/media/behance/curecork.jpg",
+    href: "https://www.behance.net/gallery/237827889/CureCork",
+  },
+  {
+    title: "My New Beginning",
+    image: "/media/behance/my-new-beginning.jpg",
+    href: "https://www.behance.net/gallery/237826095/My-New-Beginning",
+  },
+  {
+    title: "Remote Coffee",
+    image: "/media/behance/remote-coffee.png",
+    href: "https://www.behance.net/gallery/237824955/Remote-Coffee",
+  },
+  {
+    title: "Josh Nardi",
+    image: "/media/behance/josh-nardi.jpg",
+    href: "https://www.behance.net/gallery/237824581/Josh-Nardi",
+  },
+  {
+    title: "Brazil USA Online",
+    image: "/media/behance/brazil-usa-online.jpg",
+    href: "https://www.behance.net/gallery/237823055/Brazil-USA-Online",
+  },
+  {
+    title: "CampCursos",
+    image: "/media/behance/campcursos.jpg",
+    href: "https://www.behance.net/gallery/237822505/CampCursos",
+  },
+  {
+    title: "Westchester Concierge",
+    image: "/media/behance/westchester-concierge.png",
+    href: "https://www.behance.net/gallery/237819657/Westchester-Concierge",
+  },
+  {
+    title: "Latin America Bridge",
+    image: "/media/behance/latin-america-bridge.png",
+    href: "https://www.behance.net/gallery/237709533/Latin-America-Bridge",
+  },
+  {
+    title: "Aero Flow Dynamics",
+    image: "/media/behance/aero-flow-dynamics.png",
+    href: "https://www.behance.net/gallery/237709115/Aero-Flow-Dynamics",
+  },
+];
+
+export default function PortfolioPage() {
   return (
     <>
       {/* Hero */}
@@ -28,7 +92,7 @@ export default function PortfolioPage() {
             websites, apps, e-commerce, and the infrastructure behind them.
           </p>
           <a
-            href="https://www.behance.net/solvforge"
+            href={BEHANCE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-lime mt-7 inline-block"
@@ -40,44 +104,35 @@ export default function PortfolioPage() {
 
       {/* Projects */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        {projects.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/portfolio/${p.slug}`}
-                className="flex flex-col rounded-xl border border-border bg-paper p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <p className="text-xs font-bold uppercase tracking-wide text-teal">
-                  {p.client}
-                </p>
-                <h2 className="mt-2 text-lg font-extrabold text-heading">{p.title}</h2>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-text-muted">
-                  {p.summary}
-                </p>
-                {p.tags.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {p.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-paper-3 px-3 py-1 text-xs font-semibold text-accent-deep"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <p className="rounded-xl border border-border bg-paper-2 p-8 text-center text-text-muted">
-            Written case studies are on the way. For now, the full body of work
-            lives on Behance.
-          </p>
-        )}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((p) => (
+            <a
+              key={p.href}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-xl border border-border bg-paper shadow-sm transition-shadow hover:shadow-md"
+            >
+              <div className="aspect-[4/3] overflow-hidden bg-paper-2">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  width={404}
+                  height={316}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex items-center justify-between gap-3 p-5">
+                <h2 className="text-sm font-extrabold text-heading">{p.title}</h2>
+                <span className="shrink-0 text-sm font-bold text-teal opacity-0 transition-opacity group-hover:opacity-100">
+                  ↗
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
 
-        {/* Behance callout */}
+        {/* See more on Behance */}
         <div className="mt-10 flex flex-col items-center gap-4 rounded-2xl bg-hero-bg px-6 py-10 text-center text-white sm:flex-row sm:justify-between sm:text-left">
           <div>
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
@@ -88,7 +143,7 @@ export default function PortfolioPage() {
             </p>
           </div>
           <a
-            href="https://www.behance.net/solvforge"
+            href={BEHANCE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-lime shrink-0"
