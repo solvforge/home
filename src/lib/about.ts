@@ -13,9 +13,9 @@ export type ExperienceEntry = {
 };
 
 export const HERO_TAGLINE =
-  "Built, hosted, and maintained by the same hands — from the first line of code to ongoing support.";
-export const ROLE_TITLE = "Web Developer & Systems Engineer";
-export const YEARS_BADGE = "7+ Years of Experience";
+  "SolvForge is a small, independent studio for websites, servers, and marketing.";
+export const ROLE_TITLE = "Web · Hosting · Marketing";
+export const YEARS_BADGE = "7+ Years in the work";
 
 export const PROCESS_STEPS: ProcessStep[] = [
   {

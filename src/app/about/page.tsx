@@ -38,16 +38,21 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="bg-hero-bg text-white">
-        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-          <h1 className="text-4xl text-white sm:text-5xl">About Us</h1>
-          <p className="mt-4 max-w-xl text-lg text-white/70">{HERO_TAGLINE}</p>
-        </div>
-      </section>
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2">
+          <div>
+            <h1 className="text-4xl text-white sm:text-5xl">About Us</h1>
+            <p className="mt-4 text-xl font-light leading-snug text-white/90">
+              {HERO_TAGLINE}
+            </p>
+            <p className="mt-5 max-w-xl leading-relaxed text-white/65">
+              {about.intro}
+            </p>
+            <Link href="/contact" className="btn mt-7">
+              Start a Project
+            </Link>
+          </div>
 
-      {/* Bio */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="rounded-2xl bg-hero-bg p-8 text-white">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8">
             <p className="text-xl font-black tracking-tight">
               Solv<span className="text-lime">Forge</span>
             </p>
@@ -72,21 +77,6 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
-          </div>
-
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-teal">
-              About Me
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl">
-              I&apos;m Shoaib Sheikh, {ROLE_TITLE}
-            </h2>
-            <p className="mt-5 leading-relaxed text-text-muted">
-              &ldquo;{about.intro}&rdquo;
-            </p>
-            <Link href="/contact" className="btn mt-7">
-              Hire Me!
-            </Link>
           </div>
         </div>
       </section>
@@ -119,7 +109,7 @@ export default function AboutPage() {
       {/* Skills / experience */}
       <section className="bg-paper-2">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <p className="text-sm font-bold uppercase tracking-widest text-teal">What I Bring</p>
+          <p className="text-sm font-bold uppercase tracking-widest text-teal">What We Bring</p>
           <h2 className="mt-3 text-3xl sm:text-4xl">Skills &amp; Capabilities</h2>
           <div className="mt-10">
             <ExperienceTabs work={WORK_EXPERIENCE} tools={TOOLS} education={EDUCATION} />
@@ -140,7 +130,7 @@ export default function AboutPage() {
             />
           </div>
           <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-teal">Trust Me</p>
+            <p className="text-sm font-bold uppercase tracking-widest text-teal">Why SolvForge</p>
             <h2 className="mt-3 text-3xl sm:text-4xl">
               Professional Services You Can Trust
             </h2>
@@ -165,9 +155,10 @@ export default function AboutPage() {
       <section className="bg-paper-2">
         <div className="mx-auto grid max-w-6xl gap-14 px-6 py-16 lg:grid-cols-2">
           <div>
-            <h2 className="text-3xl sm:text-4xl">Contact With Me!</h2>
+            <h2 className="text-3xl sm:text-4xl">Get in Touch</h2>
             <p className="mt-3 leading-relaxed text-text-muted">
-              Feel free to reach out! I am excited to begin our collaboration.
+              Tell us about the project — we&apos;ll get back to you within a
+              couple of business days.
             </p>
             <ul className="mt-8 space-y-3 text-text-muted">
               <li>
@@ -191,7 +182,7 @@ export default function AboutPage() {
           <div>
             <h2 className="text-3xl sm:text-4xl">Send a Project Brief</h2>
             <p className="mt-3 leading-relaxed text-text-muted">
-              Please fill out the form below. I will contact you promptly!
+              Fill out the form below and we&apos;ll be in touch shortly.
             </p>
             <div className="mt-6">
               <ContactForm />

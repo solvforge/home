@@ -5,9 +5,9 @@ import type { ExperienceEntry } from "@/lib/about";
 import Icon from "@/components/Icon";
 
 const TABS = [
-  { key: "work", label: "What I Do" },
+  { key: "work", label: "What We Do" },
   { key: "tools", label: "Tools & Tech" },
-  { key: "education", label: "How I Work" },
+  { key: "education", label: "How We Work" },
 ] as const;
 
 type TabKey = (typeof TABS)[number]["key"];
