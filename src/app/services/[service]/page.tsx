@@ -232,7 +232,7 @@ export default async function ServicePage({
           <h2 className="mx-auto max-w-3xl text-3xl sm:text-4xl">{service.secondaryHeading}</h2>
         )}
         {service.secondaryIntro && (
-          <p className="mt-4 max-w-3xl leading-relaxed text-text-muted">
+          <p className="mx-auto mt-4 max-w-3xl text-center leading-relaxed text-text-muted">
             {service.secondaryIntro}
           </p>
         )}
@@ -261,11 +261,14 @@ export default async function ServicePage({
             })}
           </div>
         ) : (
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          <ul className="mx-auto mt-8 max-w-2xl space-y-3 text-center">
             {service.secondaryDetails.map((detail) => (
-              <li key={detail} className="flex gap-3 text-text-muted">
+              <li
+                key={detail}
+                className="flex items-start justify-center gap-3 text-text-muted"
+              >
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
-                {detail}
+                <span>{detail}</span>
               </li>
             ))}
           </ul>
