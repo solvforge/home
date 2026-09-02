@@ -7,15 +7,15 @@ import Recaptcha from "@/components/Recaptcha";
 const initialState: QuoteState = { status: "idle", message: "" };
 
 const inputClass =
-  "mt-2 w-full rounded-lg border border-border px-4 py-3 text-sm outline-none focus:border-accent";
-const labelClass = "block text-sm font-medium text-text";
+  "mt-2 w-full rounded-lg border border-border px-4 py-3 text-sm outline-none focus:border-teal";
+const labelClass = "block text-sm font-medium text-heading";
 
 export default function ServiceQuoteForm() {
   const [state, formAction, pending] = useActionState(sendQuoteRequest, initialState);
 
   return (
     <div>
-      <h2 className="text-center text-2xl font-semibold tracking-tight text-text">
+      <h2 className="text-center text-2xl text-heading sm:text-3xl">
         Get a Free Quotation. No Advance Needed.
       </h2>
       <p className="mt-3 text-center text-text-muted">
@@ -156,11 +156,7 @@ export default function ServiceQuoteForm() {
 
         <Recaptcha resetOn={state.status === "error"} />
 
-        <button
-          type="submit"
-          disabled={pending}
-          className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark disabled:opacity-60"
-        >
+        <button type="submit" disabled={pending} className="btn disabled:opacity-60">
           {pending ? "Submitting…" : "Submit"}
         </button>
 
