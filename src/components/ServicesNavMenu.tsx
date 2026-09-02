@@ -4,6 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import type { ServiceCategory } from "@/lib/services";
 
+const triggerBase =
+  "inline-flex items-center gap-1 whitespace-nowrap rounded-full px-4 py-2 text-sm font-bold transition-colors";
+
 export default function ServicesNavMenu({
   categories,
   active = false,
@@ -23,8 +26,8 @@ export default function ServicesNavMenu({
         href="/services"
         className={
           active
-            ? "inline-flex items-center gap-1 rounded-full bg-teal px-4 py-2 text-sm font-bold text-white"
-            : "inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-bold text-text-muted transition-colors hover:text-teal"
+            ? `${triggerBase} bg-teal text-white shadow-sm`
+            : `${triggerBase} text-text-muted hover:bg-paper-2 hover:text-teal`
         }
       >
         Services
@@ -45,17 +48,19 @@ export default function ServicesNavMenu({
       </Link>
 
       {open && (
-        <div className="absolute left-1/2 top-full z-50 w-[760px] max-w-[88vw] -translate-x-1/2 pt-3">
-          <div className="grid grid-cols-4 gap-6 rounded-2xl border border-border bg-paper p-6 shadow-xl">
+        <div className="absolute left-1/2 top-full z-50 w-[1040px] max-w-[94vw] -translate-x-1/2 pt-3">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-6 rounded-2xl border border-border bg-paper p-6 shadow-xl sm:grid-cols-3 lg:grid-cols-4">
             {categories.map((category) => (
               <div key={category.slug}>
-                <p className="text-sm font-extrabold text-text">{category.name}</p>
-                <ul className="mt-2 space-y-1.5">
+                <p className="whitespace-nowrap border-b border-border pb-2 text-sm font-extrabold text-heading">
+                  {category.name}
+                </p>
+                <ul className="mt-1 divide-y divide-border/60">
                   {category.services.map((service) => (
                     <li key={service.slug}>
                       <Link
                         href={`/services/${service.slug}`}
-                        className="text-sm text-text-muted hover:text-teal"
+                        className="block whitespace-nowrap py-2 text-sm text-text-muted transition-colors hover:text-teal"
                       >
                         {service.name}
                       </Link>
