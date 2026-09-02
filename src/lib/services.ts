@@ -987,8 +987,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           { title: "Consultancy", description: "Our Asterisk development consultancy services offer expert guidance and strategic insights to optimize your call center infrastructure." },
         ],
         secondaryHeading: "Custom Asterisk Development For Modern Call Centers",
+        secondaryAsCards: true,
         secondaryIntro:
-          "Equip your modern call center operations with our custom Asterisk development solutions. Our team specializes in creating telephony systems utilizing Asterisk's open-source framework. Whether you need custom IVR solutions, advanced call routing features, or seamless CRM integrations, we've got you covered. We prioritize scalability, flexibility, and reliability in every Asterisk development project.",
+          "Equip your modern call center operations with our custom Asterisk development solutions. Our team specializes in creating telephony systems on Asterisk's open-source framework. Whether you need custom IVR solutions, advanced call routing, or seamless CRM integrations, we've got you covered. We prioritize scalability, flexibility, and reliability in every Asterisk development project.",
         secondaryDetails: [
           "Call Transfer — Whether it's transferring calls between agents or departments, or even routing calls to external numbers, our Asterisk solutions ensure efficient and reliable call handling.",
           "Text-to-Speech — Enhance customer experience by enabling personalized and informative messages, reducing agent workload, and ensuring consistent communication across all customer touchpoints.",

@@ -168,40 +168,47 @@ export default async function ServicePage({
     </section>
   );
 
-  /* ---------- secondaryDetails block ---------- */
-  const secondaryDetailsBlock = service.secondaryDetails && (
-    <>
-      {service.secondaryHeading && (
-        <h3 className="mt-14 text-lg font-extrabold text-heading">
-          {service.secondaryHeading}
-        </h3>
-      )}
-      {service.secondaryIntro && (
-        <p className="mt-4 text-text-muted">{service.secondaryIntro}</p>
-      )}
-      {service.secondaryAsCards ? (
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {service.secondaryDetails.map((detail, i) => {
-            const [title, ...rest] = detail.split(" — ");
-            return (
-              <div key={`${title}-${i}`} className="rounded-xl border border-border p-5">
-                <p className="font-bold text-heading">{title}</p>
-                <p className="mt-2 text-sm text-text-muted">{rest.join(" — ")}</p>
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <ul className="mt-4 space-y-3">
-          {service.secondaryDetails.map((detail) => (
-            <li key={detail} className="flex gap-3 text-text-muted">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
-              {detail}
-            </li>
-          ))}
-        </ul>
-      )}
-    </>
+  /* ---------- secondaryDetails — standalone full-width section ---------- */
+  const secondarySection = service.secondaryDetails && (
+    <section className="bg-paper-2">
+      <div className="mx-auto max-w-6xl px-6 py-16">
+        {service.secondaryHeading && (
+          <h2 className="max-w-3xl text-3xl sm:text-4xl">{service.secondaryHeading}</h2>
+        )}
+        {service.secondaryIntro && (
+          <p className="mt-4 max-w-3xl leading-relaxed text-text-muted">
+            {service.secondaryIntro}
+          </p>
+        )}
+        {service.secondaryAsCards ? (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {service.secondaryDetails.map((detail, i) => {
+              const [title, ...rest] = detail.split(" — ");
+              return (
+                <div
+                  key={`${title}-${i}`}
+                  className="rounded-xl border border-border bg-paper p-6"
+                >
+                  <p className="font-extrabold text-heading">{title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-text-muted">
+                    {rest.join(" — ")}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            {service.secondaryDetails.map((detail) => (
+              <li key={detail} className="flex gap-3 text-text-muted">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
+                {detail}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
   );
 
   /* ---------- Main content block ---------- */
@@ -249,10 +256,6 @@ export default async function ServicePage({
           </ul>
         </>
       )}
-
-      {service.secondaryDetails &&
-        service.secondaryPosition !== "late" &&
-        secondaryDetailsBlock}
 
       {service.howItWorks && (
         <>
@@ -317,7 +320,6 @@ export default async function ServicePage({
     service.intro ||
     service.stats ||
     (!service.features && service.details.length > 0) ||
-    (service.secondaryDetails && service.secondaryPosition !== "late") ||
     service.howItWorks ||
     service.comparison ||
     service.testimonial;
@@ -417,11 +419,11 @@ export default async function ServicePage({
 
       {hasContent && contentBlock}
 
+      {service.secondaryPosition !== "late" && secondarySection}
+
       {pricingSection}
 
-      {service.secondaryDetails && service.secondaryPosition === "late" && (
-        <section className="mx-auto max-w-3xl px-6 py-16">{secondaryDetailsBlock}</section>
-      )}
+      {service.secondaryPosition === "late" && secondarySection}
 
       {quoteSection}
 
