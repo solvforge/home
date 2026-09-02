@@ -2,129 +2,186 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getAboutContent } from "@/lib/pages";
-import { HERO_TAGLINE, ROLE_TITLE, PROCESS_STEPS, WORK_EXPERIENCE, TOOLS, EDUCATION, TAGLINES } from "@/lib/about";
+import {
+  HERO_TAGLINE,
+  ROLE_TITLE,
+  YEARS_BADGE,
+  PROCESS_STEPS,
+  WORK_EXPERIENCE,
+  TOOLS,
+  EDUCATION,
+  TAGLINES,
+} from "@/lib/about";
 import ExperienceTabs from "@/components/ExperienceTabs";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import Icon from "@/components/Icon";
 import ContactForm from "@/app/contact/ContactForm";
 
 export const metadata: Metadata = {
-  title: "About Us — solvforge",
-  description: "Who's behind solvforge and how we work.",
+  title: "About Us — SolvForge",
+  description: "Who's behind SolvForge and how we work.",
 };
+
+const STATS = [
+  { value: "7+", label: "Years of hands-on experience", icon: "gauge" },
+  { value: "1:1", label: "Direct line to the person building it", icon: "chat" },
+  { value: "24/7", label: "Monitoring on managed servers", icon: "server" },
+  { value: "No", label: "Long-term contracts, ever", icon: "tag" },
+];
+
+const STACK = ["WordPress", "Laravel", "Asterisk / FreePBX", "Linux", "SEO", "Cloudflare"];
 
 export default function AboutPage() {
   const about = getAboutContent();
 
   return (
     <>
-      <section className="bg-ink text-white">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h1 className="text-4xl font-semibold tracking-tight">About Us</h1>
-          <p className="mt-4 max-w-xl text-white/70">{HERO_TAGLINE}</p>
+      {/* Hero */}
+      <section className="bg-hero-bg text-white">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+          <h1 className="text-4xl text-white sm:text-5xl">About Us</h1>
+          <p className="mt-4 max-w-xl text-lg text-white/70">{HERO_TAGLINE}</p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      {/* Bio */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="overflow-hidden rounded-3xl bg-paper-2">
-            <Image
-              src="/about-photo.webp"
-              alt=""
-              width={636}
-              height={740}
-              className="h-auto w-full object-cover"
-            />
+          <div className="rounded-2xl bg-hero-bg p-8 text-white">
+            <p className="text-xl font-black tracking-tight">
+              Solv<span className="text-lime">Forge</span>
+            </p>
+            <p className="mt-2 text-lg font-extrabold leading-snug text-white">
+              {ROLE_TITLE}
+            </p>
+            <p className="mt-1 text-sm font-bold uppercase tracking-wide text-lime">
+              {YEARS_BADGE}
+            </p>
+            <div className="mt-6 border-t border-white/15 pt-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-white/50">
+                Works with
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {STACK.map((s) => (
+                  <li
+                    key={s}
+                    className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/85"
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent">About Me</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-text">
+            <p className="text-sm font-bold uppercase tracking-widest text-teal">
+              About Me
+            </p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">
               I&apos;m Shoaib Sheikh, {ROLE_TITLE}
             </h2>
-            <p className="mt-6 text-text-muted">{about.intro}</p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
-            >
+            <p className="mt-5 leading-relaxed text-text-muted">
+              &ldquo;{about.intro}&rdquo;
+            </p>
+            <Link href="/contact" className="btn mt-7">
               Hire Me!
             </Link>
           </div>
         </div>
       </section>
 
+      {/* Stats */}
       <section className="bg-paper-2">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent">Key Factors</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text">
-            Create Digital Solutions
-          </h2>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS_STEPS.map((step) => (
-              <div key={step.step} className="rounded-2xl border border-border bg-paper p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-accent">{step.step}</p>
-                <p className="mt-2 font-semibold text-text">{step.name}</p>
-                <p className="mt-3 text-sm text-text-muted">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-sm font-semibold uppercase tracking-wide text-accent">Experience</p>
-        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text">
-          Creative and Professional Skills
-        </h2>
-
-        <div className="mt-10">
-          <ExperienceTabs work={WORK_EXPERIENCE} tools={TOOLS} education={EDUCATION} />
-        </div>
-      </section>
-
-      <section className="bg-paper-2">
-        <div className="mx-auto max-w-6xl px-6 py-20 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent">Trust Me</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text">
-            Professional Product Designer Services You Can Trust
-          </h2>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {TAGLINES.map((tagline) => (
-              <span key={tagline} className="flex items-center gap-2 text-text-muted">
-                <span className="text-accent">✓</span> {tagline}
+        <div className="mx-auto grid max-w-6xl gap-8 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
+          {STATS.map((s) => (
+            <div key={s.label} className="flex items-center gap-4">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-paper-3 text-teal">
+                <Icon name={s.icon} className="h-5 w-5" />
               </span>
-            ))}
-          </div>
-
-          <Link
-            href="/services"
-            className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
-          >
-            View All Services
-          </Link>
+              <div>
+                <p className="text-3xl font-black text-heading">{s.value}</p>
+                <p className="text-sm text-text-muted">{s.label}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-16 lg:grid-cols-2">
+      {/* Process */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <p className="text-sm font-bold uppercase tracking-widest text-teal">Key Factors</p>
+        <h2 className="mt-3 text-3xl sm:text-4xl">Create Digital Solutions</h2>
+
+        <ProcessTimeline steps={PROCESS_STEPS} />
+      </section>
+
+      {/* Skills / experience */}
+      <section className="bg-paper-2">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <p className="text-sm font-bold uppercase tracking-widest text-teal">What I Bring</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl">Skills &amp; Capabilities</h2>
+          <div className="mt-10">
+            <ExperienceTabs work={WORK_EXPERIENCE} tools={TOOLS} education={EDUCATION} />
+          </div>
+        </div>
+      </section>
+
+      {/* Trust */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="overflow-hidden rounded-2xl">
+            <Image
+              src="/media/about-tilt.webp"
+              alt=""
+              width={900}
+              height={600}
+              className="h-auto w-full object-cover"
+            />
+          </div>
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-text">Contact With Me!</h2>
-            <p className="mt-3 text-text-muted">
+            <p className="text-sm font-bold uppercase tracking-widest text-teal">Trust Me</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">
+              Professional Services You Can Trust
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {TAGLINES.map((tagline) => (
+                <li key={tagline} className="flex items-center gap-3 text-text-muted">
+                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-teal text-xs text-white">
+                    ✓
+                  </span>
+                  {tagline}
+                </li>
+              ))}
+            </ul>
+            <Link href="/services" className="btn mt-8">
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="bg-paper-2">
+        <div className="mx-auto grid max-w-6xl gap-14 px-6 py-16 lg:grid-cols-2">
+          <div>
+            <h2 className="text-3xl sm:text-4xl">Contact With Me!</h2>
+            <p className="mt-3 leading-relaxed text-text-muted">
               Feel free to reach out! I am excited to begin our collaboration.
             </p>
             <ul className="mt-8 space-y-3 text-text-muted">
               <li>
-                <span className="font-medium text-text">Address:</span> Hyderabad
+                <span className="font-bold text-heading">Address:</span> Hyderabad
               </li>
               <li>
-                <span className="font-medium text-text">Email:</span>{" "}
-                <a href="mailto:hello@solvforge.com" className="hover:text-accent">
+                <span className="font-bold text-heading">Email:</span>{" "}
+                <a href="mailto:hello@solvforge.com" className="hover:text-teal">
                   hello@solvforge.com
                 </a>
               </li>
               <li>
-                <span className="font-medium text-text">WhatsApp:</span>{" "}
-                <a href="https://wa.me/13658737786" className="hover:text-accent">
+                <span className="font-bold text-heading">WhatsApp:</span>{" "}
+                <a href="https://wa.me/13658737786" className="hover:text-teal">
                   +1-365-873-7786
                 </a>
               </li>
@@ -132,11 +189,13 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-text">Send a Project Brief</h2>
-            <p className="mt-3 text-text-muted">
+            <h2 className="text-3xl sm:text-4xl">Send a Project Brief</h2>
+            <p className="mt-3 leading-relaxed text-text-muted">
               Please fill out the form below. I will contact you promptly!
             </p>
-            <ContactForm />
+            <div className="mt-6">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

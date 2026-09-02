@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import type { ExperienceEntry } from "@/lib/about";
+import Icon from "@/components/Icon";
 
 const TABS = [
-  { key: "work", label: "Work Experience" },
-  { key: "tools", label: "Experience in Tools" },
-  { key: "education", label: "Educational Qualification" },
+  { key: "work", label: "What I Do" },
+  { key: "tools", label: "Tools & Tech" },
+  { key: "education", label: "How I Work" },
 ] as const;
 
 type TabKey = (typeof TABS)[number]["key"];
@@ -31,10 +32,10 @@ export default function ExperienceTabs({
             key={tab.key}
             type="button"
             onClick={() => setActive(tab.key)}
-            className={`border-b-2 px-1 pb-3 text-sm font-medium transition-colors ${
+            className={`border-b-2 px-1 pb-3 text-sm font-bold transition-colors ${
               active === tab.key
-                ? "border-accent text-text"
-                : "border-transparent text-text-muted hover:text-text"
+                ? "border-teal text-heading"
+                : "border-transparent text-text-muted hover:text-heading"
             }`}
           >
             {tab.label}
@@ -44,12 +45,19 @@ export default function ExperienceTabs({
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         {data[active].map((entry) => (
-          <div key={entry.title} className="rounded-2xl border border-border p-6">
-            <p className="font-semibold text-text">{entry.title}</p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-wide text-accent">
-              {entry.level}
-            </p>
-            <p className="mt-3 text-sm text-text-muted">{entry.description}</p>
+          <div key={entry.title} className="flex gap-4 rounded-xl border border-border p-6">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-paper-3 text-teal">
+              <Icon name={entry.icon} className="h-5 w-5" />
+            </span>
+            <div>
+              <p className="font-extrabold text-heading">{entry.title}</p>
+              <p className="mt-1 text-xs font-bold uppercase tracking-wide text-teal">
+                {entry.level}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-text-muted">
+                {entry.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
