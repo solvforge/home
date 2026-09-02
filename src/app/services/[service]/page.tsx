@@ -261,12 +261,9 @@ export default async function ServicePage({
             })}
           </div>
         ) : (
-          <ul className="mx-auto mt-8 max-w-2xl space-y-3 text-center">
+          <ul className="mx-auto mt-8 max-w-2xl space-y-3">
             {service.secondaryDetails.map((detail) => (
-              <li
-                key={detail}
-                className="flex items-start justify-center gap-3 text-text-muted"
-              >
+              <li key={detail} className="flex items-start gap-3 text-text-muted">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
                 <span>{detail}</span>
               </li>

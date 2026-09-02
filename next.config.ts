@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // ---- misc renamed routes ----
+      { source: "/hire-unity-developers", destination: "/hire/unity-developers", permanent: true },
+      { source: "/industries/digital-solutions-for-bakeries", destination: "/industries/bakeries", permanent: true },
+
       // ---- /work → /portfolio (route was renamed) ----
       { source: "/work", destination: "/portfolio", permanent: true },
       { source: "/work/:slug", destination: "/portfolio/:slug", permanent: true },
