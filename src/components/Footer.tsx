@@ -23,7 +23,7 @@ export default function Footer() {
       {/* Site-wide CTA band */}
       <section className="bg-teal-band">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-12 text-center sm:flex-row sm:justify-between sm:text-left">
-          <h2 className="text-2xl font-light text-white sm:text-3xl">
+          <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
             Ready to Get Started on Your Project?
           </h2>
           <Link href="/contact" className="btn shrink-0 !bg-white !text-teal">

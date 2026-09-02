@@ -272,7 +272,7 @@ export default function Home() {
       {/* ===== MAKE THE SWITCH (black) ===== */}
       <section className="bg-black text-white">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center">
-          <h2 className="text-3xl font-light text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
             We&apos;ll Make it Easy for You to Make the Switch
           </h2>
           <p className="mt-5 leading-relaxed text-white/70">

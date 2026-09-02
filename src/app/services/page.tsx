@@ -39,7 +39,7 @@ export default function ServicesPage() {
 
       {/* Intro strip */}
       <section className="mx-auto max-w-6xl px-6 py-14">
-        <h2 className="max-w-2xl text-3xl sm:text-4xl">
+        <h2 className="mx-auto max-w-2xl text-3xl sm:text-4xl">
           Digital services built around what the business actually needs
         </h2>
         <p className="mt-4 max-w-2xl leading-relaxed text-text-muted">
@@ -101,7 +101,7 @@ export default function ServicesPage() {
       <section className="bg-hero-bg text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-14 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
-            <h2 className="text-2xl font-light text-white sm:text-3xl">
+            <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
               Not sure what you need?
             </h2>
             <p className="mt-2 text-white/70">

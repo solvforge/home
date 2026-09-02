@@ -229,7 +229,7 @@ export default async function ServicePage({
     ) : (
       <>
         {service.secondaryHeading && (
-          <h2 className="max-w-3xl text-3xl sm:text-4xl">{service.secondaryHeading}</h2>
+          <h2 className="mx-auto max-w-3xl text-3xl sm:text-4xl">{service.secondaryHeading}</h2>
         )}
         {service.secondaryIntro && (
           <p className="mt-4 max-w-3xl leading-relaxed text-text-muted">

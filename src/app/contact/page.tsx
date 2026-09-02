@@ -39,7 +39,7 @@ export default function ContactPage() {
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-text">
+            <h2 className="text-2xl font-extrabold text-heading">
               I&apos;m Ready to Help You Send Me Message
             </h2>
             <p className="mt-3 text-text-muted">
@@ -84,7 +84,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-text">Send A Message</h2>
+            <h2 className="text-2xl font-extrabold text-heading">Send A Message</h2>
             <ContactForm />
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
 
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <div className="rounded-3xl bg-ink px-8 py-16 text-center text-white">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h2 className="text-2xl font-extrabold sm:text-3xl">
             Looking for Digital Solutions?
           </h2>
           <p className="mt-3 text-white/70">I&apos;m here to help bring your next project to life.</p>
@@ -108,7 +108,7 @@ export default function ContactPage() {
       <section className="bg-paper-2">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <p className="text-sm font-semibold uppercase tracking-wide text-accent">Testimonial</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text">
+          <h2 className="mt-2 text-2xl font-extrabold text-heading">
             Hear from Happy Clients
           </h2>
           <p className="mt-3 max-w-xl text-text-muted">
