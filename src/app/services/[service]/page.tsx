@@ -2,37 +2,32 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllCategories, getService } from "@/lib/services";
+import { getAllServices, getServiceBySlug } from "@/lib/services";
 import FaqAccordion from "@/components/FaqAccordion";
 import ServiceQuoteForm from "@/components/ServiceQuoteForm";
 
 export function generateStaticParams() {
-  return getAllCategories().flatMap((category) =>
-    category.services.map((service) => ({
-      category: category.slug,
-      service: service.slug,
-    }))
-  );
+  return getAllServices().map(({ service }) => ({ service: service.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ category: string; service: string }>;
+  params: Promise<{ service: string }>;
 }): Promise<Metadata> {
-  const { category: categorySlug, service: serviceSlug } = await params;
-  const result = getService(categorySlug, serviceSlug);
+  const { service: serviceSlug } = await params;
+  const result = getServiceBySlug(serviceSlug);
   if (!result) return {};
-  return { title: `${result.service.name} — solvforge`, description: result.service.summary };
+  return { title: `${result.service.name} — SolvForge`, description: result.service.summary };
 }
 
 export default async function ServicePage({
   params,
 }: {
-  params: Promise<{ category: string; service: string }>;
+  params: Promise<{ service: string }>;
 }) {
-  const { category: categorySlug, service: serviceSlug } = await params;
-  const result = getService(categorySlug, serviceSlug);
+  const { service: serviceSlug } = await params;
+  const result = getServiceBySlug(serviceSlug);
   if (!result) notFound();
   const { category, service } = result;
 
@@ -126,10 +121,7 @@ export default async function ServicePage({
               />
             </div>
             <div>
-              <Link
-                href={`/services/${category.slug}`}
-                className="text-sm font-medium text-accent hover:underline"
-              >
+              <Link href="/services" className="text-sm font-medium text-accent hover:underline">
                 ← {category.name}
               </Link>
               <h1 className="mt-3 text-4xl font-semibold tracking-tight text-text">
@@ -172,7 +164,7 @@ export default async function ServicePage({
                 }
               >
                 <Link
-                  href={`/services/${category.slug}`}
+                  href="/services"
                   className={
                     dark
                       ? "text-sm font-medium text-white/80 hover:underline"
@@ -230,10 +222,7 @@ export default async function ServicePage({
       ) : (
         <section className="bg-ink text-white">
           <div className="mx-auto max-w-3xl px-6 py-20">
-            <Link
-              href={`/services/${category.slug}`}
-              className="text-sm font-medium text-accent hover:underline"
-            >
+            <Link href="/services" className="text-sm font-medium text-accent hover:underline">
               ← {category.name}
             </Link>
             <span className="mt-4 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
@@ -307,7 +296,7 @@ export default async function ServicePage({
 
         {!service.features && service.details.length > 0 && (
           <>
-            <h2 className="mt-10 text-lg font-semibold text-text">What's included</h2>
+            <h2 className="mt-10 text-lg font-semibold text-text">What&apos;s included</h2>
             <ul className="mt-4 space-y-3">
               {service.details.map((detail) => (
                 <li key={detail} className="flex gap-3 text-text-muted">
@@ -413,7 +402,6 @@ export default async function ServicePage({
             <footer className="mt-3 text-sm text-text-muted">— {service.testimonial.author}</footer>
           </blockquote>
         )}
-
       </section>
 
       {service.formPosition !== "early" && featuresAndFormSection}

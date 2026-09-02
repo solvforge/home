@@ -55,25 +55,25 @@ const SECONDARY_SERVICES = [
     title: "Website Maintenance",
     text: "Comprehensive website maintenance included for worry-free management!",
     image: "/media/Website-Management-scaled.png",
-    href: "/services/websites-applications/website-support-maintenance-plan",
+    href: "/services/website-maintenance",
   },
   {
     title: "Local SEO",
     text: "Boost visibility, reach locals! Maximize local SEO",
     image: "/media/Local-SEO-Service-scaled.png",
-    href: "/services/marketing/seo-services/local-seo-service",
+    href: "/services/local-seo",
   },
   {
     title: "WordPress Package",
     text: "Exciting website packages for all needs! Custom, E-commerce, Blog, and more!",
     image: "/media/Web-Development-Services-scaled.png",
-    href: "/services/websites-applications/web-development-services",
+    href: "/services/website-development",
   },
   {
     title: "Server Management Service",
     text: "Efficient server management service for seamless performance.",
     image: "/media/Server-Management-Services-2-scaled.png",
-    href: "/services/websites-applications/server-management-services",
+    href: "/services/server-management",
   },
 ];
 

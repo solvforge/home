@@ -29,12 +29,7 @@ export default function ServicesPage() {
           {categories.map((category) => (
             <div key={category.slug}>
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <Link
-                  href={`/services/${category.slug}`}
-                  className="text-xl font-semibold text-text hover:text-accent"
-                >
-                  {category.name}
-                </Link>
+                <h2 className="text-xl font-semibold text-text">{category.name}</h2>
                 <p className="text-sm text-text-muted">{category.summary}</p>
               </div>
 
@@ -42,7 +37,7 @@ export default function ServicesPage() {
                 {category.services.map((service) => (
                   <Link
                     key={service.slug}
-                    href={`/services/${category.slug}/${service.slug}`}
+                    href={`/services/${service.slug}`}
                     className="rounded-xl border border-border p-4 transition-shadow hover:shadow-md"
                   >
                     <p className="font-medium text-text">{service.name}</p>

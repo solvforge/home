@@ -49,17 +49,12 @@ export default function ServicesNavMenu({
           <div className="grid grid-cols-4 gap-6 rounded-2xl border border-border bg-paper p-6 shadow-xl">
             {categories.map((category) => (
               <div key={category.slug}>
-                <Link
-                  href={`/services/${category.slug}`}
-                  className="text-sm font-extrabold text-text hover:text-teal"
-                >
-                  {category.name}
-                </Link>
+                <p className="text-sm font-extrabold text-text">{category.name}</p>
                 <ul className="mt-2 space-y-1.5">
                   {category.services.map((service) => (
                     <li key={service.slug}>
                       <Link
-                        href={`/services/${category.slug}/${service.slug}`}
+                        href={`/services/${service.slug}`}
                         className="text-sm text-text-muted hover:text-teal"
                       >
                         {service.name}

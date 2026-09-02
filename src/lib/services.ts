@@ -1788,3 +1788,20 @@ export function getService(
   if (!category || !service) return undefined;
   return { category, service };
 }
+
+/** Every service across all categories, flattened. Service slugs are unique,
+ *  so every service is addressable as /services/<slug>. */
+export function getAllServices(): {
+  category: ServiceCategory;
+  service: ServiceItem;
+}[] {
+  return SERVICE_CATEGORIES.flatMap((category) =>
+    category.services.map((service) => ({ category, service }))
+  );
+}
+
+export function getServiceBySlug(
+  serviceSlug: string
+): { category: ServiceCategory; service: ServiceItem } | undefined {
+  return getAllServices().find(({ service }) => service.slug === serviceSlug);
+}
