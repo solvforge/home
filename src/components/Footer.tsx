@@ -11,10 +11,14 @@ const SOCIALS = [
 
 const FOOTER_NAV = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Me" },
-  { href: "/services", label: "Service" },
+  { href: "/about", label: "About Us" },
+  { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
+];
+
+const INDUSTRY_NAV = [
+  { href: "/industries/digital-solutions-for-bakeries", label: "Bakeries" },
 ];
 
 export default function Footer() {
@@ -33,7 +37,7 @@ export default function Footer() {
       </section>
 
       <footer className="bg-hero-bg text-white/70">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.2fr]">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.9fr_0.9fr_1.2fr]">
           <div>
             <Image
               src="/media/solvforge_logo_transparent_308x121.png"
@@ -63,18 +67,21 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-col gap-2 text-sm">
-            <p className="mb-1 font-bold text-white">SolvForge</p>
+            <p className="mb-1 font-bold text-white">Company</p>
             {FOOTER_NAV.map((l) => (
               <Link key={l.href} href={l.href} className="hover:text-lime">
                 {l.label}
               </Link>
             ))}
-            <Link
-              href="/industries/digital-solutions-for-bakeries"
-              className="mt-2 w-fit rounded-full bg-white/10 px-3 py-1 text-xs hover:bg-white/20"
-            >
-              Bakeries
-            </Link>
+          </nav>
+
+          <nav className="flex flex-col gap-2 text-sm">
+            <p className="mb-1 font-bold text-white">Industry Specific</p>
+            {INDUSTRY_NAV.map((l) => (
+              <Link key={l.href} href={l.href} className="hover:text-lime">
+                {l.label}
+              </Link>
+            ))}
           </nav>
 
           <div className="text-sm">
