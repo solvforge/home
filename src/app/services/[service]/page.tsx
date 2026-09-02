@@ -38,6 +38,11 @@ export default async function ServicePage({
   /* ---------- Hero ---------- */
   const hero = service.customHero;
   const heroImage = hero?.image;
+  // Quote / review / consultation CTAs go to the quotation form; everything else to /contact.
+  const heroCtaHref =
+    hero && /quot|free review|consultation/i.test(hero.ctaLabel)
+      ? "/get-free-quotation"
+      : "/contact";
 
   const heroBlock = heroImage ? (
     <section className="bg-hero-bg text-white">
@@ -54,7 +59,7 @@ export default async function ServicePage({
               {para}
             </p>
           ))}
-          <Link href="/contact" className="btn mt-7">
+          <Link href={heroCtaHref} className="btn mt-7">
             {hero!.ctaLabel}
           </Link>
         </div>
@@ -102,7 +107,7 @@ export default async function ServicePage({
         )}
         <div className="mt-7">
           <Link
-            href="/contact"
+            href={heroCtaHref}
             className={hero.ctaStyle === "outline" ? "btn-outline text-white" : "btn"}
           >
             {hero.ctaLabel}
@@ -123,7 +128,7 @@ export default async function ServicePage({
           {service.name}
         </h1>
         <p className="mt-4 max-w-xl text-white/70">{service.summary}</p>
-        <Link href="/contact" className="btn mt-7">
+        <Link href="/get-free-quotation" className="btn mt-7">
           Get a Free Quote
         </Link>
       </div>

@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // ---- /work → /portfolio (route was renamed) ----
+      { source: "/work", destination: "/portfolio", permanent: true },
+      { source: "/work/:slug", destination: "/portfolio/:slug", permanent: true },
+      { source: "/project/:slug*", destination: "/portfolio", permanent: true },
+
       // ---- Old WordPress leaf URLs whose slug was renamed (must precede the
       //      generic nested→flat rules below) ----
       { source: "/services/websites-applications/web-development-services", destination: "/services/website-development", permanent: true },
