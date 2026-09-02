@@ -136,11 +136,13 @@ export default async function ServicePage({
   const featuresSection = service.features && (
     <section className="bg-paper-2">
       <div className="mx-auto max-w-[1440px] px-6 py-16">
-        <h2 className="max-w-3xl text-3xl sm:text-4xl">
+        <h2 className="mx-auto max-w-3xl text-center text-3xl sm:text-4xl">
           {service.featuresHeading ?? `Why Choose SolvForge for ${service.name}?`}
         </h2>
         {service.featuresIntro && (
-          <p className="mt-2 text-lg font-bold text-teal">{service.featuresIntro}</p>
+          <p className="mt-2 text-center text-lg font-bold text-teal">
+            {service.featuresIntro}
+          </p>
         )}
         <div className={`mt-10 grid gap-6 ${featuresGridCols}`}>
           {service.features.map((feature, i) => (
