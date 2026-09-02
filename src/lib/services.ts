@@ -1009,6 +1009,32 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Automated Attendant — The automated attendant feature in Asterisk development provides callers with a seamless experience by efficiently routing incoming calls to the appropriate destination without manual intervention.",
           "Calling Cards — We optimize Asterisk to handle various calling card functionalities, including balance management, PIN authentication, multi-language prompts, and real-time call monitoring.",
         ],
+        faq: [
+          {
+            question: "Which versions of Asterisk and which distributions do you work with?",
+            answer: "We work with current Asterisk releases (18 LTS and later) as well as older versions still in production. We're comfortable with plain Asterisk, FreePBX, and Issabel, and can advise on the best fit for your use case.",
+          },
+          {
+            question: "Can you work with our existing Asterisk setup, or does it need to be rebuilt?",
+            answer: "In most cases we can work with what you already have. We start with a review of your current dialplan, configuration, and integrations, then extend or refactor it. A full rebuild is only recommended when the existing setup can't safely support what you need.",
+          },
+          {
+            question: "How long does a typical Asterisk development project take?",
+            answer: "It depends on scope. A dialplan change or a single integration is usually a few days to two weeks. A full IVR build with CRM integration and reporting typically runs three to six weeks. We give you a timeline with the quote, before any work starts.",
+          },
+          {
+            question: "Can you integrate Asterisk with our CRM or other systems?",
+            answer: "Yes. Using AMI and AGI we can push screen-pops to agents, log calls and dispositions back to your CRM, trigger click-to-call, and sync data both ways with platforms like Salesforce, HubSpot, Zoho, or a custom database.",
+          },
+          {
+            question: "Do you provide the server, or do we?",
+            answer: "Either. You can host it on your own infrastructure, or we can provision and manage a server for you. We'll recommend specs based on your expected call volume and concurrent channels.",
+          },
+          {
+            question: "What support do you offer after the project is finished?",
+            answer: "We offer ongoing support and maintenance plans that cover monitoring, updates, troubleshooting, and small changes. You're not locked in — plans run month to month.",
+          },
+        ],
       },
       {
         slug: "hosted-call-center-solution",
