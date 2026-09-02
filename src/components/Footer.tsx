@@ -21,6 +21,10 @@ const INDUSTRY_NAV = [
   { href: "/industries/digital-solutions-for-bakeries", label: "Bakeries" },
 ];
 
+const HIRE_NAV = [
+  { href: "/hire-unity-developers", label: "Unity Developers" },
+];
+
 export default function Footer() {
   return (
     <>
@@ -37,7 +41,7 @@ export default function Footer() {
       </section>
 
       <footer className="bg-hero-bg text-white/70">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.9fr_0.9fr_1.2fr]">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.9fr_0.9fr_1.1fr]">
           <div>
             <Image
               src="/media/solvforge_logo_transparent_308x121.png"
@@ -78,6 +82,15 @@ export default function Footer() {
           <nav className="flex flex-col gap-2 text-sm">
             <p className="mb-1 font-bold text-white">Industry Specific</p>
             {INDUSTRY_NAV.map((l) => (
+              <Link key={l.href} href={l.href} className="hover:text-lime">
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          <nav className="flex flex-col gap-2 text-sm">
+            <p className="mb-1 font-bold text-white">Hire Developers</p>
+            {HIRE_NAV.map((l) => (
               <Link key={l.href} href={l.href} className="hover:text-lime">
                 {l.label}
               </Link>
