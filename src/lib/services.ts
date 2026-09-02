@@ -64,9 +64,13 @@ export type ServiceItem = {
   details: string[];
   features?: Feature[];
   featuresHeading?: string;
+  featuresIntro?: string;
+  featuresColumns?: 2 | 3;
   featuresAsList?: boolean;
+  explainer?: { heading: string; body: string; image: { src: string; alt: string } };
   secondaryHeading?: string;
   secondaryIntro?: string;
+  secondaryImage?: { src: string; alt: string };
   secondaryDetails?: string[];
   secondaryAsCards?: boolean;
   secondaryPosition?: "early" | "late";
@@ -970,12 +974,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           ctaStyle: "outline",
           image: { src: "/asterisk-logo.png", alt: "Asterisk logo" },
         },
-        supplementaryImage: { src: "/asterisk-features.webp", alt: "Asterisk Development Features diagram" },
-        bodyParagraphs: [
-          "What is Asterisk Development? Asterisk development involves using the power of the Asterisk open-source system to create customized telephony solutions for businesses, particularly call centers. Asterisk, known for its flexibility and scalability, allows developers to build feature-rich systems such as IVR (Interactive Voice Response), PBX (Private Branch Exchange), and call routing applications tailored to specific operational needs. This development process typically involves designing, programming, and configuring Asterisk-based systems.",
-        ],
+        explainer: {
+          heading: "What is Asterisk Development?",
+          body: "Asterisk development involves using the power of the Asterisk open-source system to create customized telephony solutions for businesses, particularly call centers. Asterisk, known for its flexibility and scalability, lets developers build feature-rich systems such as IVR (Interactive Voice Response), PBX (Private Branch Exchange), and call routing applications tailored to specific operational needs. The process typically involves designing, programming, and configuring Asterisk-based systems.",
+          image: { src: "/media/asterisk-whatis.webp", alt: "Illustration of an Asterisk development workflow" },
+        },
         details: [],
-        featuresHeading: "Different Asterisk Development Services — Experience the Next Level in Call Center Technology",
+        featuresHeading: "Different Asterisk Development Services",
+        featuresIntro: "Experience the Next Level in Call Center Technology",
+        featuresColumns: 2,
         features: [
           { title: "Installation & Configuration", description: "Our team will set up your Asterisk system efficiently, tailored to your specific requirements. From initial installation to fine-tuning configurations, trust us for optimal performance and reliability." },
           { title: "Custom Development", description: "Our expert team tailors Asterisk-based solutions to your specific needs, delivering customized IVR systems, call routing solutions, and telephony applications that optimize your operations and elevate customer interactions." },
@@ -988,6 +995,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         ],
         secondaryHeading: "Custom Asterisk Development For Modern Call Centers",
         secondaryAsCards: true,
+        secondaryImage: { src: "/asterisk-features.webp", alt: "Asterisk Development Features diagram" },
         secondaryIntro:
           "Equip your modern call center operations with our custom Asterisk development solutions. Our team specializes in creating telephony systems on Asterisk's open-source framework. Whether you need custom IVR solutions, advanced call routing, or seamless CRM integrations, we've got you covered. We prioritize scalability, flexibility, and reliability in every Asterisk development project.",
         secondaryDetails: [

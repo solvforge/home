@@ -130,14 +130,19 @@ export default async function ServicePage({
     </section>
   );
 
-  /* ---------- Features (icon-blurb grid, matches old layout) ---------- */
+  /* ---------- Features (icon-blurb grid) ---------- */
+  const featuresGridCols =
+    service.featuresColumns === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
   const featuresSection = service.features && (
     <section className="bg-paper-2">
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="max-w-2xl text-3xl sm:text-4xl">
+        <h2 className="max-w-3xl text-3xl sm:text-4xl">
           {service.featuresHeading ?? `Why Choose SolvForge for ${service.name}?`}
         </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {service.featuresIntro && (
+          <p className="mt-2 text-lg font-bold text-teal">{service.featuresIntro}</p>
+        )}
+        <div className={`mt-10 grid gap-6 ${featuresGridCols}`}>
           {service.features.map((feature, i) => (
             <div
               key={`${feature.title}-${i}`}
@@ -159,6 +164,29 @@ export default async function ServicePage({
     </section>
   );
 
+  /* ---------- Explainer (image left, text right) ---------- */
+  const explainerSection = service.explainer && (
+    <section className="bg-paper">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[2fr_3fr]">
+        <div className="overflow-hidden rounded-2xl bg-paper-2">
+          <Image
+            src={service.explainer.image.src}
+            alt={service.explainer.image.alt}
+            width={700}
+            height={500}
+            className="h-auto w-full object-contain"
+          />
+        </div>
+        <div>
+          <h2 className="text-3xl sm:text-4xl">{service.explainer.heading}</h2>
+          <p className="mt-4 leading-relaxed text-text-muted">
+            {service.explainer.body}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+
   /* ---------- Quote form (standalone, centered) ---------- */
   const quoteSection = (
     <section className="bg-paper-2">
@@ -169,9 +197,30 @@ export default async function ServicePage({
   );
 
   /* ---------- secondaryDetails — standalone full-width section ---------- */
-  const secondarySection = service.secondaryDetails && (
-    <section className="bg-paper-2">
-      <div className="mx-auto max-w-6xl px-6 py-16">
+  const secondaryHead =
+    (service.secondaryHeading || service.secondaryIntro) &&
+    (service.secondaryImage ? (
+      <div className="grid items-center gap-12 lg:grid-cols-[3fr_2fr]">
+        <div>
+          {service.secondaryHeading && (
+            <h2 className="text-3xl sm:text-4xl">{service.secondaryHeading}</h2>
+          )}
+          {service.secondaryIntro && (
+            <p className="mt-4 leading-relaxed text-text-muted">{service.secondaryIntro}</p>
+          )}
+        </div>
+        <div className="overflow-hidden rounded-2xl">
+          <Image
+            src={service.secondaryImage.src}
+            alt={service.secondaryImage.alt}
+            width={600}
+            height={600}
+            className="mx-auto h-auto w-full max-w-sm object-contain"
+          />
+        </div>
+      </div>
+    ) : (
+      <>
         {service.secondaryHeading && (
           <h2 className="max-w-3xl text-3xl sm:text-4xl">{service.secondaryHeading}</h2>
         )}
@@ -180,6 +229,13 @@ export default async function ServicePage({
             {service.secondaryIntro}
           </p>
         )}
+      </>
+    ));
+
+  const secondarySection = service.secondaryDetails && (
+    <section className="bg-paper-2">
+      <div className="mx-auto max-w-6xl px-6 py-16">
+        {secondaryHead}
         {service.secondaryAsCards ? (
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {service.secondaryDetails.map((detail, i) => {
@@ -416,6 +472,8 @@ export default async function ServicePage({
       )}
 
       {featuresSection}
+
+      {explainerSection}
 
       {hasContent && contentBlock}
 
