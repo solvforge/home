@@ -206,7 +206,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "recurring",
         customHero: {
           headline: "Get Your Brand Seen by the Right People With the Help of On Page SEO Services",
-          body: "Are you Searching for On-Page SEO Services freelancer and SEO consultants that can give a 360 bundle of SEO Services? On-Page SEO Services service is part of the online marketing Omni channel, and improving search engine rankings in digital marketing is vital to fulfilling your marketing strategy can be defined as the on-page and off-page techniques of getting targeted traffic to a website from a search engine's organic rankings - the Google search engine results page is the most popular.\n\nCommon tasks associated with On-Page SEO Services include Technical SEO, indexation management, creating high-quality content, optimizing content, link building and content marketing.\n\nTo be on top of your customers' minds, your business goals are to stay on top of search results and rank higher - at all times. This will help you to achieve your business goals.\n\nAs a leading On-Page SEO Services freelancer, I have served clients and successfully conducted all On-Page SEO Services campaigns for an e-commerce, Travel, retail, B2C / B2B, health, News and real-estate websites. Furthermore, we have built Local SEO strategies and worked closely with pay-per-click, UX, CRO, PR, social, and data analyst teams in different niches, resulting in results-driven campaigns that have impacted business ROI, brand positioning, and store footfall. - Check our Case studies for more.\n\nOur organic search team crafts bespoke On-Page SEO Services marketing campaigns that will build and nurture your online presence, drive organic traffic to your website, and skyrocket sales by improving your website visibility and increasing its traffic organically.\n\nOur philosophy of On-Page SEO Services is built around this deep understanding of search engines and user intent. We build strategies that put your business objectives in the centre and turn your website into the most relevant answers to searches your target audiences are making, enabling you to take the lead over your competitors and stay there.\n\nThe end result of our work is a custom-made, real-world, results-oriented performance architecture that is robust, self-maintaining, self-evolving and as automatic as possible so you can move on with the business of publishing content.",
+          body: "Are you Searching for On-Page SEO Services freelancer and SEO consultants that can give a 360 bundle of SEO Services? On-Page SEO Services service is part of the online marketing Omni channel, and improving search engine rankings in digital marketing is vital to fulfilling your marketing strategy can be defined as the on-page and off-page techniques of getting targeted traffic to a website from a search engine's organic rankings - the Google search engine results page is the most popular.\n\nCommon tasks associated with On-Page SEO Services include Technical SEO, indexation management, creating high-quality content, optimizing content, link building and content marketing.\n\nTo be on top of your customers' minds, your business goals are to stay on top of search results and rank higher - at all times. This will help you to achieve your business goals.\n\nAs a leading On-Page SEO Services provider, we have served clients and successfully run On-Page SEO Services campaigns for e-commerce, travel, retail, B2C / B2B, health, news and real-estate websites. Furthermore, we have built Local SEO strategies and worked closely with pay-per-click, UX, CRO, PR, social, and data analyst teams in different niches, resulting in results-driven campaigns that have impacted business ROI, brand positioning, and store footfall. - Check our Case studies for more.\n\nOur organic search team crafts bespoke On-Page SEO Services marketing campaigns that will build and nurture your online presence, drive organic traffic to your website, and skyrocket sales by improving your website visibility and increasing its traffic organically.\n\nOur philosophy of On-Page SEO Services is built around this deep understanding of search engines and user intent. We build strategies that put your business objectives in the centre and turn your website into the most relevant answers to searches your target audiences are making, enabling you to take the lead over your competitors and stay there.\n\nThe end result of our work is a custom-made, real-world, results-oriented performance architecture that is robust, self-maintaining, self-evolving and as automatic as possible so you can move on with the business of publishing content.",
           ctaLabel: "Get a Free Quotation",
           ctaStyle: "outline",
         },
@@ -278,7 +278,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "recurring",
         customHero: {
           headline: "Social Media Management",
-          body: "Did you know that the best way for businesses to stay on top of their game is through the assistance of a social media manager? We know promoting and managing a social media is really difficult and time consuming, there are many business owners who do not have time to manage their media. I will fully manage your media and engage with your audience for 30 days. Increase your ranking in social media search result. (Facebook, Twitter, Pinterest, Instagram, Linkedin. Likes will be genuine and relevant to your business.",
+          body: "Did you know that the best way for businesses to stay on top of their game is through the assistance of a social media manager? We know promoting and managing a social media is really difficult and time consuming, there are many business owners who do not have time to manage their media. We will fully manage your media and engage with your audience for 30 days, and work to increase your ranking in social media search results. (Facebook, Twitter, Pinterest, Instagram, Linkedin. Likes will be genuine and relevant to your business.",
           ctaLabel: "Get A Free Review of Your Social Media Accounts",
         },
         details: [],
@@ -358,8 +358,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         ],
         faq: [
           {
-            question: "What is included in Me's Social Media Management service?",
-            answer: "Me offers full-service social media support, including content creation (static posts and stories), hashtag and trend research, professional design of branded graphics, platform-specific posting schedules using a social dashboard, and real engagement through responses and audience interaction.",
+            question: "What is included in SolvForge's Social Media Management service?",
+            answer: "We offer full-service social media support, including content creation (static posts and stories), hashtag and trend research, professional design of branded graphics, platform-specific posting schedules using a social dashboard, and real engagement through responses and audience interaction.",
           },
           {
             question: "Which platforms do you support?",
@@ -387,14 +387,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           },
           {
             question: "Is the service available worldwide?",
-            answer: "Me is a remote-first company serving global clients across industries. Our offerings — from server management to social media — are tailored for businesses of any size or location.",
+            answer: "SolvForge is a remote-first company serving global clients across industries. Our offerings — from server management to social media — are tailored for businesses of any size or location.",
           },
           {
             question: "Can I customize a plan or start with a quote?",
             answer: "Yes! We provide free quotes, and custom plans are available to meet different budgets or specific goals. No upfront payment is required to receive your breakdown.",
           },
           {
-            question: "What makes Me stand out?",
+            question: "What makes SolvForge stand out?",
             answer: "Our strength lies in platform-specific strategies, cohesive visual branding, performance-driven methodology, and genuine community interaction. Plus, we include analytics, hashtag research, content calendars, and solid client support within each package.",
           },
         ],
@@ -425,7 +425,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           "Keyword research, ad copy, and conversion tracking included",
         ],
         formPosition: "early",
-        featuresHeading: "Why Choose Me for Google Ads Campaign Setup?",
+        featuresHeading: "Why Choose SolvForge for Google Ads Campaign Setup?",
         featuresAsList: true,
         features: [
           { title: "Certified Google Ads Experts", description: "Our campaigns are built by professionals with deep knowledge of Google's ad ecosystem and policies." },
@@ -556,8 +556,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "project",
         customHero: {
           headline: "Keep your entire infrastructure secure",
-          body: "Webserver is an internet facing device; therefore, it is important to manage its security before it becomes an entry point for attackers if not configured properly. I understand that attack on the Webserver can cause a huge damage to your business by allowing modification of user information available in the host machine of the web server, data theft and loss of other important information's.\n\nWith the help of server hardening, I keep your entire IT infrastructure up-to-date and secure for Linux based servers. You'll save time and reduce complexity by having a single solution for all your security needs.",
-          ctaLabel: "Contact Me",
+          body: "A web server is an internet-facing device, so its security needs to be managed before it becomes an entry point for attackers. An attack on the web server can do serious damage — modification of user information held on the host machine, data theft, and loss of other important information.\n\nWith server hardening, we keep your entire IT infrastructure up to date and secure on Linux-based servers. You save time and reduce complexity by having a single solution for all your security needs.",
+          ctaLabel: "Contact Us",
           image: { src: "/hero-server-hardening.jpg", alt: "A sticker reading 'Your ports were open... so I invited myself in'" },
         },
         platformLogos: "/platform-supported.webp",
@@ -616,7 +616,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         customHero: {
           headline: "WordPress Malware Removal — $149 Flat Rate with One-Year Warranty",
           body: "We will do complete malware removal on your site within 24 hours or less for a flat rate of $149. If your website has been flagged by Google, there will be a $29 extra charge for removing the warning.",
-          ctaLabel: "Contact Me Now",
+          ctaLabel: "Contact Us Now",
           image: { src: "/hero-malware-removal.png", alt: "A word cloud of cybersecurity terms" },
         },
         intro: "$149 flat rate, complete removal within 24 hours, one-year warranty.",
@@ -664,7 +664,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
             "Lightning-quick turnaround time from our 24/7 Technical Support Team",
             "Pay only once you are 100% happy with our service",
           ],
-          ctaLabel: "Contact Me Now",
+          ctaLabel: "Contact Us Now",
           ctaStyle: "outline",
         },
         howItWorksHeading: "How It Works",
@@ -847,7 +847,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "project",
         customHero: {
           headline: "Call Center Setup",
-          body: "If you are looking for a reasonably priced and Stable Call Center Setup and an experienced professionals to work for you, than Me is the right place for you.",
+          body: "If you are looking for a reasonably priced, stable call center setup with experienced professionals to work for you, then SolvForge is the right place for you.",
           secondaryHeadline: "Ultimate Call Center Setup For Your Business",
           ctaLabel: "Get Started Now",
         },
@@ -893,7 +893,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           },
           {
             question: "Can I make New Users, Campaigns, DIDs myself?",
-            answer: "Yes! I usually create templates for everything that you will need on a regular basis, that way you can simply copy it within 10 seconds.",
+            answer: "Yes! We usually create templates for everything you'll need on a regular basis, so you can simply copy one within 10 seconds.",
           },
           {
             question: "Can I Download Call Recordings?",
@@ -909,7 +909,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           },
           {
             question: "Can you provide server also?",
-            answer: "I can recommend some server providers, or you can buy one from your preferred provider, or get one from my partner site, managedservers.us. (Disclaimer: I get a commission from Managed Servers for any sales I refer to them.)",
+            answer: "We can recommend some server providers, or you can buy one from your preferred provider, or get one from our partner site, managedservers.us. (Disclaimer: we earn a commission from Managed Servers for any sales we refer to them.)",
           },
         ],
       },
@@ -950,7 +950,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           },
           {
             question: "Can I make new users, campaigns, DIDs myself?",
-            answer: "Yes! I usually create templates for everything that you will need on a regular basis, that way you can simply copy it within 10 seconds.",
+            answer: "Yes! We usually create templates for everything you'll need on a regular basis, so you can simply copy one within 10 seconds.",
           },
           {
             question: "Can I download call recordings?",
@@ -965,7 +965,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "project",
         customHero: {
           headline: "Asterisk Development for Your Business",
-          body: "I provide tailored Asterisk development services to elevate your business communications. Our skilled team specializes in creating customized Asterisk solutions that optimize call center performance, enhance customer engagement, and streamline telephony systems. With 15 years of expertise in Asterisk development, we deliver scalable, innovative solutions designed to meet your specific needs and help your business unlock the full potential of this robust open-source platform.",
+          body: "We provide tailored Asterisk development services to elevate your business communications. Our skilled team specializes in customized Asterisk solutions that optimize call center performance, improve customer engagement, and streamline telephony systems. With deep expertise in Asterisk development, we deliver scalable solutions designed to meet your specific needs and help your business unlock the full potential of this robust open-source platform.",
           ctaLabel: "Contact Us",
           ctaStyle: "outline",
           image: { src: "/asterisk-logo.png", alt: "Asterisk logo" },
@@ -1108,7 +1108,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           },
           {
             question: "Can I make new users, campaigns, DIDs myself?",
-            answer: "Yes! I usually create templates for everything that you will need on a regular basis, that way you can simply copy it within 10 seconds.",
+            answer: "Yes! We usually create templates for everything you'll need on a regular basis, so you can simply copy one within 10 seconds.",
           },
           {
             question: "Can I download call recordings?",
@@ -1130,7 +1130,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "recurring",
         customHero: {
           headline: "White Label Support for Agencies",
-          body: "I recognize the challenges agencies face when managing multiple client websites. My White Label Website Support for Agencies is designed to seamlessly integrate with your business, allowing you to provide top-tier website support and maintenance under your own brand. This enables you to focus on scaling your agency while we manage the technical intricacies.",
+          body: "We recognize the challenges agencies face when managing multiple client websites. Our White Label Website Support for Agencies is designed to integrate seamlessly with your business, letting you offer top-tier website support and maintenance under your own brand. That means you can focus on scaling your agency while we handle the technical work.",
           ctaLabel: "Contact Us Now",
           ctaStyle: "outline",
         },
@@ -1177,7 +1177,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         billing: "project",
         customHero: {
           headline: "Website Development",
-          body: "I am a Website Development Partner and i offer Magento development services, backed by a team of strong Magento developers.",
+          body: "We're a website development partner offering custom builds and Magento development, backed by a team of strong developers.",
           ctaLabel: "Get a Free Consultation",
           ctaStyle: "outline",
           background: "dark",
@@ -1304,19 +1304,19 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           },
           {
             question: "What do I need to get started?",
-            answer: "I need a requirements document or any design or rough designs of your requirements so I can get an idea of how I can help you.",
+            answer: "We need a requirements document, or any designs or rough sketches, so we can get a clear idea of how we can help.",
           },
           {
             question: "Will you provide suggestions to make this project successful?",
-            answer: "Yes, I will provide you appropriate suggestions for making your project successful with my experience.",
+            answer: "Yes — we'll suggest ways to make your project successful, based on our experience.",
           },
           {
             question: "Will you provide support for uploading apps on play store and App store",
-            answer: "Yes, I will provide you support for uploading apps on respective stores for ios and android both.",
+            answer: "Yes — we provide support for uploading apps to both the iOS and Android stores.",
           },
           {
             question: "Can i get whole technical support which is needed for app development process.",
-            answer: "Yes, Don't worry. I will provide you all the support from beginning to uploading apps on live stores based on my experience.",
+            answer: "Yes — don't worry. We provide support from the start through to uploading apps to the live stores.",
           },
           {
             question: "Can I update the app with new features after it's launched?",
@@ -1374,19 +1374,19 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           },
           {
             question: "What do I need to get started?",
-            answer: "I need a requirements document or any design or rough designs of your requirements so I can get an idea of how I can help you.",
+            answer: "We need a requirements document, or any designs or rough sketches, so we can get a clear idea of how we can help.",
           },
           {
             question: "Will you provide suggestions to make this project successful?",
-            answer: "Yes, I will provide you appropriate suggestions for making your project successful with my experience.",
+            answer: "Yes — we'll suggest ways to make your project successful, based on our experience.",
           },
           {
             question: "Will you provide support for uploading apps on play store and App store",
-            answer: "Yes, I will provide you support for uploading apps on respective stores for ios and android both.",
+            answer: "Yes — we provide support for uploading apps to both the iOS and Android stores.",
           },
           {
             question: "Can i get whole technical support which is needed for app development process.",
-            answer: "Yes, Don't worry. I will provide you all the support from beginning to uploading apps on live stores based on my experience.",
+            answer: "Yes — don't worry. We provide support from the start through to uploading apps to the live stores.",
           },
           {
             question: "Can I update the app with new features after it's launched?",
@@ -1412,9 +1412,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         summary: "A single-purpose page built to convert visitors into leads or customers.",
         billing: "project",
         customHero: {
-          headline: "I Craft Enticing Landing Pages that Captivate The Audience",
-          body: "Looks like someone needs awesome Landing Page? You sell unique product? Run useful service? Teaching people something? Im here to help you!",
-          secondaryHeadline: "Top Rated Landing Pages Designer Freelancer",
+          headline: "We Craft Landing Pages that Captivate the Audience",
+          body: "Need an effective landing page? Whether you sell a product, run a service, or teach people something — we're here to help.",
+          secondaryHeadline: "Top-Rated Landing Page Design",
           ctaLabel: "Get a Free Consultation",
           ctaStyle: "outline",
         },
@@ -1606,7 +1606,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         faq: [
           {
             question: "What do you need to get started?",
-            answer: "I will need admin access to your website, ideally with my own login — though I'm happy to use any admin login you provide. I may also need access to your hosting provider and domain name provider.",
+            answer: "We'll need admin access to your website, ideally with our own login — though we're happy to use any admin login you provide. We may also need access to your hosting provider and domain registrar.",
           },
           {
             question: "What do the edits include?",
