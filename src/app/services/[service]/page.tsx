@@ -41,7 +41,7 @@ export default async function ServicePage({
 
   const heroBlock = heroImage ? (
     <section className="bg-hero-bg text-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-2">
         <div>
           <Link href="/services" className="text-sm font-bold text-lime hover:underline">
             ← {category.name}
@@ -112,7 +112,7 @@ export default async function ServicePage({
     </section>
   ) : (
     <section className="bg-hero-bg text-white">
-      <div className="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+      <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
         <Link href="/services" className="text-sm font-bold text-lime hover:underline">
           ← {category.name}
         </Link>
@@ -135,7 +135,7 @@ export default async function ServicePage({
     service.featuresColumns === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
   const featuresSection = service.features && (
     <section className="bg-paper-2">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-[1440px] px-6 py-16">
         <h2 className="max-w-3xl text-3xl sm:text-4xl">
           {service.featuresHeading ?? `Why Choose SolvForge for ${service.name}?`}
         </h2>
@@ -167,7 +167,7 @@ export default async function ServicePage({
   /* ---------- Explainer (image left, text right) ---------- */
   const explainerSection = service.explainer && (
     <section className="bg-paper">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[2fr_3fr]">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-12 px-6 py-16 lg:grid-cols-[2fr_3fr]">
         <div className="overflow-hidden rounded-2xl bg-paper-2">
           <Image
             src={service.explainer.image.src}
@@ -190,7 +190,7 @@ export default async function ServicePage({
   /* ---------- Quote form (standalone, centered) ---------- */
   const quoteSection = (
     <section className="bg-paper-2">
-      <div className="mx-auto max-w-4xl px-6 py-16">
+      <div className="mx-auto max-w-5xl px-6 py-16">
         <ServiceQuoteForm />
       </div>
     </section>
@@ -234,7 +234,7 @@ export default async function ServicePage({
 
   const secondarySection = service.secondaryDetails && (
     <section className="bg-paper-2">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-[1440px] px-6 py-16">
         {secondaryHead}
         {service.secondaryAsCards ? (
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -269,7 +269,7 @@ export default async function ServicePage({
 
   /* ---------- Main content block ---------- */
   const contentBlock = (
-    <section className="mx-auto max-w-4xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-16">
       {service.bodyParagraphs && (
         <div>
           {service.bodyParagraphs.map((para) => (
@@ -382,7 +382,7 @@ export default async function ServicePage({
 
   /* ---------- Pricing ---------- */
   const pricingSection = service.pricing && (
-    <section className="mx-auto max-w-7xl px-6 py-16">
+    <section className="mx-auto max-w-[1440px] px-6 py-16">
       <h2 className="text-center text-3xl sm:text-4xl">Plans</h2>
       <div className="mt-10 grid gap-6 sm:grid-cols-3">
         {service.pricing.map((tier) => (
@@ -486,8 +486,8 @@ export default async function ServicePage({
       {quoteSection}
 
       {service.faq && (
-        <section className="mx-auto max-w-4xl px-6 py-16">
-          <h2 className="text-3xl sm:text-4xl">Frequently Asked Questions</h2>
+        <section className="mx-auto max-w-5xl px-6 py-16">
+          <h2 className="text-center text-3xl font-extrabold text-heading sm:text-4xl">Frequently Asked Questions</h2>
           <div className="mt-8">
             <FaqAccordion items={service.faq} />
           </div>
