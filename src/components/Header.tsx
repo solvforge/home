@@ -9,7 +9,7 @@ import ServicesNavMenu from "@/components/ServicesNavMenu";
 
 const NAV_AFTER_SERVICES = [
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact Me" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 const itemBase =
