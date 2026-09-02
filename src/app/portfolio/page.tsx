@@ -27,6 +27,14 @@ export default function PortfolioPage() {
             A selection of the work we&apos;ve designed, built, and shipped —
             websites, apps, e-commerce, and the infrastructure behind them.
           </p>
+          <a
+            href="https://www.behance.net/solvforge"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-lime mt-7 inline-block"
+          >
+            View the full portfolio on Behance ↗
+          </a>
         </div>
       </section>
 
@@ -64,10 +72,30 @@ export default function PortfolioPage() {
           </div>
         ) : (
           <p className="rounded-xl border border-border bg-paper-2 p-8 text-center text-text-muted">
-            Case studies are being written up. In the meantime, tell us what
-            you&apos;re working on and we&apos;ll share relevant examples directly.
+            Written case studies are on the way. For now, the full body of work
+            lives on Behance.
           </p>
         )}
+
+        {/* Behance callout */}
+        <div className="mt-10 flex flex-col items-center gap-4 rounded-2xl bg-hero-bg px-6 py-10 text-center text-white sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
+              See more of our work
+            </h2>
+            <p className="mt-2 text-white/70">
+              Full project write-ups, mockups, and shipped builds on Behance.
+            </p>
+          </div>
+          <a
+            href="https://www.behance.net/solvforge"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-lime shrink-0"
+          >
+            Open Behance ↗
+          </a>
+        </div>
       </section>
 
       {/* Contact */}
