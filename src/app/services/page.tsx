@@ -1,36 +1,79 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllCategories } from "@/lib/services";
+import Icon from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Services — solvforge",
-  description: "Everything solvforge offers: marketing, security, performance, call center, white label support, and website/application development & management.",
+  title: "Services — SolvForge",
+  description:
+    "Website and app development, managed hosting and server management, SEO and marketing, call center infrastructure, security, and ongoing website care.",
 };
+
+const CATEGORY_ICON: Record<string, string> = {
+  marketing: "chart",
+  security: "lifebuoy",
+  "performance-optimization": "gauge",
+  "call-center": "phone",
+  "white-label-support": "tag",
+  "website-app-development": "code",
+  "website-app-management": "wrench",
+};
+
+const INTRO_POINTS = ["Build", "Host & manage", "Market & maintain"];
 
 export default function ServicesPage() {
   const categories = getAllCategories();
 
   return (
     <>
-      <section className="bg-ink text-white">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h1 className="text-4xl font-semibold tracking-tight">Services</h1>
-          <p className="mt-4 max-w-xl text-white/70">
-            Every engagement starts with the same question: what does this
-            business actually need? Below is everything we offer — pick a
-            category to see it broken down, or a specific service if you
-            already know what you need.
+      {/* Hero */}
+      <section className="bg-hero-bg text-white">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+          <h1 className="text-4xl text-white sm:text-5xl">Services</h1>
+          <p className="mt-4 max-w-2xl text-lg text-white/70">
+            From website and app development to hosting, SEO, and ongoing support
+            — everything your business needs online, handled in one place.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="space-y-14">
+      {/* Intro strip */}
+      <section className="mx-auto max-w-6xl px-6 py-14">
+        <h2 className="max-w-2xl text-3xl sm:text-4xl">
+          Digital services built around what the business actually needs
+        </h2>
+        <p className="mt-4 max-w-2xl leading-relaxed text-text-muted">
+          Every engagement starts with the same question: what does this business
+          actually need? Scope is agreed up front, work is done in the open, and
+          the relationship carries on after launch.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {INTRO_POINTS.map((p) => (
+            <span
+              key={p}
+              className="rounded-full bg-paper-3 px-4 py-1.5 text-sm font-semibold text-accent-deep"
+            >
+              {p}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Category listing */}
+      <section className="bg-paper-2">
+        <div className="mx-auto max-w-6xl space-y-14 px-6 py-16">
           {categories.map((category) => (
             <div key={category.slug}>
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h2 className="text-xl font-semibold text-text">{category.name}</h2>
-                <p className="text-sm text-text-muted">{category.summary}</p>
+              <div className="flex items-start gap-4">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-white text-teal ring-1 ring-border">
+                  <Icon name={CATEGORY_ICON[category.slug] ?? "check"} className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="text-xl font-extrabold text-heading">
+                    {category.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-text-muted">{category.summary}</p>
+                </div>
               </div>
 
               <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -38,28 +81,36 @@ export default function ServicesPage() {
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}`}
-                    className="rounded-xl border border-border p-4 transition-shadow hover:shadow-md"
+                    className="group rounded-xl border border-border bg-paper p-4 transition-colors hover:border-teal"
                   >
-                    <p className="font-medium text-text">{service.name}</p>
-                    <p className="mt-1 text-sm text-text-muted">{service.summary}</p>
+                    <p className="font-bold text-heading group-hover:text-teal">
+                      {service.name}
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-text-muted">
+                      {service.summary}
+                    </p>
                   </Link>
                 ))}
               </div>
             </div>
           ))}
         </div>
+      </section>
 
-        <div className="mt-16 rounded-2xl bg-paper-2 p-10 text-center">
-          <h2 className="text-xl font-semibold text-text">Not sure what you need?</h2>
-          <p className="mx-auto mt-2 max-w-md text-text-muted">
-            Tell us about the problem, not the solution — we&apos;ll help you
-            figure out the right scope.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-6 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
-          >
-            Get in touch
+      {/* CTA */}
+      <section className="bg-hero-bg text-white">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-14 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <h2 className="text-2xl font-light text-white sm:text-3xl">
+              Not sure what you need?
+            </h2>
+            <p className="mt-2 text-white/70">
+              Tell us about the problem, not the solution — we&apos;ll help you
+              scope it.
+            </p>
+          </div>
+          <Link href="/contact" className="btn shrink-0">
+            Let&apos;s Talk
           </Link>
         </div>
       </section>
