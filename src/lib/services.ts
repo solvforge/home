@@ -1102,10 +1102,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
           ctaLabel: "Order Now",
           ctaStyle: "outline",
         },
-        details: [
-          "No Account Activation Charges",
-          "Cheap Call Rates to Any Country",
-          "Works on Recharge Basis",
+        details: [],
+        featuresHeading: "Advanced Inbound & Outbound Contact Center features that make every communication better",
+        featuresColumns: 3,
+        features: [
+          { title: "No Account Activation Charges", description: "Get started with SIP trunking without any upfront activation or setup fees." },
+          { title: "Cheap Call Rates to Any Country", description: "Competitive per-minute rates for international and domestic calling, with transparent billing." },
+          { title: "Works on Recharge Basis", description: "Top up as you go — no fixed monthly commitment, and you only pay for what you use." },
         ],
         secondaryHeading: "What's NEW in Cloud Contact Center Solution",
         secondaryIntro:
