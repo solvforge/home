@@ -23,6 +23,19 @@ export async function generateMetadata({
   };
 }
 
+// Rotate icon-tile colors so card grids don't read as flat grayscale.
+const TILE_STYLES = [
+  "bg-teal/10 text-teal",
+  "bg-lime/25 text-teal-dark",
+  "bg-teal-band/10 text-teal-band",
+  "bg-hero-bg text-lime",
+];
+
+const PILL_STYLES = [
+  "border-teal/25 bg-teal/8 text-teal",
+  "border-teal-band/25 bg-teal-band/8 text-teal-band",
+];
+
 const MODELS = [
   { icon: "search", title: "Dedicated Developer", body: "A developer working full-time on your project, reporting to you directly. Best for ongoing product work." },
   { icon: "tag", title: "Project-Based", body: "A fixed scope, timeline, and quote agreed up front. Best when the deliverable is well defined." },
@@ -67,8 +80,16 @@ export default async function HireRolePage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-hero-bg text-white">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
+      <section className="relative overflow-hidden bg-hero-bg text-white">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(560px circle at 15% 20%, rgba(186,252,80,0.16), transparent 60%), radial-gradient(560px circle at 85% 80%, rgba(0,154,154,0.22), transparent 60%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
           <p className="text-sm font-bold uppercase tracking-widest text-lime">
             Hire Developers
           </p>
@@ -89,12 +110,14 @@ export default async function HireRolePage({
         <div className="mx-auto max-w-[1440px] px-6 py-16">
           <h2 className="text-3xl sm:text-4xl">{r.buildHeading}</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {r.build.map((b) => (
+            {r.build.map((b, i) => (
               <div
                 key={b.title}
-                className="rounded-xl border border-border bg-paper p-6 shadow-sm transition-shadow hover:shadow-md"
+                className="rounded-xl border border-border bg-paper p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
               >
-                <span className="grid h-11 w-11 place-items-center rounded-lg bg-paper-3 text-teal">
+                <span
+                  className={`grid h-12 w-12 place-items-center rounded-lg ${TILE_STYLES[i % TILE_STYLES.length]}`}
+                >
                   <Icon name={b.icon} className="h-5 w-5" />
                 </span>
                 <p className="mt-4 font-extrabold text-heading">{b.title}</p>
@@ -109,12 +132,14 @@ export default async function HireRolePage({
       <section className="mx-auto max-w-[1440px] px-6 py-16">
         <h2 className="text-3xl sm:text-4xl">Ways to Engage</h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {MODELS.map((m) => (
+          {MODELS.map((m, i) => (
             <div
               key={m.title}
-              className="rounded-xl border border-border bg-paper p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="rounded-xl border border-border bg-paper p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
             >
-              <span className="grid h-11 w-11 place-items-center rounded-lg bg-paper-3 text-teal">
+              <span
+                className={`grid h-12 w-12 place-items-center rounded-lg ${TILE_STYLES[i % TILE_STYLES.length]}`}
+              >
                 <Icon name={m.icon} className="h-5 w-5" />
               </span>
               <p className="mt-4 font-extrabold text-heading">{m.title}</p>
@@ -129,10 +154,10 @@ export default async function HireRolePage({
         <div className="mx-auto max-w-4xl px-6 py-16">
           <h2 className="text-3xl sm:text-4xl">Skills &amp; Tooling</h2>
           <ul className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
-            {r.stack.map((s) => (
+            {r.stack.map((s, i) => (
               <li
                 key={s}
-                className="rounded-full border border-border bg-paper px-4 py-1.5 text-sm font-semibold text-accent-deep"
+                className={`rounded-full border px-4 py-1.5 text-sm font-semibold shadow-sm ${PILL_STYLES[i % PILL_STYLES.length]}`}
               >
                 {s}
               </li>
@@ -147,8 +172,14 @@ export default async function HireRolePage({
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((step, i) => (
             <div key={step.title}>
-              <p className="text-sm font-bold text-teal">Step {i + 1}</p>
-              <p className="mt-1 font-extrabold text-heading">{step.title}</p>
+              <span
+                className={`grid h-9 w-9 place-items-center rounded-full text-sm font-extrabold shadow-sm ${
+                  i % 2 === 0 ? "bg-teal text-white" : "bg-lime text-lime-ink"
+                }`}
+              >
+                {i + 1}
+              </span>
+              <p className="mt-3 font-extrabold text-heading">{step.title}</p>
               <p className="mt-2 text-sm leading-relaxed text-text-muted">{step.body}</p>
             </div>
           ))}
@@ -160,9 +191,18 @@ export default async function HireRolePage({
         <div className="mx-auto max-w-3xl px-6 py-16">
           <h2 className="text-3xl sm:text-4xl">Why Hire Through SolvForge</h2>
           <ul className="mx-auto mt-10 max-w-2xl space-y-3">
-            {WHY.map((w) => (
-              <li key={w} className="flex items-start gap-3 text-text-muted">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
+            {WHY.map((w, i) => (
+              <li
+                key={w}
+                className="flex items-start gap-4 rounded-xl border border-border bg-paper p-4 text-text-muted shadow-sm"
+              >
+                <span
+                  className={`mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full text-xs ${
+                    i % 2 === 0 ? "bg-teal text-white" : "bg-lime text-lime-ink"
+                  }`}
+                >
+                  <Icon name="check" className="h-3.5 w-3.5" />
+                </span>
                 <span>{w}</span>
               </li>
             ))}
