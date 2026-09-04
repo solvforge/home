@@ -20,6 +20,14 @@ export async function generateMetadata({
   return { title: `${ind.title} — SolvForge`, description: ind.heroBlurb };
 }
 
+// Rotate icon-tile colors so card grids don't read as flat grayscale.
+const TILE_STYLES = [
+  "bg-teal/10 text-teal",
+  "bg-lime/25 text-teal-dark",
+  "bg-teal-band/10 text-teal-band",
+  "bg-hero-bg text-lime",
+];
+
 function CardGrid({
   heading,
   intro,
@@ -38,12 +46,14 @@ function CardGrid({
         </p>
       )}
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {cards.map((c) => (
+        {cards.map((c, i) => (
           <div
             key={c.title}
-            className="rounded-xl border border-border bg-paper p-6 shadow-sm transition-shadow hover:shadow-md"
+            className="rounded-xl border border-border bg-paper p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
           >
-            <span className="grid h-11 w-11 place-items-center rounded-lg bg-paper-3 text-teal">
+            <span
+              className={`grid h-12 w-12 place-items-center rounded-lg ${TILE_STYLES[i % TILE_STYLES.length]}`}
+            >
               <Icon name={c.icon} className="h-5 w-5" />
             </span>
             <p className="mt-4 font-extrabold text-heading">{c.title}</p>
@@ -67,8 +77,16 @@ export default async function IndustryPage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-hero-bg text-white">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
+      <section className="relative overflow-hidden bg-hero-bg text-white">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(560px circle at 15% 20%, rgba(186,252,80,0.16), transparent 60%), radial-gradient(560px circle at 85% 80%, rgba(0,154,154,0.22), transparent 60%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
           <p className="text-sm font-bold uppercase tracking-widest text-lime">
             Industries
           </p>
@@ -96,7 +114,7 @@ export default async function IndustryPage({
             {ind.photos.map((src) => (
               <div
                 key={src}
-                className="aspect-square overflow-hidden rounded-xl bg-paper-2"
+                className="aspect-square overflow-hidden rounded-xl bg-paper-2 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
               >
                 <Image
                   src={src}
