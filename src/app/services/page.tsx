@@ -48,10 +48,14 @@ export default function ServicesPage() {
           the relationship carries on after launch.
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
-          {INTRO_POINTS.map((p) => (
+          {INTRO_POINTS.map((p, i) => (
             <span
               key={p}
-              className="rounded-full bg-paper-3 px-4 py-1.5 text-sm font-semibold text-accent-deep"
+              className={`rounded-full border px-4 py-1.5 text-sm font-semibold shadow-sm ${
+                i % 2 === 0
+                  ? "border-teal/25 bg-teal/8 text-teal"
+                  : "border-teal-band/25 bg-teal-band/8 text-teal-band"
+              }`}
             >
               {p}
             </span>
