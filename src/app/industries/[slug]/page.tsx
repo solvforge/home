@@ -35,7 +35,7 @@ function CardGrid({
 }: {
   heading: string;
   intro?: string;
-  cards: { icon: string; title: string; body: string }[];
+  cards: { icon: string; image?: string; title: string; body: string }[];
 }) {
   return (
     <div className="mx-auto max-w-[1440px] px-6 py-16">
@@ -51,11 +51,17 @@ function CardGrid({
             key={c.title}
             className="rounded-xl border border-border bg-paper p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
           >
-            <span
-              className={`grid h-12 w-12 place-items-center rounded-lg ${TILE_STYLES[i % TILE_STYLES.length]}`}
-            >
-              <Icon name={c.icon} className="h-5 w-5" />
-            </span>
+            {c.image ? (
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-paper-3">
+                <Image src={c.image} alt="" width={40} height={40} className="h-9 w-9 object-contain" />
+              </span>
+            ) : (
+              <span
+                className={`grid h-12 w-12 place-items-center rounded-lg ${TILE_STYLES[i % TILE_STYLES.length]}`}
+              >
+                <Icon name={c.icon} className="h-5 w-5" />
+              </span>
+            )}
             <p className="mt-4 font-extrabold text-heading">{c.title}</p>
             <p className="mt-2 text-sm leading-relaxed text-text-muted">{c.body}</p>
           </div>

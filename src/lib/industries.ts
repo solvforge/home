@@ -1,4 +1,6 @@
-export type IndustryCard = { icon: string; title: string; body: string };
+// `image` (a custom illustration in public/media) takes priority over `icon`
+// (the shared stroke-icon set) when both are present.
+export type IndustryCard = { icon: string; image?: string; title: string; body: string };
 
 export type Industry = {
   slug: string;
@@ -47,12 +49,12 @@ export const INDUSTRIES: Industry[] = [
       "Websites, local SEO, online ordering, social media, and workflow automation built specifically for bakeries — attract more customers, increase sales, and run the shop more efficiently.",
     helpHeading: "From Oven to Online",
     help: [
-      { icon: "chart", title: "From Oven to Online", body: "Move beyond the counter with digital channels that bring in more customers and smooth out daily operations." },
-      { icon: "tag", title: "Orders Without the Chaos", body: "Online ordering and WhatsApp integration so customers browse, order, and pay effortlessly while your team stays organised." },
-      { icon: "wrench", title: "Smart Bakery Operations", body: "Automate inventory, order processing, staff scheduling, and customer messaging to cut waste and save time." },
-      { icon: "search", title: "Fresh Online Presence", body: "A fast, mobile-friendly website and optimised Google Business Profile that make the bakery easy to find." },
-      { icon: "phone", title: "Local Customers, Bigger Reach", body: "Local SEO and Google Maps optimisation so hungry customers nearby discover and choose you first." },
-      { icon: "refresh", title: "Customers Who Keep Coming Back", body: "Loyalty programs, review management, and social campaigns that turn first-timers into regulars." },
+      { icon: "chart", image: "/media/bakery/oven-to-online.png", title: "From Oven to Online", body: "Move beyond the counter with digital channels that bring in more customers and smooth out daily operations." },
+      { icon: "tag", image: "/media/bakery/orders.png", title: "Orders Without the Chaos", body: "Online ordering and WhatsApp integration so customers browse, order, and pay effortlessly while your team stays organised." },
+      { icon: "wrench", image: "/media/bakery/operations.png", title: "Smart Bakery Operations", body: "Automate inventory, order processing, staff scheduling, and customer messaging to cut waste and save time." },
+      { icon: "search", image: "/media/bakery/presence.png", title: "Fresh Online Presence", body: "A fast, mobile-friendly website and optimised Google Business Profile that make the bakery easy to find." },
+      { icon: "phone", image: "/media/bakery/reach.png", title: "Local Customers, Bigger Reach", body: "Local SEO and Google Maps optimisation so hungry customers nearby discover and choose you first." },
+      { icon: "refresh", image: "/media/bakery/loyalty.png", title: "Customers Who Keep Coming Back", body: "Loyalty programs, review management, and social campaigns that turn first-timers into regulars." },
     ],
     serveHeading: "What We Serve",
     serve: [
